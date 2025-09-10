@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ImageWithFallback } from '../src/components/figma/ImageWithFallback';
-import { Badge } from '../src/components/ui/badge';
 import { Button } from '../src/components/ui/button';
 import { Card } from '../src/components/ui/card';
 import { Progress } from '../src/components/ui/progress';
@@ -14,101 +13,28 @@ import {
   Award, 
   Calendar,
   MapPin,
-  Zap,
   ArrowRight,
-  Star,
-  Trophy,
-  Target,
   Code
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [unlockedBadges, setUnlockedBadges] = useState<string[]>([]);
-  const [showBadgePopup, setShowBadgePopup] = useState<{show: boolean, badge: any}>({show: false, badge: null});
 
-  // Badge definitions
-  const badges = {
-    'student-explorer': { 
-      id: 'student-explorer', 
-      title: 'Student Explorer', 
-      description: 'Discovered student projects', 
-      icon: Star, 
-      color: 'from-red-500 to-purple-500',
-      xp: 100
-    },
-    'startup-pioneer': { 
-      id: 'startup-pioneer', 
-      title: 'Startup Pioneer', 
-      description: 'Explored startup universe', 
-      icon: Zap, 
-      color: 'from-purple-500 to-blue-500',
-      xp: 200
-    },
-    'timeline-traveler': { 
-      id: 'timeline-traveler', 
-      title: 'Timeline Traveler', 
-      description: 'Journeyed through origin story', 
-      icon: Calendar, 
-      color: 'from-blue-500 to-red-500',
-      xp: 150
-    },
-    'achievement-hunter': { 
-      id: 'achievement-hunter', 
-      title: 'Achievement Hunter', 
-      description: 'Unlocked trophy room', 
-      icon: Trophy, 
-      color: 'from-red-500 to-blue-500',
-      xp: 250
-    },
-    'web-master': { 
-      id: 'web-master', 
-      title: 'Web Master', 
-      description: 'Completed full journey', 
-      icon: Target, 
-      color: 'from-purple-500 to-red-500',
-      xp: 500
-    }
-  };
 
-  // Track scroll progress and unlock badges
+  // Track scroll progress
   useEffect(() => {
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (window.scrollY / totalHeight) * 100;
       setScrollProgress(Math.min(progress, 100));
-
-      // Unlock badges based on scroll position
-      const sections = document.querySelectorAll('section');
-      sections.forEach((section, index) => {
-        const rect = section.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        
-        if (isVisible) {
-          let badgeId = '';
-          switch(index) {
-            case 1: badgeId = 'student-explorer'; break;
-            case 2: badgeId = 'startup-pioneer'; break;
-            case 3: badgeId = 'timeline-traveler'; break;
-            case 4: badgeId = 'achievement-hunter'; break;
-            case 5: badgeId = 'web-master'; break;
-          }
-          
-          if (badgeId && !unlockedBadges.includes(badgeId)) {
-            setUnlockedBadges(prev => [...prev, badgeId]);
-            setShowBadgePopup({show: true, badge: badges[badgeId as keyof typeof badges]});
-            setTimeout(() => setShowBadgePopup({show: false, badge: null}), 3000);
-          }
-        }
-      });
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [unlockedBadges]);
+  }, []);
 
-  const totalXP = unlockedBadges.reduce((total, badgeId) => total + (badges[badgeId as keyof typeof badges]?.xp || 0), 0);
+  const totalXP = Math.floor(scrollProgress * 5); // Simple XP based on scroll progress
 
   const projectImages = [
     "https://images.unsplash.com/photo-1642132652803-01f9738d0446?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBhcHBsaWNhdGlvbnxlbnwxfHx8fDE3NTc0NzExNTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
@@ -157,6 +83,14 @@ export default function Home() {
       tech: ["React", "Node.js", "MongoDB"],
       image: projectImages[0],
       link: "#"
+    },
+    {
+      title: "HackHire",
+      description: "Hiring platform for startups through hackathons, challenges",
+      impact: "Connecting talent with opportunities",
+      tech: ["Next.js", "Node.js", "PostgreSQL"],
+      image: projectImages[1],
+      link: "https://hackhire.dev/"
     }
   ];
 
@@ -216,8 +150,8 @@ export default function Home() {
       <div className="xp-bar">
         <div className="flex items-center space-x-3 mb-2">
           <Code className="h-5 w-5 text-blue-400" />
-          <span className="comic-font text-white">LEVEL {Math.floor(totalXP / 200) + 1}</span>
-          <span className="comic-text text-sm text-gray-300">{totalXP} XP</span>
+          <span className="comic-font text-primary">LEVEL {Math.floor(totalXP / 200) + 1}</span>
+          <span className="comic-text text-sm text-secondary">{totalXP} XP</span>
         </div>
         <div className="w-48 h-2 bg-gray-700 rounded-full overflow-hidden">
           <div 
@@ -226,730 +160,17 @@ export default function Home() {
           ></div>
         </div>
         <div className="flex justify-between mt-1">
-          <span className="comic-text text-xs text-gray-400">Progress</span>
-          <span className="comic-text text-xs text-gray-400">{Math.round(scrollProgress)}%</span>
+          <span className="comic-text text-xs text-muted">Progress</span>
+          <span className="comic-text text-xs text-muted">{Math.round(scrollProgress)}%</span>
         </div>
       </div>
 
-      {/* Badge Unlock Popup */}
-      <AnimatePresence>
-        {showBadgePopup.show && showBadgePopup.badge && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            exit={{ opacity: 0, scale: 0.5, rotate: 10 }}
-            transition={{ type: "spring", bounce: 0.5, duration: 0.6 }}
-            className="badge-popup"
-          >
-            <div className={`inline-block p-4 rounded-full bg-gradient-to-r ${showBadgePopup.badge.color} mb-4`}>
-              <showBadgePopup.badge.icon className="h-12 w-12 text-white badge-icon" />
-            </div>
-            <h3 className="comic-font text-2xl neon-red mb-2">BADGE UNLOCKED!</h3>
-            <h4 className="comic-font text-xl neon-blue mb-2">{showBadgePopup.badge.title.toUpperCase()}</h4>
-            <p className="comic-text text-gray-300 mb-3">{showBadgePopup.badge.description}</p>
-            <div className="flex items-center justify-center space-x-2">
-              <Zap className="h-4 w-4 text-yellow-400" />
-              <span className="comic-text text-yellow-400">+{showBadgePopup.badge.xp} XP</span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      {/* Custom Styles */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap');
-        
-        /* Minimal Miles Morales Color Palette */
-        :root {
-          --miles-black: #000000;
-          --miles-red: #FF0040;
-          --miles-purple: #8B00FF;
-          --miles-blue: #00BFFF;
-          --miles-dark-purple: #4B0082;
-        }
-        
-        .spider-verse-bg {
-          background: var(--miles-black);
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .spider-verse-bg::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-image: url("https://images.unsplash.com/photo-1677508266628-1eb612e55cb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwc2t5bGluZSUyMG5pZ2h0JTIwbmVvbnxlbnwxfHx8fDE3NTc1MjMyNzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral");
-          background-size: cover;
-          background-position: center;
-          opacity: 0.4;
-          pointer-events: none;
-        }
-        
-        .spider-verse-bg::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-            radial-gradient(circle at 20% 80%, var(--miles-red) 0%, transparent 30%),
-            radial-gradient(circle at 80% 20%, var(--miles-blue) 0%, transparent 30%),
-            radial-gradient(circle at 40% 40%, var(--miles-purple) 0%, transparent 25%);
-          opacity: 0.08;
-          pointer-events: none;
-        }
-        
-        .halftone-bg {
-          background: 
-            radial-gradient(circle, var(--miles-red) 1px, transparent 1px),
-            radial-gradient(circle, var(--miles-blue) 1px, transparent 1px);
-          background-size: 30px 30px, 40px 40px;
-          background-position: 0 0, 15px 15px;
-          opacity: 0.05;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          pointer-events: none;
-        }
-        
-        .comic-font {
-          font-family: 'Bangers', cursive;
-          letter-spacing: 2px;
-        }
-        
-        .comic-text {
-          font-family: 'Comic Neue', cursive;
-        }
-        
-        .neon-red {
-          color: var(--miles-red);
-          text-shadow: 
-            0 0 3px var(--miles-red),
-            0 0 6px var(--miles-red),
-            0 0 12px var(--miles-red);
-          font-family: 'Bangers', cursive;
-          letter-spacing: 2px;
-        }
-        
-        .neon-blue {
-          color: var(--miles-blue);
-          text-shadow: 
-            0 0 3px var(--miles-blue),
-            0 0 6px var(--miles-blue),
-            0 0 12px var(--miles-blue);
-          font-family: 'Bangers', cursive;
-          letter-spacing: 2px;
-        }
-        
-        .neon-purple {
-          color: var(--miles-purple);
-          text-shadow: 
-            0 0 3px var(--miles-purple),
-            0 0 6px var(--miles-purple),
-            0 0 12px var(--miles-purple);
-          font-family: 'Bangers', cursive;
-          letter-spacing: 2px;
-        }
-        
-        .glitch {
-          position: relative;
-          font-family: 'Bangers', cursive;
-          letter-spacing: 3px;
-        }
-        
-        .glitch::before,
-        .glitch::after {
-          content: attr(data-text);
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-        
-        .glitch::before {
-          animation: glitch-1 0.3s infinite;
-          color: var(--miles-red);
-          z-index: -1;
-          text-shadow: 2px 0 var(--miles-red);
-        }
-        
-        .glitch::after {
-          animation: glitch-2 0.3s infinite;
-          color: var(--miles-blue);
-          z-index: -2;
-          text-shadow: -2px 0 var(--miles-blue);
-        }
-        
-        @keyframes glitch-1 {
-          0%, 14%, 15%, 49%, 50%, 99%, 100% {
-            transform: translate(0);
-            filter: hue-rotate(0deg);
-          }
-          15%, 49% {
-            transform: translate(-3px, 2px);
-            filter: hue-rotate(90deg);
-          }
-        }
-        
-        @keyframes glitch-2 {
-          0%, 20%, 21%, 62%, 63%, 99%, 100% {
-            transform: translate(0);
-            filter: hue-rotate(0deg);
-          }
-          21%, 62% {
-            transform: translate(3px, -2px);
-            filter: hue-rotate(180deg);
-          }
-        }
-        
-        .comic-panel {
-          background: rgba(0, 0, 0, 0.95);
-          border: 2px solid var(--miles-red);
-          border-radius: 15px;
-          position: relative;
-          overflow: hidden;
-          box-shadow: 
-            0 0 20px rgba(255, 0, 64, 0.3),
-            inset 0 0 20px rgba(0, 191, 255, 0.05);
-          transform-style: preserve-3d;
-          transition: all 0.3s ease;
-        }
-        
-        .comic-panel:hover {
-          border-color: var(--miles-blue);
-          box-shadow: 
-            0 0 30px rgba(0, 191, 255, 0.5),
-            inset 0 0 30px rgba(255, 0, 64, 0.1);
-          transform: translateY(-5px) rotateX(5deg);
-        }
-        
-        .project-card {
-          background: rgba(0, 0, 0, 0.9);
-          border: 2px solid var(--miles-purple);
-          border-radius: 15px;
-          position: relative;
-          overflow: hidden;
-          transition: all 0.3s ease;
-          box-shadow: 0 0 15px rgba(139, 0, 255, 0.2);
-        }
-        
-        .project-card:hover {
-          border-color: var(--miles-red);
-          box-shadow: 
-            0 0 25px rgba(255, 0, 64, 0.4),
-            0 0 50px rgba(0, 191, 255, 0.2);
-          transform: translateY(-8px) rotateY(5deg);
-        }
-        
-        .project-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 0, 64, 0.1), transparent);
-          transition: left 0.5s ease;
-        }
-        
-        .project-card:hover::before {
-          left: 100%;
-        }
-        
-        .comic-panel::before {
-          content: '';
-          position: absolute;
-          top: -4px;
-          left: -4px;
-          right: -4px;
-          bottom: -4px;
-          background: linear-gradient(45deg, var(--miles-red), var(--miles-blue), var(--miles-purple), var(--miles-red));
-          border-radius: 20px;
-          z-index: -1;
-        }
-        
-        .comic-panel::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-            radial-gradient(circle, rgba(255, 0, 64, 0.05) 1px, transparent 1px),
-            radial-gradient(circle, rgba(0, 191, 255, 0.05) 1px, transparent 1px);
-          background-size: 15px 15px, 25px 25px;
-          background-position: 0 0, 12px 12px;
-          pointer-events: none;
-        }
-        
-        .hero-title {
-          font-family: 'Bangers', cursive;
-          letter-spacing: 5px;
-          background: linear-gradient(45deg, var(--miles-red), var(--miles-blue), var(--miles-purple), var(--miles-red));
-          background-size: 300% 300%;
-          animation: miles-gradient 3s ease infinite;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          filter: 
-            drop-shadow(0 0 10px rgba(255, 0, 64, 0.8))
-            drop-shadow(0 0 20px rgba(0, 191, 255, 0.6))
-            drop-shadow(0 0 30px rgba(139, 0, 255, 0.4));
-          text-shadow: 
-            2px 2px 0px var(--miles-red),
-            -2px -2px 0px var(--miles-blue),
-            2px -2px 0px var(--miles-purple);
-        }
-        
-        @keyframes miles-gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        
-        .spider-swing {
-          position: absolute;
-          animation: swing 8s ease-in-out infinite;
-        }
-        
-        @keyframes swing {
-          0%, 100% { 
-            transform: translateX(-100vw) translateY(20vh) rotate(-10deg); 
-          }
-          50% { 
-            transform: translateX(100vw) translateY(10vh) rotate(10deg); 
-          }
-        }
-        
-        .spider-silhouette {
-          width: 60px;
-          height: 60px;
-          background: linear-gradient(45deg, var(--miles-red), var(--miles-purple));
-          clip-path: polygon(50% 0%, 80% 20%, 100% 50%, 80% 80%, 50% 100%, 20% 80%, 0% 50%, 20% 20%);
-          filter: drop-shadow(0 0 10px rgba(255, 0, 64, 0.8));
-        }
-        
-        .portal-transition {
-          background: 
-            radial-gradient(ellipse at center, 
-              transparent 30%, 
-              rgba(255, 0, 64, 0.1) 35%, 
-              rgba(0, 191, 255, 0.1) 40%, 
-              rgba(139, 0, 255, 0.1) 45%, 
-              transparent 50%);
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .portal-transition::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 200%;
-          height: 200%;
-          background: conic-gradient(from 0deg, transparent, var(--miles-red), transparent, var(--miles-blue), transparent, var(--miles-purple), transparent);
-          animation: portal-spin 8s linear infinite;
-          transform: translate(-50%, -50%);
-          opacity: 0.2;
-          pointer-events: none;
-        }
-        
-        @keyframes portal-spin {
-          0% { transform: translate(-50%, -50%) rotate(0deg); }
-          100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        
-        .web-pattern {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-image: 
-            radial-gradient(circle at 25% 25%, transparent 2px, rgba(255, 0, 64, 0.08) 2px, rgba(255, 0, 64, 0.08) 3px, transparent 3px),
-            linear-gradient(45deg, transparent 48%, rgba(0, 191, 255, 0.08) 49%, rgba(0, 191, 255, 0.08) 51%, transparent 52%),
-            linear-gradient(-45deg, transparent 48%, rgba(139, 0, 255, 0.08) 49%, rgba(139, 0, 255, 0.08) 51%, transparent 52%);
-          background-size: 40px 40px, 40px 40px, 40px 40px;
-          pointer-events: none;
-          opacity: 0.6;
-        }
-        
-        .speech-bubble {
-          position: relative;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.95) 100%);
-          border: 3px solid #000;
-          border-radius: 20px;
-          padding: 20px;
-          color: #000;
-          font-family: 'Comic Neue', cursive;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        
-        .comic-word-balloon {
-          position: relative;
-          background: rgba(0, 0, 0, 0.9);
-          border: 3px solid var(--miles-red);
-          border-radius: 25px;
-          padding: 15px 25px;
-          color: var(--miles-red);
-          font-family: 'Bangers', cursive;
-          font-size: 2rem;
-          letter-spacing: 3px;
-          text-transform: uppercase;
-          box-shadow: 
-            0 0 20px rgba(255, 0, 64, 0.4),
-            inset 0 0 20px rgba(0, 191, 255, 0.1);
-          display: inline-block;
-          margin: 20px 0;
-        }
-        
-        .comic-word-balloon::before {
-          content: '';
-          position: absolute;
-          bottom: -15px;
-          left: 30px;
-          width: 0;
-          height: 0;
-          border: 15px solid transparent;
-          border-top-color: var(--miles-red);
-        }
-        
-        .comic-word-balloon::after {
-          content: '';
-          position: absolute;
-          bottom: -12px;
-          left: 33px;
-          width: 0;
-          height: 0;
-          border: 12px solid transparent;
-          border-top-color: rgba(0, 0, 0, 0.9);
-        }
-        
-        .speech-bubble::after {
-          content: '';
-          position: absolute;
-          bottom: -12px;
-          left: 30px;
-          width: 0;
-          height: 0;
-          border: 12px solid transparent;
-          border-top-color: #000;
-        }
-        
-        .speech-bubble::before {
-          content: '';
-          position: absolute;
-          bottom: -8px;
-          left: 33px;
-          width: 0;
-          height: 0;
-          border: 9px solid transparent;
-          border-top-color: rgba(255, 255, 255, 0.95);
-        }
-        
-        .dimension-rift {
-          background: linear-gradient(90deg, 
-            transparent 0%, 
-            rgba(255, 0, 64, 0.15) 25%, 
-            rgba(0, 191, 255, 0.15) 50%, 
-            rgba(139, 0, 255, 0.15) 75%, 
-            transparent 100%);
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .dimension-rift::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, 
-            transparent 0%, 
-            rgba(255, 255, 255, 0.6) 50%, 
-            transparent 100%);
-          animation: rift-sweep 4s ease-in-out infinite;
-        }
-        
-        @keyframes rift-sweep {
-          0% { left: -100%; }
-          100% { left: 100%; }
-        }
-        
-        /* XP Bar Styles */
-        .xp-bar {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          z-index: 1000;
-          background: rgba(0, 0, 0, 0.8);
-          border: 2px solid var(--miles-red);
-          border-radius: 20px;
-          padding: 15px 20px;
-          backdrop-filter: blur(10px);
-          box-shadow: 0 0 20px rgba(255, 0, 64, 0.3);
-        }
-        
-        .xp-progress {
-          background: linear-gradient(90deg, var(--miles-red), var(--miles-purple), var(--miles-blue));
-          border-radius: 10px;
-          height: 8px;
-          transition: width 0.3s ease;
-        }
-        
-        /* Badge Popup Styles */
-        .badge-popup {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 2000;
-          background: rgba(0, 0, 0, 0.95);
-          border: 3px solid var(--miles-red);
-          border-radius: 20px;
-          padding: 30px;
-          text-align: center;
-          backdrop-filter: blur(20px);
-          box-shadow: 0 0 50px rgba(255, 0, 64, 0.6);
-          animation: badge-popup 0.6s ease-out;
-        }
-        
-        @keyframes badge-popup {
-          0% {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.5) rotate(-10deg);
-          }
-          50% {
-            transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
-          }
-          100% {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
-          }
-        }
-        
-        .badge-icon {
-          animation: badge-glow 2s ease-in-out infinite;
-        }
-        
-        @keyframes badge-glow {
-          0%, 100% { filter: drop-shadow(0 0 10px var(--miles-blue)); }
-          50% { filter: drop-shadow(0 0 20px var(--miles-red)); }
-        }
-        
-        @keyframes comic-zoom {
-          0%, 100% { transform: scale(1) rotate(0deg); }
-          50% { transform: scale(1.05) rotate(1deg); }
-        }
-        
-        .comic-zoom {
-          animation: comic-zoom 4s ease-in-out infinite;
-        }
-        
-        .comic-button {
-          position: relative;
-          background: linear-gradient(135deg, var(--miles-red), var(--miles-blue));
-          border: 3px solid var(--miles-red);
-          border-radius: 15px;
-          padding: 12px 24px;
-          font-family: 'Bangers', cursive;
-          font-size: 1.2rem;
-          letter-spacing: 2px;
-          color: white;
-          text-transform: uppercase;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 
-            0 0 20px rgba(255, 0, 64, 0.4),
-            inset 0 0 20px rgba(0, 191, 255, 0.1);
-        }
-        
-        .comic-button:hover {
-          transform: scale(1.1) rotate(-2deg);
-          box-shadow: 
-            0 0 30px rgba(255, 0, 64, 0.8),
-            inset 0 0 30px rgba(0, 191, 255, 0.2);
-          border-color: var(--miles-blue);
-        }
-        
-        .comic-button::before {
-          content: 'POW!';
-          position: absolute;
-          top: -15px;
-          right: -15px;
-          background: var(--miles-red);
-          color: white;
-          padding: 4px 8px;
-          border-radius: 50%;
-          font-size: 0.8rem;
-          opacity: 0;
-          transform: scale(0);
-          transition: all 0.3s ease;
-        }
-        
-        .comic-button:hover::before {
-          opacity: 1;
-          transform: scale(1);
-        }
-        
-        .comic-button-outline {
-          background: transparent;
-          border: 3px solid var(--miles-blue);
-          color: var(--miles-blue);
-        }
-        
-        .comic-button-outline:hover {
-          background: var(--miles-blue);
-          color: black;
-          border-color: var(--miles-red);
-        }
-        
-        @keyframes swing-easter-egg {
-          0% { 
-            transform: translateX(-100px) translateY(0px) rotate(-10deg); 
-            opacity: 0;
-          }
-          20% { 
-            opacity: 1;
-          }
-          50% { 
-            transform: translateX(50vw) translateY(-50px) rotate(10deg); 
-          }
-          100% { 
-            transform: translateX(100vw) translateY(0px) rotate(-10deg); 
-            opacity: 0;
-          }
-        }
-        
-        .trading-card {
-          background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
-          border: 3px solid var(--miles-red);
-          border-radius: 20px;
-          position: relative;
-          overflow: hidden;
-          transition: all 0.3s ease;
-          box-shadow: 
-            0 0 20px rgba(255, 0, 64, 0.3),
-            inset 0 0 20px rgba(0, 191, 255, 0.05);
-        }
-        
-        .trading-card:hover {
-          border-color: var(--miles-blue);
-          box-shadow: 
-            0 0 30px rgba(0, 191, 255, 0.5),
-            0 0 60px rgba(255, 0, 64, 0.3);
-          transform: translateY(-10px) rotateY(5deg);
-        }
-        
-        .trading-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: linear-gradient(90deg, var(--miles-red), var(--miles-blue), var(--miles-purple));
-        }
-        
-        .trading-card-badge {
-          position: absolute;
-          top: -10px;
-          right: -10px;
-          width: 40px;
-          height: 40px;
-          background: linear-gradient(135deg, var(--miles-red), var(--miles-blue));
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 3px solid white;
-          box-shadow: 0 0 15px rgba(255, 0, 64, 0.6);
-        }
-        
-        .trading-card-badge::before {
-          content: '🏆';
-          font-size: 1.2rem;
-        }
-        
-        .comic-end-panel {
-          background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
-          border: 4px solid var(--miles-red);
-          border-radius: 25px;
-          position: relative;
-          overflow: hidden;
-          box-shadow: 
-            0 0 30px rgba(255, 0, 64, 0.5),
-            inset 0 0 30px rgba(0, 191, 255, 0.1);
-          background-image: 
-            radial-gradient(circle at 25% 25%, rgba(255, 0, 64, 0.05) 1px, transparent 1px),
-            radial-gradient(circle at 75% 75%, rgba(0, 191, 255, 0.05) 1px, transparent 1px);
-          background-size: 20px 20px, 30px 30px;
-        }
-        
-        .comic-end-panel::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(45deg, transparent 48%, rgba(255, 0, 64, 0.1) 49%, rgba(255, 0, 64, 0.1) 51%, transparent 52%);
-          background-size: 20px 20px;
-          opacity: 0.3;
-        }
-        
-        .neon-social-icon {
-          position: relative;
-          padding: 12px 20px;
-          border: 2px solid var(--miles-blue);
-          border-radius: 15px;
-          background: rgba(0, 0, 0, 0.8);
-          color: var(--miles-blue);
-          font-family: 'Bangers', cursive;
-          font-size: 1.1rem;
-          letter-spacing: 1px;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
-        }
-        
-        .neon-social-icon:hover {
-          border-color: var(--miles-red);
-          color: var(--miles-red);
-          box-shadow: 
-            0 0 25px rgba(255, 0, 64, 0.5),
-            0 0 50px rgba(0, 191, 255, 0.3);
-          transform: translateY(-3px) scale(1.05);
-        }
-        
-        .neon-social-icon.github:hover {
-          border-color: var(--miles-purple);
-          color: var(--miles-purple);
-          box-shadow: 0 0 25px rgba(139, 0, 255, 0.5);
-        }
-      `}</style>
 
       {/* Hero Section */}
       <section className="spider-verse-bg min-h-screen flex items-center justify-center relative">
         <div className="halftone-bg"></div>
         <div className="web-pattern"></div>
         
-        {/* Swinging Spider-Man Silhouettes */}
-        <div className="spider-swing" style={{ top: '10%', animationDelay: '0s' }}>
-          <div className="spider-silhouette"></div>
-        </div>
-        <div className="spider-swing" style={{ top: '60%', animationDelay: '4s' }}>
-          <div className="spider-silhouette"></div>
-        </div>
         
         <div className="container mx-auto px-6 text-center z-10">
           <motion.div
@@ -966,19 +187,7 @@ export default function Home() {
             <h1 
               className="hero-title mb-6 comic-zoom" 
               style={{ fontSize: '5rem', fontWeight: 900 }}
-              onMouseEnter={() => {
-                // Add swinging spider-man easter egg
-                const spider = document.createElement('div');
-                spider.className = 'spider-swing-easter-egg';
-                spider.innerHTML = '<div class="spider-silhouette"></div>';
-                spider.style.position = 'fixed';
-                spider.style.top = '20%';
-                spider.style.left = '-100px';
-                spider.style.zIndex = '9999';
-                spider.style.animation = 'swing-easter-egg 3s ease-in-out';
-                document.body.appendChild(spider);
-                setTimeout(() => spider.remove(), 3000);
-              }}
+              data-text="SHASHANK JAGANNATHAM"
             >
               SHASHANK JAGANNATHAM
             </h1>
@@ -993,7 +202,7 @@ export default function Home() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="comic-panel max-w-3xl mx-auto mb-8 p-8"
             >
-              <p className="comic-text text-white" style={{ fontSize: '1.3rem', lineHeight: '1.6' }}>
+              <p className="comic-text text-readable" style={{ fontSize: '1.3rem', lineHeight: '1.6' }}>
                 Swinging through the multiverse of modern web development! From React dimensions to Node.js realms, 
                 I craft digital experiences that would make even Spider-Man jealous of my web-slinging skills.
               </p>
@@ -1016,16 +225,6 @@ export default function Home() {
           </motion.div>
         </div>
         
-        {/* Comic Elements */}
-        <div className="absolute top-10 left-10 neon-purple comic-font" style={{ fontSize: '2rem', transform: 'rotate(-15deg)' }}>
-          POW!
-        </div>
-        <div className="absolute top-32 right-16 neon-blue comic-font" style={{ fontSize: '1.5rem', transform: 'rotate(12deg)' }}>
-          THWIP!
-        </div>
-        <div className="absolute bottom-32 left-20 neon-red comic-font" style={{ fontSize: '1.8rem', transform: 'rotate(-8deg)' }}>
-          BAM!
-        </div>
       </section>
 
       {/* Portal Transition */}
@@ -1048,7 +247,7 @@ export default function Home() {
             <div className="comic-word-balloon">
               STUDENT ADVENTURES!
             </div>
-            <p className="comic-text text-blue-400 max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
+            <p className="comic-text text-emphasis max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
               My origin story begins here - the projects that gave me my web-slinging powers!
             </p>
           </motion.div>
@@ -1077,24 +276,14 @@ export default function Home() {
                       className="w-full h-48 object-cover transition-all duration-500 hover:scale-110 hover:hue-rotate-30"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div className="absolute top-4 left-4 neon-purple comic-font text-sm transform -rotate-12">
-                      KAPOW!
-                    </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="neon-blue comic-font mb-3" style={{ fontSize: '1.3rem' }}>
+                    <h3 className="comic-font text-strong mb-3" style={{ fontSize: '1.3rem' }}>
                       {project.title.toUpperCase()}
                     </h3>
-                    <p className="text-gray-300 comic-text mb-4" style={{ fontSize: '1rem', lineHeight: '1.5' }}>
+                    <p className="text-readable comic-text mb-4" style={{ fontSize: '1rem', lineHeight: '1.5' }}>
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech) => (
-                        <Badge key={tech} className="bg-gradient-to-r from-red-500/20 to-blue-500/20 border border-red-500 text-red-400 comic-text">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
                     <Button variant="link" className="comic-font text-blue-400 hover:text-blue-300 p-0 text-lg">
                       ENTER PROJECT <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
@@ -1158,30 +347,14 @@ export default function Home() {
                       className="w-full h-64 object-cover transition-all duration-700 hover:scale-110 hover:saturate-150"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div className="absolute top-4 right-4">
-                      <Badge className="comic-font bg-gradient-to-r from-yellow-400 to-orange-500 text-black border-2 border-black" style={{ fontSize: '1rem' }}>
-                        <Zap className="h-4 w-4 mr-1" />
-                        {project.impact}
-                      </Badge>
-                    </div>
-                    <div className="absolute top-4 left-4 neon-red comic-font" style={{ fontSize: '1.2rem', transform: 'rotate(-10deg)' }}>
-                      BOOM!
-                    </div>
                   </div>
                   <div className="p-8">
-                    <h3 className="neon-purple comic-font mb-4" style={{ fontSize: '1.8rem' }}>
+                    <h3 className="comic-font text-strong mb-4" style={{ fontSize: '1.8rem' }}>
                       {project.title.toUpperCase()}
                     </h3>
-                    <p className="text-gray-300 comic-text mb-6" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+                    <p className="text-readable comic-text mb-6" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-3 mb-6">
-                      {project.tech.map((tech) => (
-                        <Badge key={tech} className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400 text-blue-400 comic-text px-3 py-1">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
                     <Button variant="link" className="comic-font text-red-400 hover:text-red-300 p-0" style={{ fontSize: '1.2rem' }}>
                       DIMENSION JUMP <ExternalLink className="ml-2 h-5 w-5" />
                     </Button>
@@ -1213,7 +386,7 @@ export default function Home() {
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-purple)', color: 'var(--miles-purple)' }}>
               ORIGIN STORY!
             </div>
-            <p className="comic-text text-red-400 max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
+            <p className="comic-text text-emphasis max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
               Every hero has a beginning. Here's how I got bit by the coding spider!
             </p>
           </motion.div>
@@ -1257,23 +430,19 @@ export default function Home() {
                     style={{ transformStyle: 'preserve-3d' }}
                   >
                     <div className="flex items-center mb-4">
-                      <Calendar className="h-6 w-6 text-blue-400 mr-3" />
-                      <span className="neon-blue comic-font" style={{ fontSize: '1.5rem' }}>{item.year}</span>
+                      <Calendar className="h-6 w-6 text-accent mr-3" />
+                      <span className="comic-font text-emphasis" style={{ fontSize: '1.5rem' }}>{item.year}</span>
                     </div>
-                    <h3 className="neon-red comic-font mb-3" style={{ fontSize: '1.6rem' }}>
+                    <h3 className="comic-font text-strong mb-3" style={{ fontSize: '1.6rem' }}>
                       {item.title.toUpperCase()}
                     </h3>
-                    <p className="text-purple-400 comic-text mb-3" style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>
+                    <p className="comic-text text-highlight mb-3" style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>
                       {item.company}
                     </p>
-                    <p className="text-gray-300 comic-text" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+                    <p className="text-secondary comic-text" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
                       {item.description}
                     </p>
                     
-                    {/* Comic effect elements */}
-                    <div className={`absolute ${index % 2 === 0 ? '-top-4 -right-4' : '-top-4 -left-4'} neon-blue comic-font text-sm transform ${index % 2 === 0 ? 'rotate-12' : '-rotate-12'}`}>
-                      WHAP!
-                    </div>
                   </motion.div>
                 </div>
                 
@@ -1332,7 +501,7 @@ export default function Home() {
             <div className="mt-8 mb-12">
               <div className="comic-panel inline-block p-4">
                 <div className="flex items-center space-x-4 mb-3">
-                  <Trophy className="h-6 w-6 text-yellow-400" />
+                  <Award className="h-6 w-6 text-yellow-400" />
                   <span className="comic-font text-white">ACHIEVEMENT PROGRESS</span>
                   <span className="comic-text text-gray-300">4/4 COMPLETED</span>
                 </div>
@@ -1378,7 +547,6 @@ export default function Home() {
                 className="trading-card p-8 comic-zoom"
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                <div className="trading-card-badge"></div>
                 <div className="flex items-start space-x-6">
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.2 }}
@@ -1388,22 +556,18 @@ export default function Home() {
                     <Award className="h-12 w-12 text-yellow-400 filter drop-shadow-lg" />
                   </motion.div>
                   <div className="flex-1">
-                    <h3 className="neon-blue comic-font mb-3" style={{ fontSize: '1.5rem' }}>
+                    <h3 className="comic-font text-strong mb-3" style={{ fontSize: '1.5rem' }}>
                       {achievement.title.toUpperCase()}
                     </h3>
-                    <p className="neon-purple comic-font mb-4" style={{ fontSize: '1.2rem' }}>
+                    <p className="comic-font text-emphasis mb-4" style={{ fontSize: '1.2rem' }}>
                       {achievement.year}
                     </p>
-                    <p className="text-gray-300 comic-text" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+                    <p className="text-secondary comic-text" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
                       {achievement.description}
                     </p>
                   </div>
                 </div>
                 
-                {/* Comic effect */}
-                <div className="absolute -top-3 -right-3 neon-red comic-font text-sm transform rotate-12">
-                  WHAM!
-                </div>
                 
                 {/* Trophy shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400/5 to-transparent -skew-x-12 animate-pulse"></div>
@@ -1411,13 +575,6 @@ export default function Home() {
             ))}
           </div>
           
-          {/* Floating achievement badges */}
-          <div className="absolute top-20 left-10 neon-purple comic-font animate-bounce" style={{ fontSize: '1.5rem', transform: 'rotate(-20deg)' }}>
-            HERO!
-          </div>
-          <div className="absolute bottom-20 right-10 neon-blue comic-font animate-pulse" style={{ fontSize: '1.3rem', transform: 'rotate(15deg)' }}>
-            LEGEND!
-          </div>
         </div>
       </section>
 
@@ -1431,10 +588,6 @@ export default function Home() {
         <div className="halftone-bg"></div>
         <div className="web-pattern"></div>
         
-        {/* Final swinging Spider-Man */}
-        <div className="spider-swing" style={{ top: '30%', animationDelay: '2s', animationDuration: '12s' }}>
-          <div className="spider-silhouette"></div>
-        </div>
         
         <div className="container mx-auto text-center relative z-10">
           <motion.div
@@ -1511,21 +664,14 @@ export default function Home() {
             viewport={{ once: true }}
             className="comic-panel inline-block p-6"
           >
-            <div className="flex items-center justify-center text-white">
-              <MapPin className="h-6 w-6 mr-3 text-red-400" />
-              <span className="comic-text neon-blue" style={{ fontSize: '1.2rem' }}>
+            <div className="flex items-center justify-center text-primary">
+              <MapPin className="h-6 w-6 mr-3 text-accent" />
+              <span className="comic-text text-strong" style={{ fontSize: '1.2rem' }}>
                 Gainesville, FL - Earth-616
               </span>
             </div>
           </motion.div>
           
-          {/* Final comic elements */}
-          <div className="absolute top-16 left-16 neon-purple comic-font animate-pulse" style={{ fontSize: '2rem', transform: 'rotate(-25deg)' }}>
-            EXCELSIOR!
-          </div>
-          <div className="absolute bottom-16 right-16 neon-red comic-font animate-bounce" style={{ fontSize: '1.8rem', transform: 'rotate(20deg)' }}>
-            THWIP!
-          </div>
         </div>
         
         {/* Final web decoration */}
