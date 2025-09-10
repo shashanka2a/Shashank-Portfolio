@@ -293,9 +293,14 @@ export default function Home() {
                     <p className="text-readable comic-text mb-4" style={{ fontSize: '1rem', lineHeight: '1.5' }}>
                       {project.description}
                     </p>
-                    <Button variant="link" className="comic-font text-blue-400 hover:text-blue-300 p-0 text-lg">
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="comic-font text-blue-400 hover:text-blue-300 p-0 text-lg inline-flex items-center hover:underline"
+                    >
                       ENTER PROJECT <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
+                    </a>
                   </div>
                 </Card>
               </motion.div>
@@ -364,9 +369,14 @@ export default function Home() {
                     <p className="text-readable comic-text mb-4" style={{ fontSize: '1rem', lineHeight: '1.5' }}>
                       {project.description}
                     </p>
-                    <Button variant="link" className="comic-font text-blue-400 hover:text-blue-300 p-0 text-lg">
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="comic-font text-blue-400 hover:text-blue-300 p-0 text-lg inline-flex items-center hover:underline"
+                    >
                       ENTER PROJECT <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
+                    </a>
                   </div>
                 </Card>
               </motion.div>
