@@ -603,32 +603,13 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="comic-end-panel inline-block p-4 md:p-8 mb-8 md:mb-12">
-              <h2 
-                className="comic-font" 
-                style={{ 
-                  fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
-                  fontWeight: 900,
-                  color: '#FF0040',
-                  textShadow: `
-                    0 0 5px #FF0040,
-                    0 0 10px #FF0040,
-                    0 0 20px #FF0040,
-                    0 0 40px #FF0040,
-                    0 0 80px rgba(255, 0, 64, 0.8),
-                    0 0 120px rgba(255, 0, 64, 0.6)
-                  `,
-                  letterSpacing: '3px',
-                  filter: 'drop-shadow(0 0 10px #FF0040)',
-                  background: 'linear-gradient(45deg, #FF0040, #FF4080, #FF0040)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  animation: 'assemble-glow 2s ease-in-out infinite alternate'
-                }}
-              >
-                ASSEMBLE!
-              </h2>
+            <div className="assemble-container mb-8 md:mb-12">
+              <div className="assemble-background">
+                <h2 className="assemble-text">
+                  ASSEMBLE!
+                </h2>
+                <div className="assemble-overlay"></div>
+              </div>
             </div>
             
             <motion.p 
@@ -704,28 +685,122 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
       </section>
 
-      {/* Custom Styles for ASSEMBLE! text */}
+      {/* Professional ASSEMBLE! Design */}
       <style jsx>{`
-        @keyframes assemble-glow {
-          0% {
-            text-shadow: 
-              0 0 5px #FF0040,
-              0 0 10px #FF0040,
-              0 0 20px #FF0040,
-              0 0 40px #FF0040,
-              0 0 80px rgba(255, 0, 64, 0.8),
-              0 0 120px rgba(255, 0, 64, 0.6);
-            filter: drop-shadow(0 0 10px #FF0040);
+        .assemble-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          perspective: 1000px;
+        }
+        
+        .assemble-background {
+          position: relative;
+          background: linear-gradient(135deg, 
+            rgba(0, 0, 0, 0.95) 0%, 
+            rgba(20, 20, 20, 0.95) 50%,
+            rgba(0, 0, 0, 0.95) 100%);
+          border: 3px solid;
+          border-image: linear-gradient(45deg, #FF0040, #00BFFF, #8B00FF, #FF0040) 1;
+          border-radius: 20px;
+          padding: 2rem 4rem;
+          box-shadow: 
+            0 0 40px rgba(255, 0, 64, 0.4),
+            0 0 80px rgba(0, 191, 255, 0.2),
+            inset 0 0 40px rgba(139, 0, 255, 0.1);
+          transform-style: preserve-3d;
+          animation: assemble-float 3s ease-in-out infinite;
+        }
+        
+        .assemble-text {
+          font-family: 'Bangers', cursive;
+          font-size: clamp(3rem, 10vw, 6rem);
+          font-weight: 900;
+          letter-spacing: 0.2em;
+          text-align: center;
+          margin: 0;
+          background: linear-gradient(45deg, 
+            #FF0040 0%, 
+            #FF4080 25%, 
+            #00BFFF 50%, 
+            #8B00FF 75%, 
+            #FF0040 100%);
+          background-size: 300% 300%;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-shadow: 
+            0 0 10px rgba(255, 0, 64, 0.8),
+            0 0 20px rgba(255, 0, 64, 0.6),
+            0 0 40px rgba(255, 0, 64, 0.4);
+          filter: drop-shadow(0 0 15px rgba(255, 0, 64, 0.6));
+          animation: assemble-gradient 4s ease-in-out infinite, assemble-pulse 2s ease-in-out infinite;
+          position: relative;
+          z-index: 2;
+        }
+        
+        .assemble-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 30% 30%, rgba(255, 0, 64, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 70% 70%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(139, 0, 255, 0.05) 0%, transparent 50%);
+          border-radius: 20px;
+          animation: assemble-shimmer 3s ease-in-out infinite;
+          z-index: 1;
+        }
+        
+        @keyframes assemble-float {
+          0%, 100% { 
+            transform: translateY(0px) rotateX(0deg); 
           }
-          100% {
-            text-shadow: 
-              0 0 10px #FF0040,
-              0 0 20px #FF0040,
-              0 0 40px #FF0040,
-              0 0 80px #FF0040,
-              0 0 120px rgba(255, 0, 64, 1),
-              0 0 160px rgba(255, 0, 64, 0.8);
-            filter: drop-shadow(0 0 20px #FF0040);
+          50% { 
+            transform: translateY(-10px) rotateX(2deg); 
+          }
+        }
+        
+        @keyframes assemble-gradient {
+          0%, 100% { 
+            background-position: 0% 50%; 
+          }
+          50% { 
+            background-position: 100% 50%; 
+          }
+        }
+        
+        @keyframes assemble-pulse {
+          0%, 100% { 
+            transform: scale(1);
+            filter: drop-shadow(0 0 15px rgba(255, 0, 64, 0.6));
+          }
+          50% { 
+            transform: scale(1.02);
+            filter: drop-shadow(0 0 25px rgba(255, 0, 64, 0.8));
+          }
+        }
+        
+        @keyframes assemble-shimmer {
+          0%, 100% { 
+            opacity: 0.3; 
+          }
+          50% { 
+            opacity: 0.6; 
+          }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .assemble-background {
+            padding: 1.5rem 2rem;
+            margin: 0 1rem;
+          }
+          
+          .assemble-text {
+            letter-spacing: 0.1em;
           }
         }
       `}</style>
