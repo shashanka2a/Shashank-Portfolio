@@ -98,22 +98,28 @@ export default function Home() {
 
   const timeline = [
     {
-      year: "May 2025 - Current",
-      title: "Startup Builder",
-      company: "Independent",
-      description: "Building innovative solutions with FormEase, QRBee, and HackHire, focusing on AI-powered tools and developer platforms"
+      year: "2021",
+      title: "Hackathon Hunter",
+      company: "India",
+      description: "The beginning of my coding journey! Started competing in hackathons across India, discovering my passion for building innovative solutions in fintech, AI, and web3. This is where I got 'bit by the coding spider' and realized my superpower!"
+    },
+    {
+      year: "2021-2023",
+      title: "Hackathon Champion",
+      company: "India",
+      description: "Competed in 15+ hackathons across India, winning multiple awards including Chainlink Runner-up, StarkNet CC India Winner, and Lightspeed Hackathon Winner. Built solutions that would make even Spider-Man jealous!"
     },
     {
       year: "2023-2025",
       title: "MS Computer Science",
       company: "University of Florida",
-      description: "Pursuing advanced studies in computer science with focus on distributed systems, AI applications, and startup ecosystem"
+      description: "Pursuing advanced studies in computer science with focus on distributed systems, AI applications, and startup ecosystem. Leveling up my web-slinging skills!"
     },
     {
-      year: "2021-2023",
-      title: "Hackathon Hunter",
-      company: "India",
-      description: "Competed in 15+ hackathons across India, winning multiple awards and building innovative solutions in fintech, AI, and web3"
+      year: "May 2025 - Current",
+      title: "Startup Builder",
+      company: "Independent",
+      description: "Building innovative solutions with FormEase, QRBee, and HackHire, focusing on AI-powered tools and developer platforms. Now I'm the hero saving the digital world!"
     }
   ];
 
@@ -206,8 +212,8 @@ export default function Home() {
               className="comic-panel max-w-3xl mx-auto mb-8 p-8"
             >
               <p className="comic-text text-readable px-4 md:px-0" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: '1.6' }}>
-                Swinging through the multiverse of modern web development! From React dimensions to Node.js realms, 
-                I craft digital experiences that would make even Spider-Man jealous of my web-slinging skills.
+                My journey began in 2021 when I got bit by the coding spider at my first hackathon! From hackathon hunter to startup builder, 
+                I swing through the multiverse of modern web development, crafting digital experiences that would make even Spider-Man jealous!
               </p>
             </motion.div>
             
@@ -251,7 +257,7 @@ export default function Home() {
               STUDENT ADVENTURES!
             </div>
             <p className="comic-text text-emphasis max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
-              My origin story begins here - the projects that gave me my web-slinging powers!
+              My origin story begins with hackathons in 2021 - these are the projects that gave me my web-slinging powers!
             </p>
           </motion.div>
           
@@ -390,7 +396,7 @@ export default function Home() {
               ORIGIN STORY!
             </div>
             <p className="comic-text text-emphasis max-w-2xl mx-auto px-4" style={{ fontSize: '1.2rem' }}>
-              Every hero has a beginning. Here's how I got bit by the coding spider!
+              Every hero has a beginning. Here's how I got bit by the coding spider at my first hackathon in 2021!
             </p>
           </motion.div>
           
@@ -588,7 +594,29 @@ export default function Home() {
             </div>
             
             <div className="comic-end-panel inline-block p-4 md:p-8 mb-8 md:mb-12">
-              <h2 className="neon-red comic-font" style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', fontWeight: 900 }}>
+              <h2 
+                className="comic-font" 
+                style={{ 
+                  fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
+                  fontWeight: 900,
+                  color: '#FF0040',
+                  textShadow: `
+                    0 0 5px #FF0040,
+                    0 0 10px #FF0040,
+                    0 0 20px #FF0040,
+                    0 0 40px #FF0040,
+                    0 0 80px rgba(255, 0, 64, 0.8),
+                    0 0 120px rgba(255, 0, 64, 0.6)
+                  `,
+                  letterSpacing: '3px',
+                  filter: 'drop-shadow(0 0 10px #FF0040)',
+                  background: 'linear-gradient(45deg, #FF0040, #FF4080, #FF0040)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  animation: 'assemble-glow 2s ease-in-out infinite alternate'
+                }}
+              >
                 ASSEMBLE!
               </h2>
             </div>
@@ -665,6 +693,32 @@ export default function Home() {
         {/* Final web decoration */}
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
       </section>
+
+      {/* Custom Styles for ASSEMBLE! text */}
+      <style jsx>{`
+        @keyframes assemble-glow {
+          0% {
+            text-shadow: 
+              0 0 5px #FF0040,
+              0 0 10px #FF0040,
+              0 0 20px #FF0040,
+              0 0 40px #FF0040,
+              0 0 80px rgba(255, 0, 64, 0.8),
+              0 0 120px rgba(255, 0, 64, 0.6);
+            filter: drop-shadow(0 0 10px #FF0040);
+          }
+          100% {
+            text-shadow: 
+              0 0 10px #FF0040,
+              0 0 20px #FF0040,
+              0 0 40px #FF0040,
+              0 0 80px #FF0040,
+              0 0 120px rgba(255, 0, 64, 1),
+              0 0 160px rgba(255, 0, 64, 0.8);
+            filter: drop-shadow(0 0 20px #FF0040);
+          }
+        }
+      `}</style>
     </div>
   );
 }
