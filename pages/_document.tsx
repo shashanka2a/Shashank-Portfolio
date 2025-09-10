@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#000000" />
-        <meta name="description" content="Shashank's portfolio showcasing web development projects and skills" />
+        <meta name="description" content="Shashank Jagannatham's portfolio showcasing full-stack development projects, startup ventures, and hackathon achievements" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

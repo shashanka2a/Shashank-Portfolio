@@ -119,23 +119,23 @@ export default function Home() {
 
   const studentProjects = [
     {
-      title: "Neural Network Visualizer",
-      description: "Interactive web app for visualizing neural network architectures and training processes",
-      tech: ["React", "D3.js", "TensorFlow.js"],
+      title: "GatorEx",
+      description: "University marketplace platform connecting students for buying, selling, and trading campus essentials",
+      tech: ["React", "Node.js", "MongoDB"],
       image: projectImages[0],
       link: "#"
     },
     {
-      title: "Mobile Fitness Tracker",
-      description: "Cross-platform app with real-time workout tracking and AI-powered form analysis",
-      tech: ["React Native", "Firebase", "ML Kit"],
+      title: "Rydify",
+      description: "Campus ride-sharing app with real-time tracking and safety features for student transportation",
+      tech: ["React Native", "Firebase", "Google Maps API"],
       image: projectImages[1],
       link: "#"
     },
     {
-      title: "Data Dashboard",
-      description: "Real-time analytics dashboard with interactive charts and data visualization",
-      tech: ["Vue.js", "Chart.js", "Python"],
+      title: "Vybr",
+      description: "Apartment discovery platform with integrated event management for student housing and social connections",
+      tech: ["Vue.js", "Express.js", "PostgreSQL"],
       image: projectImages[2],
       link: "#"
     }
@@ -143,18 +143,18 @@ export default function Home() {
 
   const startupProjects = [
     {
-      title: "TechFlow CRM",
-      description: "Revolutionary CRM platform that increased client retention by 300% for B2B companies",
-      impact: "500+ companies",
-      tech: ["Next.js", "PostgreSQL", "AWS"],
+      title: "FormEase",
+      description: "AI-powered form builder that generates intelligent forms from natural language descriptions",
+      impact: "500+ forms created",
+      tech: ["Next.js", "OpenAI API", "Supabase"],
       image: projectImages[3],
       link: "#"
     },
     {
-      title: "AIChat Assistant",
-      description: "Intelligent chatbot platform serving 10M+ conversations monthly",
-      impact: "10M+ users",
-      tech: ["Python", "OpenAI", "Redis"],
+      title: "QRBee",
+      description: "Free QR code alternative with advanced analytics and custom branding for businesses",
+      impact: "10K+ QR codes generated",
+      tech: ["React", "Node.js", "MongoDB"],
       image: projectImages[0],
       link: "#"
     }
@@ -162,51 +162,51 @@ export default function Home() {
 
   const timeline = [
     {
-      year: "2025",
-      title: "Lead Developer",
-      company: "TechFlow Inc.",
-      description: "Leading a team of 8 developers building next-gen CRM solutions"
+      year: "2024",
+      title: "Startup Builder",
+      company: "Independent",
+      description: "Building innovative solutions with FormEase and QRBee, focusing on AI and developer tools"
     },
     {
-      year: "2024",
-      title: "Full Stack Developer",
-      company: "StartupXYZ",
-      description: "Built and scaled web applications from 0 to 1M+ users"
+      year: "2023-2024",
+      title: "Graduate Researcher",
+      company: "University of Florida",
+      description: "Conducted research in computer science with focus on distributed systems and AI applications"
     },
     {
       year: "2023",
-      title: "CS Graduate",
-      company: "University of Technology",
-      description: "Bachelor's in Computer Science, Magna Cum Laude"
+      title: "Software Engineering Intern",
+      company: "Broadridge Financial",
+      description: "Developed financial technology solutions and gained experience in enterprise software development"
     },
     {
-      year: "2022",
-      title: "Intern Developer",
-      company: "InnovateLab",
-      description: "Developed mobile applications and learned industry best practices"
+      year: "2022-2023",
+      title: "Software Engineer",
+      company: "Infosys",
+      description: "Built scalable web applications and contributed to enterprise-level software solutions"
     }
   ];
 
   const achievements = [
     {
-      title: "Hackathon Champion",
+      title: "StarkNet CC India Winner",
       year: "2024",
-      description: "1st place at Global Tech Hackathon with AI-powered sustainability app"
+      description: "1st place at StarkNet Community Call India hackathon with innovative blockchain solution"
     },
     {
-      title: "Open Source Contributor",
+      title: "Chainlink Hackathon Runner-up",
+      year: "2024",
+      description: "2nd place at Chainlink hackathon for building decentralized oracle integration"
+    },
+    {
+      title: "Lightspeed Hackathon Winner",
+      year: "2024",
+      description: "Won Lightspeed hackathon with AI-powered developer productivity tool"
+    },
+    {
+      title: "NASA Space Apps Organizer",
       year: "2023-2024",
-      description: "500+ contributions to major open source projects including React ecosystem"
-    },
-    {
-      title: "Tech Conference Speaker",
-      year: "2024",
-      description: "Presented 'The Future of Web Development' at TechTalks 2024"
-    },
-    {
-      title: "Scholarship Recipient",
-      year: "2021-2023",
-      description: "Merit-based scholarship for academic excellence in Computer Science"
+      description: "Organized and led NASA Space Apps Challenge events, fostering innovation in space technology"
     }
   ];
 
@@ -258,7 +258,7 @@ export default function Home() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap');
         
-        /* Miles Morales Color Palette */
+        /* Minimal Miles Morales Color Palette */
         :root {
           --miles-black: #000000;
           --miles-red: #FF0040;
@@ -295,21 +295,20 @@ export default function Home() {
           right: 0;
           bottom: 0;
           background: 
-            radial-gradient(circle at 20% 80%, var(--miles-red) 0%, transparent 40%),
-            radial-gradient(circle at 80% 20%, var(--miles-blue) 0%, transparent 40%),
-            radial-gradient(circle at 40% 40%, var(--miles-purple) 0%, transparent 30%);
-          opacity: 0.15;
+            radial-gradient(circle at 20% 80%, var(--miles-red) 0%, transparent 30%),
+            radial-gradient(circle at 80% 20%, var(--miles-blue) 0%, transparent 30%),
+            radial-gradient(circle at 40% 40%, var(--miles-purple) 0%, transparent 25%);
+          opacity: 0.08;
           pointer-events: none;
         }
         
         .halftone-bg {
           background: 
             radial-gradient(circle, var(--miles-red) 1px, transparent 1px),
-            radial-gradient(circle, var(--miles-blue) 1px, transparent 1px),
-            radial-gradient(circle, var(--miles-purple) 1px, transparent 1px);
-          background-size: 20px 20px, 30px 30px, 25px 25px;
-          background-position: 0 0, 10px 10px, 5px 15px;
-          opacity: 0.08;
+            radial-gradient(circle, var(--miles-blue) 1px, transparent 1px);
+          background-size: 30px 30px, 40px 40px;
+          background-position: 0 0, 15px 15px;
+          opacity: 0.05;
           position: absolute;
           top: 0;
           left: 0;
@@ -330,21 +329,19 @@ export default function Home() {
         .neon-red {
           color: var(--miles-red);
           text-shadow: 
-            0 0 5px var(--miles-red),
-            0 0 10px var(--miles-red),
-            0 0 20px var(--miles-red),
-            0 0 40px var(--miles-red);
+            0 0 3px var(--miles-red),
+            0 0 6px var(--miles-red),
+            0 0 12px var(--miles-red);
           font-family: 'Bangers', cursive;
-          letter-spacing: 3px;
+          letter-spacing: 2px;
         }
         
         .neon-blue {
           color: var(--miles-blue);
           text-shadow: 
-            0 0 5px var(--miles-blue),
-            0 0 10px var(--miles-blue),
-            0 0 20px var(--miles-blue),
-            0 0 40px var(--miles-blue);
+            0 0 3px var(--miles-blue),
+            0 0 6px var(--miles-blue),
+            0 0 12px var(--miles-blue);
           font-family: 'Bangers', cursive;
           letter-spacing: 2px;
         }
@@ -352,10 +349,9 @@ export default function Home() {
         .neon-purple {
           color: var(--miles-purple);
           text-shadow: 
-            0 0 5px var(--miles-purple),
-            0 0 10px var(--miles-purple),
-            0 0 20px var(--miles-purple),
-            0 0 40px var(--miles-purple);
+            0 0 3px var(--miles-purple),
+            0 0 6px var(--miles-purple),
+            0 0 12px var(--miles-purple);
           font-family: 'Bangers', cursive;
           letter-spacing: 2px;
         }
@@ -698,7 +694,7 @@ export default function Home() {
             </div>
             
             <h1 className="hero-title mb-6 comic-zoom" style={{ fontSize: '5rem', fontWeight: 900 }}>
-              ALEX CHEN
+              SHASHANK JAGANNATHAM
             </h1>
             
             <div className="glitch neon-red mb-8" data-text="WEB-SLINGER DEVELOPER" style={{ fontSize: '2rem', fontWeight: 700 }}>
@@ -1179,7 +1175,7 @@ export default function Home() {
             >
               <Button className="comic-font bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 border-2 border-white text-white py-4 px-8" style={{ fontSize: '1.3rem' }}>
                 <Mail className="h-5 w-5 mr-3" />
-                alex.chen@email.com
+                jagannathamshashank@gmail.com
               </Button>
             </motion.div>
             
@@ -1189,7 +1185,7 @@ export default function Home() {
             >
               <Button variant="outline" className="comic-font border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black py-4 px-8" style={{ fontSize: '1.3rem' }}>
                 <Github className="h-5 w-5 mr-3" />
-                GitHub Portal
+                github.com/shashanka2a
               </Button>
             </motion.div>
             
@@ -1199,7 +1195,7 @@ export default function Home() {
             >
               <Button variant="outline" className="comic-font border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black py-4 px-8" style={{ fontSize: '1.3rem' }}>
                 <Linkedin className="h-5 w-5 mr-3" />
-                LinkedIn Web
+                linkedin.com/in/shashank-jagannatham
               </Button>
             </motion.div>
           </motion.div>
@@ -1214,7 +1210,7 @@ export default function Home() {
             <div className="flex items-center justify-center text-white">
               <MapPin className="h-6 w-6 mr-3 text-red-400" />
               <span className="comic-text neon-blue" style={{ fontSize: '1.2rem' }}>
-                San Francisco, CA - Earth-616
+                Gainesville, FL - Earth-616
               </span>
             </div>
           </motion.div>
