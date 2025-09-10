@@ -409,16 +409,57 @@ export default function Home() {
         }
         
         .comic-panel {
-          background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(75, 0, 130, 0.3) 100%);
-          border: 4px solid;
-          border-image: linear-gradient(45deg, var(--miles-red), var(--miles-blue), var(--miles-purple), var(--miles-red)) 1;
-          border-radius: 20px;
+          background: rgba(0, 0, 0, 0.95);
+          border: 2px solid var(--miles-red);
+          border-radius: 15px;
           position: relative;
           overflow: hidden;
           box-shadow: 
-            0 0 30px rgba(255, 0, 64, 0.4),
-            inset 0 0 30px rgba(0, 191, 255, 0.1);
+            0 0 20px rgba(255, 0, 64, 0.3),
+            inset 0 0 20px rgba(0, 191, 255, 0.05);
           transform-style: preserve-3d;
+          transition: all 0.3s ease;
+        }
+        
+        .comic-panel:hover {
+          border-color: var(--miles-blue);
+          box-shadow: 
+            0 0 30px rgba(0, 191, 255, 0.5),
+            inset 0 0 30px rgba(255, 0, 64, 0.1);
+          transform: translateY(-5px) rotateX(5deg);
+        }
+        
+        .project-card {
+          background: rgba(0, 0, 0, 0.9);
+          border: 2px solid var(--miles-purple);
+          border-radius: 15px;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 0 15px rgba(139, 0, 255, 0.2);
+        }
+        
+        .project-card:hover {
+          border-color: var(--miles-red);
+          box-shadow: 
+            0 0 25px rgba(255, 0, 64, 0.4),
+            0 0 50px rgba(0, 191, 255, 0.2);
+          transform: translateY(-8px) rotateY(5deg);
+        }
+        
+        .project-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 0, 64, 0.1), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        .project-card:hover::before {
+          left: 100%;
         }
         
         .comic-panel::before {
@@ -457,7 +498,14 @@ export default function Home() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          filter: drop-shadow(0 0 15px rgba(255, 0, 64, 0.8));
+          filter: 
+            drop-shadow(0 0 10px rgba(255, 0, 64, 0.8))
+            drop-shadow(0 0 20px rgba(0, 191, 255, 0.6))
+            drop-shadow(0 0 30px rgba(139, 0, 255, 0.4));
+          text-shadow: 
+            2px 2px 0px var(--miles-red),
+            -2px -2px 0px var(--miles-blue),
+            2px -2px 0px var(--miles-purple);
         }
         
         @keyframes miles-gradient {
@@ -543,6 +591,46 @@ export default function Home() {
           color: #000;
           font-family: 'Comic Neue', cursive;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .comic-word-balloon {
+          position: relative;
+          background: rgba(0, 0, 0, 0.9);
+          border: 3px solid var(--miles-red);
+          border-radius: 25px;
+          padding: 15px 25px;
+          color: var(--miles-red);
+          font-family: 'Bangers', cursive;
+          font-size: 2rem;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          box-shadow: 
+            0 0 20px rgba(255, 0, 64, 0.4),
+            inset 0 0 20px rgba(0, 191, 255, 0.1);
+          display: inline-block;
+          margin: 20px 0;
+        }
+        
+        .comic-word-balloon::before {
+          content: '';
+          position: absolute;
+          bottom: -15px;
+          left: 30px;
+          width: 0;
+          height: 0;
+          border: 15px solid transparent;
+          border-top-color: var(--miles-red);
+        }
+        
+        .comic-word-balloon::after {
+          content: '';
+          position: absolute;
+          bottom: -12px;
+          left: 33px;
+          width: 0;
+          height: 0;
+          border: 12px solid transparent;
+          border-top-color: rgba(0, 0, 0, 0.9);
         }
         
         .speech-bubble::after {
@@ -666,6 +754,188 @@ export default function Home() {
         .comic-zoom {
           animation: comic-zoom 4s ease-in-out infinite;
         }
+        
+        .comic-button {
+          position: relative;
+          background: linear-gradient(135deg, var(--miles-red), var(--miles-blue));
+          border: 3px solid var(--miles-red);
+          border-radius: 15px;
+          padding: 12px 24px;
+          font-family: 'Bangers', cursive;
+          font-size: 1.2rem;
+          letter-spacing: 2px;
+          color: white;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 
+            0 0 20px rgba(255, 0, 64, 0.4),
+            inset 0 0 20px rgba(0, 191, 255, 0.1);
+        }
+        
+        .comic-button:hover {
+          transform: scale(1.1) rotate(-2deg);
+          box-shadow: 
+            0 0 30px rgba(255, 0, 64, 0.8),
+            inset 0 0 30px rgba(0, 191, 255, 0.2);
+          border-color: var(--miles-blue);
+        }
+        
+        .comic-button::before {
+          content: 'POW!';
+          position: absolute;
+          top: -15px;
+          right: -15px;
+          background: var(--miles-red);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 50%;
+          font-size: 0.8rem;
+          opacity: 0;
+          transform: scale(0);
+          transition: all 0.3s ease;
+        }
+        
+        .comic-button:hover::before {
+          opacity: 1;
+          transform: scale(1);
+        }
+        
+        .comic-button-outline {
+          background: transparent;
+          border: 3px solid var(--miles-blue);
+          color: var(--miles-blue);
+        }
+        
+        .comic-button-outline:hover {
+          background: var(--miles-blue);
+          color: black;
+          border-color: var(--miles-red);
+        }
+        
+        @keyframes swing-easter-egg {
+          0% { 
+            transform: translateX(-100px) translateY(0px) rotate(-10deg); 
+            opacity: 0;
+          }
+          20% { 
+            opacity: 1;
+          }
+          50% { 
+            transform: translateX(50vw) translateY(-50px) rotate(10deg); 
+          }
+          100% { 
+            transform: translateX(100vw) translateY(0px) rotate(-10deg); 
+            opacity: 0;
+          }
+        }
+        
+        .trading-card {
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
+          border: 3px solid var(--miles-red);
+          border-radius: 20px;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 
+            0 0 20px rgba(255, 0, 64, 0.3),
+            inset 0 0 20px rgba(0, 191, 255, 0.05);
+        }
+        
+        .trading-card:hover {
+          border-color: var(--miles-blue);
+          box-shadow: 
+            0 0 30px rgba(0, 191, 255, 0.5),
+            0 0 60px rgba(255, 0, 64, 0.3);
+          transform: translateY(-10px) rotateY(5deg);
+        }
+        
+        .trading-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--miles-red), var(--miles-blue), var(--miles-purple));
+        }
+        
+        .trading-card-badge {
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          width: 40px;
+          height: 40px;
+          background: linear-gradient(135deg, var(--miles-red), var(--miles-blue));
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 3px solid white;
+          box-shadow: 0 0 15px rgba(255, 0, 64, 0.6);
+        }
+        
+        .trading-card-badge::before {
+          content: '🏆';
+          font-size: 1.2rem;
+        }
+        
+        .comic-end-panel {
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
+          border: 4px solid var(--miles-red);
+          border-radius: 25px;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 
+            0 0 30px rgba(255, 0, 64, 0.5),
+            inset 0 0 30px rgba(0, 191, 255, 0.1);
+          background-image: 
+            radial-gradient(circle at 25% 25%, rgba(255, 0, 64, 0.05) 1px, transparent 1px),
+            radial-gradient(circle at 75% 75%, rgba(0, 191, 255, 0.05) 1px, transparent 1px);
+          background-size: 20px 20px, 30px 30px;
+        }
+        
+        .comic-end-panel::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(45deg, transparent 48%, rgba(255, 0, 64, 0.1) 49%, rgba(255, 0, 64, 0.1) 51%, transparent 52%);
+          background-size: 20px 20px;
+          opacity: 0.3;
+        }
+        
+        .neon-social-icon {
+          position: relative;
+          padding: 12px 20px;
+          border: 2px solid var(--miles-blue);
+          border-radius: 15px;
+          background: rgba(0, 0, 0, 0.8);
+          color: var(--miles-blue);
+          font-family: 'Bangers', cursive;
+          font-size: 1.1rem;
+          letter-spacing: 1px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+        }
+        
+        .neon-social-icon:hover {
+          border-color: var(--miles-red);
+          color: var(--miles-red);
+          box-shadow: 
+            0 0 25px rgba(255, 0, 64, 0.5),
+            0 0 50px rgba(0, 191, 255, 0.3);
+          transform: translateY(-3px) scale(1.05);
+        }
+        
+        .neon-social-icon.github:hover {
+          border-color: var(--miles-purple);
+          color: var(--miles-purple);
+          box-shadow: 0 0 25px rgba(139, 0, 255, 0.5);
+        }
       `}</style>
 
       {/* Hero Section */}
@@ -693,7 +963,23 @@ export default function Home() {
               </p>
             </div>
             
-            <h1 className="hero-title mb-6 comic-zoom" style={{ fontSize: '5rem', fontWeight: 900 }}>
+            <h1 
+              className="hero-title mb-6 comic-zoom" 
+              style={{ fontSize: '5rem', fontWeight: 900 }}
+              onMouseEnter={() => {
+                // Add swinging spider-man easter egg
+                const spider = document.createElement('div');
+                spider.className = 'spider-swing-easter-egg';
+                spider.innerHTML = '<div class="spider-silhouette"></div>';
+                spider.style.position = 'fixed';
+                spider.style.top = '20%';
+                spider.style.left = '-100px';
+                spider.style.zIndex = '9999';
+                spider.style.animation = 'swing-easter-egg 3s ease-in-out';
+                document.body.appendChild(spider);
+                setTimeout(() => spider.remove(), 3000);
+              }}
+            >
               SHASHANK JAGANNATHAM
             </h1>
             
@@ -719,13 +1005,13 @@ export default function Home() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="flex gap-6 justify-center flex-wrap"
             >
-              <Button className="comic-font bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 border-none text-white py-4 px-8" style={{ fontSize: '1.2rem' }}>
+              <button className="comic-button">
                 VIEW PROJECTS
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button variant="outline" className="comic-font border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black py-4 px-8" style={{ fontSize: '1.2rem' }}>
+                <ArrowRight className="ml-2 h-5 w-5 inline" />
+              </button>
+              <button className="comic-button comic-button-outline">
                 THWIP ME!
-              </Button>
+              </button>
             </motion.div>
           </motion.div>
         </div>
@@ -759,10 +1045,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="comic-panel inline-block p-6 mb-8">
-              <h2 className="neon-red comic-font" style={{ fontSize: '4rem', fontWeight: 900 }}>
-                STUDENT ADVENTURES!
-              </h2>
+            <div className="comic-word-balloon">
+              STUDENT ADVENTURES!
             </div>
             <p className="comic-text text-blue-400 max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
               My origin story begins here - the projects that gave me my web-slinging powers!
@@ -782,7 +1066,7 @@ export default function Home() {
                   rotateY: 5,
                   boxShadow: "0 25px 50px rgba(255, 0, 150, 0.3)"
                 }}
-                className="comic-panel comic-zoom"
+                className="project-card comic-zoom"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <Card className="bg-transparent border-none h-full overflow-hidden">
@@ -845,10 +1129,8 @@ export default function Home() {
                 "From friendly neighborhood projects to universe-saving startups!"
               </p>
             </div>
-            <div className="comic-panel inline-block p-6">
-              <h2 className="neon-blue comic-font" style={{ fontSize: '4rem', fontWeight: 900 }}>
-                STARTUP UNIVERSE!
-              </h2>
+            <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-blue)', color: 'var(--miles-blue)' }}>
+              STARTUP UNIVERSE!
             </div>
           </motion.div>
           
@@ -865,7 +1147,7 @@ export default function Home() {
                   rotateX: 2,
                   boxShadow: "0 30px 60px rgba(0, 255, 255, 0.3)"
                 }}
-                className="comic-panel"
+                className="project-card"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <Card className="bg-transparent border-none h-full overflow-hidden">
@@ -928,10 +1210,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="comic-panel inline-block p-6 mb-8">
-              <h2 className="neon-purple comic-font" style={{ fontSize: '4rem', fontWeight: 900 }}>
-                ORIGIN STORY!
-              </h2>
+            <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-purple)', color: 'var(--miles-purple)' }}>
+              ORIGIN STORY!
             </div>
             <p className="comic-text text-red-400 max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
               Every hero has a beginning. Here's how I got bit by the coding spider!
@@ -939,8 +1219,12 @@ export default function Home() {
           </motion.div>
           
           <div className="relative max-w-5xl mx-auto">
-            {/* Enhanced Timeline Web */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-full bg-gradient-to-b from-pink-500 via-cyan-400 to-yellow-400 rounded-full"></div>
+            {/* Spider-Verse Portal Timeline */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-full">
+              <div className="w-full h-full bg-gradient-to-b from-red-500 via-blue-500 to-red-500 rounded-full opacity-80"></div>
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-blue-500 via-red-500 to-blue-500 rounded-full opacity-60 animate-pulse"></div>
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-red-500 via-blue-500 to-red-500 rounded-full opacity-40 animate-ping"></div>
+            </div>
             
             {timeline.map((item, index) => (
               <motion.div
@@ -968,7 +1252,7 @@ export default function Home() {
                     whileHover={{ 
                       scale: 1.05,
                       rotateY: index % 2 === 0 ? 5 : -5,
-                      boxShadow: "0 20px 40px rgba(255, 255, 0, 0.3)"
+                      boxShadow: "0 20px 40px rgba(255, 0, 64, 0.4)"
                     }}
                     style={{ transformStyle: 'preserve-3d' }}
                   >
@@ -993,19 +1277,22 @@ export default function Home() {
                   </motion.div>
                 </div>
                 
-                {/* Enhanced Timeline Spider Web Node */}
+                {/* XP Badge Timeline Node */}
                 <motion.div 
                   className="absolute left-1/2 transform -translate-x-1/2 z-10"
                   whileHover={{ scale: 1.3, rotate: 180 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-blue-400 rounded-full border-4 border-white shadow-lg">
-                    <div className="w-full h-full bg-purple-400 rounded-full animate-pulse"></div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-blue-400 rounded-full border-3 border-white shadow-lg flex items-center justify-center">
+                    <div className="w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                      <span className="text-black font-bold text-xs">XP</span>
+                    </div>
                   </div>
-                  {/* Web strands */}
-                  <div className="absolute inset-0 w-16 h-16 -translate-x-4 -translate-y-4">
-                    <div className="absolute inset-0 border-2 border-blue-400/30 rounded-full animate-ping"></div>
-                    <div className="absolute inset-2 border border-red-400/20 rounded-full animate-pulse"></div>
+                  {/* Portal strands */}
+                  <div className="absolute inset-0 w-20 h-20 -translate-x-5 -translate-y-5">
+                    <div className="absolute inset-0 border-2 border-red-400/40 rounded-full animate-ping"></div>
+                    <div className="absolute inset-2 border border-blue-400/30 rounded-full animate-pulse"></div>
+                    <div className="absolute inset-4 border border-purple-400/20 rounded-full animate-bounce"></div>
                   </div>
                 </motion.div>
               </motion.div>
@@ -1037,10 +1324,26 @@ export default function Home() {
                 "Every spider needs its web of accomplishments!"
               </p>
             </div>
-            <div className="comic-panel inline-block p-6">
-              <h2 className="neon-red comic-font" style={{ fontSize: '4rem', fontWeight: 900 }}>
-                TROPHY ROOM!
-              </h2>
+            <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-red)', color: 'var(--miles-red)' }}>
+              TROPHY ROOM!
+            </div>
+            
+            {/* XP Progress Bar for Achievements */}
+            <div className="mt-8 mb-12">
+              <div className="comic-panel inline-block p-4">
+                <div className="flex items-center space-x-4 mb-3">
+                  <Trophy className="h-6 w-6 text-yellow-400" />
+                  <span className="comic-font text-white">ACHIEVEMENT PROGRESS</span>
+                  <span className="comic-text text-gray-300">4/4 COMPLETED</span>
+                </div>
+                <div className="w-64 h-3 bg-gray-700 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-full transition-all duration-1000" style={{ width: '100%' }}></div>
+                </div>
+                <div className="flex justify-between mt-2">
+                  <span className="comic-text text-xs text-gray-400">Hackathon Master</span>
+                  <span className="comic-text text-xs text-yellow-400">100%</span>
+                </div>
+              </div>
             </div>
           </motion.div>
           
@@ -1070,11 +1373,12 @@ export default function Home() {
                 whileHover={{ 
                   scale: 1.05,
                   rotateY: 5,
-                  boxShadow: "0 25px 50px rgba(255, 255, 0, 0.4)"
+                  boxShadow: "0 25px 50px rgba(255, 0, 64, 0.4)"
                 }}
-                className="comic-panel p-8 comic-zoom"
+                className="trading-card p-8 comic-zoom"
                 style={{ transformStyle: 'preserve-3d' }}
               >
+                <div className="trading-card-badge"></div>
                 <div className="flex items-start space-x-6">
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.2 }}
@@ -1145,7 +1449,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="comic-panel inline-block p-8 mb-12">
+            <div className="comic-end-panel inline-block p-8 mb-12">
               <h2 className="neon-red comic-font" style={{ fontSize: '4.5rem', fontWeight: 900 }}>
                 ASSEMBLE!
               </h2>
@@ -1173,30 +1477,30 @@ export default function Home() {
               whileHover={{ scale: 1.1, rotateY: 10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button className="comic-font bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 border-2 border-white text-white py-4 px-8" style={{ fontSize: '1.3rem' }}>
-                <Mail className="h-5 w-5 mr-3" />
+              <a href="mailto:jagannathamshashank@gmail.com" className="neon-social-icon">
+                <Mail className="h-5 w-5 mr-3 inline" />
                 jagannathamshashank@gmail.com
-              </Button>
+              </a>
             </motion.div>
             
             <motion.div
               whileHover={{ scale: 1.1, rotateY: -10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="outline" className="comic-font border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black py-4 px-8" style={{ fontSize: '1.3rem' }}>
-                <Github className="h-5 w-5 mr-3" />
+              <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="neon-social-icon github">
+                <Github className="h-5 w-5 mr-3 inline" />
                 github.com/shashanka2a
-              </Button>
+              </a>
             </motion.div>
             
             <motion.div
               whileHover={{ scale: 1.1, rotateY: 10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="outline" className="comic-font border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black py-4 px-8" style={{ fontSize: '1.3rem' }}>
-                <Linkedin className="h-5 w-5 mr-3" />
+              <a href="https://linkedin.com/in/shashank-jagannatham" target="_blank" rel="noopener noreferrer" className="neon-social-icon">
+                <Linkedin className="h-5 w-5 mr-3 inline" />
                 linkedin.com/in/shashank-jagannatham
-              </Button>
+              </a>
             </motion.div>
           </motion.div>
           
