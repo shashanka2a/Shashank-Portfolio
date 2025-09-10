@@ -88,7 +88,7 @@ export default function Home() {
     },
     {
       title: "HackHire",
-      description: "Stop hiring from resumes. Start hiring from code with hands-on coding challenges and data-driven decisions",
+      description: "Stop hiring from resumes. Start hiring from code with coding challenges and data-driven decisions",
       impact: "10K+ challenges, 500+ companies, 99% accuracy",
       tech: ["Next.js", "Node.js", "PostgreSQL"],
       image: projectImages[5],
@@ -144,12 +144,12 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* XP Bar */}
       <div className="xp-bar">
-        <div className="flex items-center space-x-3 mb-2">
-          <Code className="h-5 w-5 text-blue-400" />
-          <span className="comic-font text-primary">LEVEL {Math.floor(totalXP / 200) + 1}</span>
-          <span className="comic-text text-sm text-secondary">{totalXP} XP</span>
+        <div className="flex items-center space-x-2 md:space-x-3 mb-2">
+          <Code className="h-4 w-4 md:h-5 md:w-5 text-blue-400" />
+          <span className="comic-font text-primary text-sm md:text-base">LEVEL {Math.floor(totalXP / 200) + 1}</span>
+          <span className="comic-text text-xs md:text-sm text-secondary">{totalXP} XP</span>
         </div>
-        <div className="w-48 h-2 bg-gray-700 rounded-full overflow-hidden">
+        <div className="w-32 md:w-48 h-2 bg-gray-700 rounded-full overflow-hidden">
           <div 
             className="xp-progress h-full transition-all duration-500"
             style={{ width: `${scrollProgress}%` }}
@@ -189,13 +189,13 @@ export default function Home() {
             
             <h1 
               className="hero-title mb-6 comic-zoom" 
-              style={{ fontSize: '5rem', fontWeight: 900 }}
+              style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 900 }}
               data-text="SHASHANK JAGANNATHAM"
             >
               SHASHANK JAGANNATHAM
             </h1>
             
-            <div className="glitch neon-red mb-8" data-text="WEB-SLINGER DEVELOPER" style={{ fontSize: '2rem', fontWeight: 700 }}>
+            <div className="glitch neon-red mb-8" data-text="WEB-SLINGER DEVELOPER" style={{ fontSize: 'clamp(1.2rem, 4vw, 2rem)', fontWeight: 700 }}>
               WEB-SLINGER DEVELOPER
             </div>
             
@@ -205,7 +205,7 @@ export default function Home() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="comic-panel max-w-3xl mx-auto mb-8 p-8"
             >
-              <p className="comic-text text-readable" style={{ fontSize: '1.3rem', lineHeight: '1.6' }}>
+              <p className="comic-text text-readable px-4 md:px-0" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: '1.6' }}>
                 Swinging through the multiverse of modern web development! From React dimensions to Node.js realms, 
                 I craft digital experiences that would make even Spider-Man jealous of my web-slinging skills.
               </p>
@@ -581,24 +581,24 @@ export default function Home() {
             transition={{ duration: 1.5, type: "spring", bounce: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="speech-bubble mb-12 inline-block max-w-3xl">
-              <p className="comic-text" style={{ fontSize: '1.4rem' }}>
+            <div className="speech-bubble mb-8 md:mb-12 inline-block max-w-3xl mx-4">
+              <p className="comic-text px-4" style={{ fontSize: 'clamp(1rem, 3vw, 1.4rem)' }}>
                 "Your friendly neighborhood developer is just a message away! Let's team up and save the digital world together!"
               </p>
             </div>
             
-            <div className="comic-end-panel inline-block p-8 mb-12">
-              <h2 className="neon-red comic-font" style={{ fontSize: '4.5rem', fontWeight: 900 }}>
+            <div className="comic-end-panel inline-block p-4 md:p-8 mb-8 md:mb-12">
+              <h2 className="neon-red comic-font" style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', fontWeight: 900 }}>
                 ASSEMBLE!
               </h2>
             </div>
             
             <motion.p 
-              className="text-blue-400 comic-text mb-16 max-w-3xl mx-auto"
+              className="text-blue-400 comic-text mb-12 md:mb-16 max-w-3xl mx-auto px-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              style={{ fontSize: '1.4rem', lineHeight: '1.6' }}
+              style={{ fontSize: 'clamp(1rem, 3vw, 1.4rem)', lineHeight: '1.6' }}
             >
               Ready to swing into action? Whether you need a hero for your next project or just want to chat about the multiverse of possibilities, I'm here to help!
             </motion.p>
@@ -609,15 +609,16 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-8 mb-12"
+            className="flex flex-col md:flex-row flex-wrap justify-center gap-4 md:gap-8 mb-12 px-4"
           >
             <motion.div
               whileHover={{ scale: 1.1, rotateY: 10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href="mailto:jagannathamshashank@gmail.com" className="neon-social-icon">
-                <Mail className="h-5 w-5 mr-3 inline" />
-                jagannathamshashank@gmail.com
+              <a href="mailto:jagannathamshashank@gmail.com" className="neon-social-icon text-sm md:text-base">
+                <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline" />
+                <span className="hidden sm:inline">jagannathamshashank@gmail.com</span>
+                <span className="sm:hidden">Email</span>
               </a>
             </motion.div>
             
@@ -625,9 +626,10 @@ export default function Home() {
               whileHover={{ scale: 1.1, rotateY: -10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="neon-social-icon github">
-                <Github className="h-5 w-5 mr-3 inline" />
-                github.com/shashanka2a
+              <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="neon-social-icon github text-sm md:text-base">
+                <Github className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline" />
+                <span className="hidden sm:inline">github.com/shashanka2a</span>
+                <span className="sm:hidden">GitHub</span>
               </a>
             </motion.div>
             
@@ -635,9 +637,10 @@ export default function Home() {
               whileHover={{ scale: 1.1, rotateY: 10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href="https://linkedin.com/in/shashank-jagannatham" target="_blank" rel="noopener noreferrer" className="neon-social-icon">
-                <Linkedin className="h-5 w-5 mr-3 inline" />
-                linkedin.com/in/shashank-jagannatham
+              <a href="https://linkedin.com/in/shashank-jagannatham" target="_blank" rel="noopener noreferrer" className="neon-social-icon text-sm md:text-base">
+                <Linkedin className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline" />
+                <span className="hidden sm:inline">linkedin.com/in/shashank-jagannatham</span>
+                <span className="sm:hidden">LinkedIn</span>
               </a>
             </motion.div>
           </motion.div>
