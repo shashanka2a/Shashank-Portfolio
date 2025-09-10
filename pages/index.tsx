@@ -387,14 +387,14 @@ export default function Home() {
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-purple)', color: 'var(--miles-purple)' }}>
               ORIGIN STORY!
             </div>
-            <p className="comic-text text-emphasis max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
+            <p className="comic-text text-emphasis max-w-2xl mx-auto px-4" style={{ fontSize: '1.2rem' }}>
               Every hero has a beginning. Here's how I got bit by the coding spider!
             </p>
           </motion.div>
           
-          <div className="relative max-w-5xl mx-auto">
+          <div className="relative max-w-5xl mx-auto px-4 md:px-0">
             {/* Spider-Verse Portal Timeline */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-full">
+            <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-2 md:w-3 h-full">
               <div className="w-full h-full bg-gradient-to-b from-red-500 via-blue-500 to-red-500 rounded-full opacity-80"></div>
               <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-blue-500 via-red-500 to-blue-500 rounded-full opacity-60 animate-pulse"></div>
               <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-red-500 via-blue-500 to-red-500 rounded-full opacity-40 animate-ping"></div>
@@ -416,13 +416,13 @@ export default function Home() {
                   bounce: 0.3
                 }}
                 viewport={{ once: true }}
-                className={`relative flex items-center mb-16 ${
+                className={`relative flex items-center mb-8 md:mb-16 ${
                   index % 2 === 0 ? 'justify-start' : 'justify-end'
                 }`}
               >
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ml-8 md:ml-0`}>
                   <motion.div 
-                    className="comic-panel p-8 comic-zoom"
+                    className="comic-panel p-4 md:p-8 comic-zoom"
                     whileHover={{ 
                       scale: 1.05,
                       rotateY: index % 2 === 0 ? 5 : -5,
@@ -430,17 +430,17 @@ export default function Home() {
                     }}
                     style={{ transformStyle: 'preserve-3d' }}
                   >
-                    <div className="flex items-center mb-4">
-                      <Calendar className="h-6 w-6 text-accent mr-3" />
-                      <span className="comic-font text-emphasis" style={{ fontSize: '1.5rem' }}>{item.year}</span>
+                    <div className="flex items-center mb-3 md:mb-4">
+                      <Calendar className="h-5 w-5 md:h-6 md:w-6 text-accent mr-2 md:mr-3" />
+                      <span className="comic-font text-emphasis" style={{ fontSize: '1.2rem' }}>{item.year}</span>
                     </div>
-                    <h3 className="comic-font text-strong mb-3" style={{ fontSize: '1.6rem' }}>
+                    <h3 className="comic-font text-strong mb-2 md:mb-3" style={{ fontSize: '1.3rem' }}>
                       {item.title.toUpperCase()}
                     </h3>
-                    <p className="comic-text text-highlight mb-3" style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>
+                    <p className="comic-text text-highlight mb-2 md:mb-3" style={{ fontSize: '1rem', fontWeight: 'bold' }}>
                       {item.company}
                     </p>
-                    <p className="text-secondary comic-text" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+                    <p className="text-secondary comic-text" style={{ fontSize: '0.9rem', lineHeight: '1.5' }}>
                       {item.description}
                     </p>
                     
@@ -449,12 +449,12 @@ export default function Home() {
                 
                 {/* XP Badge Timeline Node */}
                 <motion.div 
-                  className="absolute left-1/2 transform -translate-x-1/2 z-10"
+                  className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 z-10"
                   whileHover={{ scale: 1.3, rotate: 180 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-blue-400 rounded-full border-3 border-white shadow-lg flex items-center justify-center">
-                    <div className="w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-red-500 to-blue-400 rounded-full border-2 md:border-3 border-white shadow-lg flex items-center justify-center">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
                       <span className="text-black font-bold text-xs">XP</span>
                     </div>
                   </div>
