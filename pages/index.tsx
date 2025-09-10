@@ -167,10 +167,17 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section className="spider-verse-bg min-h-screen flex items-center justify-center relative">
-        <div className="halftone-bg"></div>
-        <div className="web-pattern"></div>
+      <section className="hero-nyc-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* NYC Background Image */}
+        <div className="nyc-background"></div>
         
+        {/* Dark Miles Palette Overlay */}
+        <div className="miles-overlay"></div>
+        
+        {/* Parallax Elements */}
+        <div className="parallax-layer parallax-slow"></div>
+        <div className="parallax-layer parallax-medium"></div>
+        <div className="parallax-layer parallax-fast"></div>
         
         <div className="container mx-auto px-6 text-center z-10">
           <motion.div
@@ -323,20 +330,20 @@ export default function Home() {
             </div>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {startupProjects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100, rotateX: -20 }}
-                whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
-                transition={{ duration: 1, delay: index * 0.3, type: "spring" }}
+                initial={{ opacity: 0, y: 100, rotateY: -30 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2, type: "spring" }}
                 viewport={{ once: true }}
                 whileHover={{ 
-                  scale: 1.03,
-                  rotateX: 2,
-                  boxShadow: "0 30px 60px rgba(0, 255, 255, 0.3)"
+                  scale: 1.05, 
+                  rotateY: 5,
+                  boxShadow: "0 25px 50px rgba(255, 0, 150, 0.3)"
                 }}
-                className="project-card"
+                className="project-card comic-zoom"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <Card className="bg-transparent border-none h-full overflow-hidden">
@@ -344,19 +351,19 @@ export default function Home() {
                     <ImageWithFallback
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover transition-all duration-700 hover:scale-110 hover:saturate-150"
+                      className="w-full h-48 object-cover transition-all duration-500 hover:scale-110 hover:hue-rotate-30"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   </div>
-                  <div className="p-8">
-                    <h3 className="comic-font text-strong mb-4" style={{ fontSize: '1.8rem' }}>
+                  <div className="p-6">
+                    <h3 className="comic-font text-strong mb-3" style={{ fontSize: '1.3rem' }}>
                       {project.title.toUpperCase()}
                     </h3>
-                    <p className="text-readable comic-text mb-6" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+                    <p className="text-readable comic-text mb-4" style={{ fontSize: '1rem', lineHeight: '1.5' }}>
                       {project.description}
                     </p>
-                    <Button variant="link" className="comic-font text-red-400 hover:text-red-300 p-0" style={{ fontSize: '1.2rem' }}>
-                      DIMENSION JUMP <ExternalLink className="ml-2 h-5 w-5" />
+                    <Button variant="link" className="comic-font text-blue-400 hover:text-blue-300 p-0 text-lg">
+                      ENTER PROJECT <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
                 </Card>
