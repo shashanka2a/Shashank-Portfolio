@@ -96,50 +96,44 @@ export default function Home() {
 
   const timeline = [
     {
-      year: "2024",
+      year: "May 2025 - Current",
       title: "Startup Builder",
       company: "Independent",
-      description: "Building innovative solutions with FormEase and QRBee, focusing on AI and developer tools"
+      description: "Building innovative solutions with FormEase, QRBee, and HackHire, focusing on AI-powered tools and developer platforms"
     },
     {
-      year: "2023-2024",
-      title: "Graduate Researcher",
+      year: "2023-2025",
+      title: "MS Computer Science",
       company: "University of Florida",
-      description: "Conducted research in computer science with focus on distributed systems and AI applications"
+      description: "Pursuing advanced studies in computer science with focus on distributed systems, AI applications, and startup ecosystem"
     },
     {
-      year: "2023",
-      title: "Software Engineering Intern",
-      company: "Broadridge Financial",
-      description: "Developed financial technology solutions and gained experience in enterprise software development"
-    },
-    {
-      year: "2022-2023",
-      title: "Software Engineer",
-      company: "Infosys",
-      description: "Built scalable web applications and contributed to enterprise-level software solutions"
+      year: "2021-2023",
+      title: "Hackathon Hunter",
+      company: "India",
+      description: "Competed in 15+ hackathons across India, winning multiple awards and building innovative solutions in fintech, AI, and web3"
     }
   ];
 
   const achievements = [
     {
-      title: "StarkNet CC India Winner",
-      year: "2024",
-      description: "1st place at StarkNet Community Call India hackathon with innovative blockchain solution"
-    },
-    {
       title: "Chainlink Hackathon Runner-up",
-      year: "2024",
+      year: "2023",
       description: "2nd place at Chainlink hackathon for building decentralized oracle integration"
     },
     {
+      title: "StarkNet CC India Winner",
+      year: "2022",
+      description: "1st place at StarkNet Community Call India hackathon with innovative blockchain solution"
+    },
+    {
       title: "Lightspeed Hackathon Winner",
-      year: "2024",
+      year: "2022",
       description: "Won Lightspeed hackathon with AI-powered developer productivity tool"
     },
     {
       title: "NASA Space Apps Organizer",
-      year: "2023-2024",
+      year: "2019",
       description: "Organized and led NASA Space Apps Challenge events, fostering innovation in space technology"
     }
   ];
@@ -221,13 +215,13 @@ export default function Home() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="flex gap-6 justify-center flex-wrap"
             >
-              <button className="comic-button">
+              <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="comic-button">
                 VIEW PROJECTS
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
-              </button>
-              <button className="comic-button comic-button-outline">
+              </a>
+              <a href="mailto:jagannathamshashank@gmail.com" className="comic-button comic-button-outline">
                 THWIP ME!
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
@@ -502,24 +496,6 @@ export default function Home() {
             </div>
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-red)', color: 'var(--miles-red)' }}>
               TROPHY ROOM!
-            </div>
-            
-            {/* XP Progress Bar for Achievements */}
-            <div className="mt-8 mb-12">
-              <div className="comic-panel inline-block p-4">
-                <div className="flex items-center space-x-4 mb-3">
-                  <Award className="h-6 w-6 text-yellow-400" />
-                  <span className="comic-font text-white">ACHIEVEMENT PROGRESS</span>
-                  <span className="comic-text text-gray-300">4/4 COMPLETED</span>
-                </div>
-                <div className="w-64 h-3 bg-gray-700 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-full transition-all duration-1000" style={{ width: '100%' }}></div>
-                </div>
-                <div className="flex justify-between mt-2">
-                  <span className="comic-text text-xs text-gray-400">Hackathon Master</span>
-                  <span className="comic-text text-xs text-yellow-400">100%</span>
-                </div>
-              </div>
             </div>
           </motion.div>
           
