@@ -37,60 +37,62 @@ export default function Home() {
   const totalXP = Math.floor(scrollProgress * 5); // Simple XP based on scroll progress
 
   const projectImages = [
-    "https://images.unsplash.com/photo-1642132652803-01f9738d0446?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBhcHBsaWNhdGlvbnxlbnwxfHx8fDE3NTc0NzExNTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    "https://images.unsplash.com/photo-1658953229625-aad99d7603b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU3NDY5OTM4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwdmlzdWFsaXphdGlvbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NTc0NDE1NzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    "https://images.unsplash.com/photo-1628017974725-18928e8e8211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFydHVwJTIwdGVjaCUyMG9mZmljZXxlbnwxfHx8fDE3NTc1MjMwMzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+    "/images/projects/gatorex.png", // GatorEx - UF marketplace
+    "/images/projects/rydify.png", // Rydify - campus ride-sharing
+    "/images/projects/vybr.png", // Vybr - student community platform
+    "/images/projects/formease.png", // FormEase - AI form builder
+    "/images/projects/qrbee.png", // QRBee - QR code generator
+    "/images/projects/hackhire.png" // HackHire - coding challenges
   ];
 
   const studentProjects = [
     {
       title: "GatorEx",
-      description: "University marketplace platform connecting students for buying, selling, and trading campus essentials",
+      description: "UF-exclusive marketplace for students to buy, sell, and trade furniture, textbooks, electronics, and sublets",
       tech: ["React", "Node.js", "MongoDB"],
       image: projectImages[0],
-      link: "#"
+      link: "https://www.gatorex.shop/"
     },
     {
       title: "Rydify",
-      description: "Campus ride-sharing app with real-time tracking and safety features for student transportation",
+      description: "Campus ride-sharing app that's 50% cheaper than Uber with verified students and secure tracking",
       tech: ["React Native", "Firebase", "Google Maps API"],
       image: projectImages[1],
-      link: "#"
+      link: "https://www.rydify.co/"
     },
     {
       title: "Vybr",
-      description: "Apartment discovery platform with integrated event management for student housing and social connections",
+      description: "College-exclusive LLM-powered roommate matching app with integrated social features",
       tech: ["Vue.js", "Express.js", "PostgreSQL"],
       image: projectImages[2],
-      link: "#"
+      link: "https://www.vybr.club/"
     }
   ];
 
   const startupProjects = [
     {
       title: "FormEase",
-      description: "AI-powered form builder that generates intelligent forms from natural language descriptions",
+      description: "Simple, intuitive, and powerful form builder to streamline data collection with AI assistance",
       impact: "500+ forms created",
       tech: ["Next.js", "OpenAI API", "Supabase"],
       image: projectImages[3],
-      link: "#"
+      link: "https://www.formease.xyz/"
     },
     {
       title: "QRBee",
       description: "Free QR code alternative with advanced analytics and custom branding for businesses",
       impact: "10K+ QR codes generated",
       tech: ["React", "Node.js", "MongoDB"],
-      image: projectImages[0],
-      link: "#"
+      image: projectImages[4],
+      link: "https://qrbee.xyz/"
     },
     {
       title: "HackHire",
-      description: "Hiring platform for startups through hackathons, challenges",
-      impact: "Connecting talent with opportunities",
+      description: "Stop hiring from resumes. Start hiring from code with hands-on coding challenges and data-driven decisions",
+      impact: "10K+ challenges, 500+ companies, 99% accuracy",
       tech: ["Next.js", "Node.js", "PostgreSQL"],
-      image: projectImages[1],
-      link: "https://hackhire.dev/"
+      image: projectImages[5],
+      link: "https://www.hackhire.dev/"
     }
   ];
 
