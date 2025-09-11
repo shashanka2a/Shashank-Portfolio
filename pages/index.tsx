@@ -113,7 +113,7 @@ export default function Home() {
       year: "2023-2025",
       title: "MS Computer Science",
       company: "University of Florida",
-      description: "Pursuing advanced studies in computer science while building real-world projects like GatorEx, Rydify, and Vybr. Applied my hackathon skills to solve campus problems and level up my web-slinging skills!"
+      description: "Pursuing advanced studies in Distributed Systems, Machine Learning, and Software Engineering. Immersed in campus life at UF - from Gator football games to late-night coding sessions in Marston Library. Applied my hackathon skills to solve real campus problems while mastering advanced CS concepts!"
     },
     {
       year: "2024-2025",
@@ -335,7 +335,7 @@ export default function Home() {
           >
             <div className="speech-bubble mb-8 inline-block max-w-2xl">
               <p className="comic-text" style={{ fontSize: '1.2rem' }}>
-                "From friendly neighborhood projects to universe-saving startups!"
+                "From campus problem-solving to money-saving startup solutions!"
               </p>
             </div>
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-blue)', color: 'var(--miles-blue)' }}>
