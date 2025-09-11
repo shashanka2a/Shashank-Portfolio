@@ -446,7 +446,7 @@ export default function Home() {
               >
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ml-8 md:ml-0`}>
                   <motion.div 
-                    className="comic-panel p-4 md:p-8 comic-zoom"
+                    className="comic-panel panel-contrast p-4 md:p-8 comic-zoom"
                     whileHover={{ 
                       scale: 1.05,
                       rotateY: index % 2 === 0 ? 5 : -5,
@@ -609,13 +609,10 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="assemble-container mb-8 md:mb-12">
-              <div className="assemble-background">
-                <h2 className="assemble-text">
-                  ASSEMBLE!
-                </h2>
-                <div className="assemble-overlay"></div>
-              </div>
+            <div className="avengers-callout mb-8 md:mb-12">
+              <span className="callout-badge">TEAM UP</span>
+              <h2 className="callout-text">WEB‑TEAM, ASSEMBLE</h2>
+              <p className="callout-sub">Your friendly neighborhood developer is ready.</p>
             </div>
             
             <motion.p 
@@ -691,123 +688,35 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
       </section>
 
-      {/* Professional ASSEMBLE! Design */}
+      {/* Avengers-style callout (lighter, cleaner) */}
       <style jsx>{`
-        .assemble-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          perspective: 1000px;
+        .avengers-callout {
+          display: grid;
+          place-items: center;
+          gap: 0.5rem;
         }
-        
-        .assemble-background {
-          position: relative;
-          background: linear-gradient(135deg, 
-            rgba(0, 0, 0, 0.95) 0%, 
-            rgba(20, 20, 20, 0.95) 50%,
-            rgba(0, 0, 0, 0.95) 100%);
-          border: 3px solid;
-          border-image: linear-gradient(45deg, #FF0040, #00BFFF, #8B00FF, #FF0040) 1;
-          border-radius: 20px;
-          padding: 2rem 4rem;
-          box-shadow: 
-            0 0 40px rgba(255, 0, 64, 0.4),
-            0 0 80px rgba(0, 191, 255, 0.2),
-            inset 0 0 40px rgba(139, 0, 255, 0.1);
-          transform-style: preserve-3d;
-          animation: assemble-float 3s ease-in-out infinite;
-        }
-        
-        .assemble-text {
+        .callout-badge {
           font-family: 'Bangers', cursive;
-          font-size: clamp(3rem, 10vw, 6rem);
-          font-weight: 900;
           letter-spacing: 0.2em;
-          text-align: center;
-          margin: 0;
-          background: linear-gradient(45deg, 
-            #FF0040 0%, 
-            #FF4080 25%, 
-            #00BFFF 50%, 
-            #8B00FF 75%, 
-            #FF0040 100%);
-          background-size: 300% 300%;
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          text-shadow: 
-            0 0 10px rgba(255, 0, 64, 0.8),
-            0 0 20px rgba(255, 0, 64, 0.6),
-            0 0 40px rgba(255, 0, 64, 0.4);
-          filter: drop-shadow(0 0 15px rgba(255, 0, 64, 0.6));
-          animation: assemble-gradient 4s ease-in-out infinite, assemble-pulse 2s ease-in-out infinite;
-          position: relative;
-          z-index: 2;
+          color: #00BFFF;
+          border: 2px solid #00BFFF;
+          padding: 0.25rem 0.75rem;
+          border-radius: 9999px;
+          text-shadow: 0 2px 6px rgba(0,191,255,0.35);
         }
-        
-        .assemble-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-            radial-gradient(circle at 30% 30%, rgba(255, 0, 64, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 70% 70%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 50% 50%, rgba(139, 0, 255, 0.05) 0%, transparent 50%);
-          border-radius: 20px;
-          animation: assemble-shimmer 3s ease-in-out infinite;
-          z-index: 1;
+        .callout-text {
+          font-family: 'Bangers', cursive;
+          font-size: clamp(1.8rem, 6vw, 3rem);
+          letter-spacing: 0.15em;
+          color: #FF0040;
+          text-shadow:
+            0 0 8px rgba(255,0,64,0.6),
+            2px 2px 4px rgba(0,0,0,0.6);
         }
-        
-        @keyframes assemble-float {
-          0%, 100% { 
-            transform: translateY(0px) rotateX(0deg); 
-          }
-          50% { 
-            transform: translateY(-10px) rotateX(2deg); 
-          }
-        }
-        
-        @keyframes assemble-gradient {
-          0%, 100% { 
-            background-position: 0% 50%; 
-          }
-          50% { 
-            background-position: 100% 50%; 
-          }
-        }
-        
-        @keyframes assemble-pulse {
-          0%, 100% { 
-            transform: scale(1);
-            filter: drop-shadow(0 0 15px rgba(255, 0, 64, 0.6));
-          }
-          50% { 
-            transform: scale(1.02);
-            filter: drop-shadow(0 0 25px rgba(255, 0, 64, 0.8));
-          }
-        }
-        
-        @keyframes assemble-shimmer {
-          0%, 100% { 
-            opacity: 0.3; 
-          }
-          50% { 
-            opacity: 0.6; 
-          }
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-          .assemble-background {
-            padding: 1.5rem 2rem;
-            margin: 0 1rem;
-          }
-          
-          .assemble-text {
-            letter-spacing: 0.1em;
-          }
+        .callout-sub {
+          color: #e5e7eb;
+          opacity: 0.9;
+          text-shadow: 1px 1px 3px rgba(0,0,0,0.85);
         }
       `}</style>
     </div>
