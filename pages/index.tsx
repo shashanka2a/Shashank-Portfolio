@@ -107,7 +107,7 @@ export default function Home() {
       year: "2021-2023",
       title: "Hackathon Champion",
       company: "India",
-      description: "Competed in 15+ hackathons across India, winning multiple awards including Chainlink Runner-up, StarkNet CC India Winner, and Lightspeed Hackathon Winner. Built solutions that would make even Spider-Man jealous!"
+      description: "Competed in 15+ hackathons across India, winning multiple awards including Chainlink Runner-up, StarkNet CC India Winner, and Lightspeed Hackathon Winner."
     },
     {
       year: "2023-2025",
@@ -219,7 +219,7 @@ export default function Home() {
             >
               <p className="comic-text text-readable px-4 md:px-0" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: '1.6' }}>
                 My journey began in 2021 when I got bit by the coding spider at my first hackathon! From hackathon champion to campus problem solver, 
-                I swing through the multiverse of modern web development, crafting digital experiences that would make even Spider-Man jealous!
+                I swing through the multiverse of modern web development, crafting digital experiences that would impress even the Avengers!
               </p>
             </motion.div>
             
