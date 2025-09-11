@@ -438,12 +438,7 @@ html {
 }
 
 .comic-panel {
-  /* Base darkened gradient for better text contrast */
-  background: linear-gradient(135deg,
-    rgba(10, 10, 12, 0.95) 0%,
-    rgba(20, 22, 35, 0.92) 35%,
-    rgba(28, 18, 40, 0.9) 65%,
-    rgba(40, 18, 28, 0.9) 100%);
+  background: var(--bg-card);
   border: 2px solid var(--miles-red);
   border-radius: 15px;
   position: relative;
@@ -520,9 +515,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  /* Soft vignette and subtle dots to lift white text */
-  background:
-    radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0) 100%),
+  background: 
     radial-gradient(circle, rgba(255, 0, 64, 0.05) 1px, transparent 1px),
     radial-gradient(circle, rgba(0, 191, 255, 0.05) 1px, transparent 1px);
   background-size: 15px 15px, 25px 25px;
@@ -531,13 +524,8 @@ html {
 }
 
 /* Stronger contrast variant for timeline cards */
-.panel-contrast {
-  background: linear-gradient(135deg,
-    rgba(12,12,16,0.96) 0%,
-    rgba(22,24,40,0.94) 35%,
-    rgba(30,20,44,0.92) 65%,
-    rgba(44,20,30,0.92) 100%);
-}
+/* panel-contrast was used temporarily; keeping class defined but matching base */
+.panel-contrast { background: var(--bg-card); }
 
 /* Utility to add soft glow to white text placed over gradients */
 .text-contrast-white {

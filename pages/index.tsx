@@ -199,13 +199,20 @@ export default function Home() {
               </p>
             </div>
             
-            <h1 
-              className="hero-title mb-6 comic-zoom" 
-              style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 900 }}
-              data-text="SHASHANK JAGANNATHAM"
-            >
-              SHASHANK JAGANNATHAM
-            </h1>
+            <div className="name-easter relative inline-block group">
+              <h1 
+                className="hero-title mb-6 comic-zoom" 
+                style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 900 }}
+                data-text="SHASHANK JAGANNATHAM"
+              >
+                SHASHANK JAGANNATHAM
+              </h1>
+              {/* Hidden Spider-Man swing easter egg */}
+              <div className="spidey-swing" aria-hidden="true">
+                <div className="spidey-web"></div>
+                <div className="spidey"></div>
+              </div>
+            </div>
             
             <div className="glitch neon-red mb-8" data-text="WEB-SLINGER DEVELOPER" style={{ fontSize: 'clamp(1.2rem, 4vw, 2rem)', fontWeight: 700 }}>
               WEB-SLINGER DEVELOPER
@@ -690,6 +697,51 @@ export default function Home() {
 
       {/* Avengers-style callout (lighter, cleaner) */}
       <style jsx>{`
+        /* Name hover Easter egg: subtle Spider‑Man swing like a doodle */
+        .name-easter { position: relative; }
+        .spidey-swing {
+          position: absolute;
+          top: -40px;
+          left: 50%;
+          width: 0;
+          height: 0;
+          pointer-events: none;
+          opacity: 0;
+          transform: translateX(-50%);
+          transition: opacity .2s ease;
+        }
+        .name-easter:hover .spidey-swing { opacity: 1; }
+        .spidey-web {
+          position: absolute;
+          top: -140px;
+          left: 0;
+          width: 2px;
+          height: 140px;
+          background: linear-gradient(#e5e7eb,#ffffff);
+          box-shadow: 0 0 6px rgba(255,255,255,.6);
+          transform-origin: top center;
+          animation: web-sway 2s ease-in-out infinite;
+        }
+        .spidey {
+          position: absolute;
+          top: -16px;
+          left: -10px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 30% 30%, #ff4b6e, #a1002b 60%);
+          box-shadow: 0 0 10px rgba(255,0,64,.6);
+          transform-origin: -10px -120px; /* pivot around web top */
+          animation: spidey-swing 2s ease-in-out infinite;
+        }
+        @keyframes spidey-swing {
+          0%, 100% { transform: rotate(-12deg) translateX(0) translateY(0); }
+          50% { transform: rotate(12deg) translateX(6px) translateY(4px); }
+        }
+        @keyframes web-sway {
+          0%, 100% { transform: rotate(-4deg); }
+          50% { transform: rotate(4deg); }
+        }
         .avengers-callout {
           display: grid;
           place-items: center;
