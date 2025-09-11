@@ -1,3 +1,18 @@
+/* Hero intro panel – tighter, cleaner, high-contrast */
+.hero-intro {
+  max-width: 48rem;
+  margin: 0 auto 2rem auto;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, rgba(255,0,64,0.15) 0%, rgba(0,191,255,0.15) 60%, rgba(139,0,255,0.15) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    inset 0 0 40px rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+}
+
+.hero-intro p { text-align: center; }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
