@@ -194,32 +194,34 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <div className="speech-bubble mb-8 inline-block max-w-lg mx-auto">
-              <p className="comic-text">
-                "With great power comes great responsibility... to write clean code!"
-              </p>
-            </div>
-            
-            <div className="name-easter relative inline-block group" role="heading" aria-level={1}>
-              <h1 
-                className="hero-title mb-6 comic-zoom" 
-                style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 900 }}
-                data-text="SHASHANK JAGANNATHAM"
-              >
-                SHASHANK JAGANNATHAM
-              </h1>
-              {/* Hidden Spider-Man swing easter egg */}
-              <div className="absolute left-1/2 -translate-x-1/2 -top-10 pointer-events-none select-none">
-                {/* Hover (desktop) */}
-                <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
-                  <div className="origin-top animate-swing motion-reduce:animate-none">
-                    <EasterEggSpidey />
+            <div className="flex flex-col items-center gap-6">
+              <div className="speech-bubble inline-block max-w-lg mx-auto">
+                <p className="comic-text">
+                  "With great power comes great responsibility... to write clean code!"
+                </p>
+              </div>
+
+              <div className="name-easter relative inline-block group" role="heading" aria-level={1}>
+                <h1 
+                  className="hero-title mb-0 comic-zoom" 
+                  style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 900 }}
+                  data-text="SHASHANK JAGANNATHAM"
+                >
+                  SHASHANK JAGANNATHAM
+                </h1>
+                {/* Hidden Spider-Man swing easter egg */}
+                <div className="absolute left-1/2 -translate-x-1/2 -top-10 pointer-events-none select-none">
+                  {/* Hover (desktop) */}
+                  <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
+                    <div className="origin-top animate-swing motion-reduce:animate-none">
+                      <EasterEggSpidey />
+                    </div>
                   </div>
-                </div>
-                {/* Tap-to-reveal (mobile) */}
-                <div className="md:hidden opacity-0 group-active:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
-                  <div className="origin-top animate-swing motion-reduce:animate-none">
-                    <EasterEggSpidey />
+                  {/* Tap-to-reveal (mobile) */}
+                  <div className="md:hidden opacity-0 group-active:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
+                    <div className="origin-top animate-swing motion-reduce:animate-none">
+                      <EasterEggSpidey />
+                    </div>
                   </div>
                 </div>
               </div>
