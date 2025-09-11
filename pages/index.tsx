@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ImageWithFallback } from '../src/components/figma/ImageWithFallback';
+import EasterEggSpidey from '../src/components/EasterEggSpidey';
 import { Button } from '../src/components/ui/button';
 import { Card } from '../src/components/ui/card';
 import { Progress } from '../src/components/ui/progress';
@@ -199,7 +200,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="name-easter relative inline-block group">
+            <div className="name-easter relative inline-block group" role="heading" aria-level={1}>
               <h1 
                 className="hero-title mb-6 comic-zoom" 
                 style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 900 }}
@@ -208,9 +209,19 @@ export default function Home() {
                 SHASHANK JAGANNATHAM
               </h1>
               {/* Hidden Spider-Man swing easter egg */}
-              <div className="spidey-swing" aria-hidden="true">
-                <div className="spidey-web"></div>
-                <div className="spidey"></div>
+              <div className="absolute left-1/2 -translate-x-1/2 -top-10 pointer-events-none select-none">
+                {/* Hover (desktop) */}
+                <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
+                  <div className="origin-top animate-swing motion-reduce:animate-none">
+                    <EasterEggSpidey />
+                  </div>
+                </div>
+                {/* Tap-to-reveal (mobile) */}
+                <div className="md:hidden opacity-0 group-active:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
+                  <div className="origin-top animate-swing motion-reduce:animate-none">
+                    <EasterEggSpidey />
+                  </div>
+                </div>
               </div>
             </div>
             
@@ -222,7 +233,7 @@ export default function Home() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="hero-intro"
+              className="comic-panel max-w-3xl mx-auto mb-8 p-8"
             >
               <p className="comic-text text-white font-semibold px-4 md:px-0" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: '1.6', textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(255,255,255,0.4)' }}>
                 My journey began in 2021 when I got bit by the coding spider at my first hackathon! From hackathon champion to campus problem solver, 
