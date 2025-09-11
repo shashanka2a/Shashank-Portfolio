@@ -124,7 +124,7 @@ export default function Home() {
     {
       year: "May 2025 - Current",
       title: "Startup Builder",
-      company: "Independent",
+      company: "Solo Dev",
       description: "Building innovative solutions with FormEase, QRBee, and HackHire, focusing on AI-powered tools and developer platforms. Now I'm the hero saving the digital world!"
     }
   ];
