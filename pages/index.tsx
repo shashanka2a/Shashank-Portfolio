@@ -637,7 +637,7 @@ export default function Home() {
             </div>
             
             <motion.p 
-              className="text-blue-400 comic-text mb-12 md:mb-16 max-w-3xl mx-auto px-4"
+              className="text-blue-400 comic-text mb-14 md:mb-16 max-w-3xl mx-auto px-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
@@ -652,7 +652,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-12 px-6"
+            className="flex flex-col md:flex-row flex-wrap justify-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-16 md:mb-12 px-6"
           >
             <motion.div
               whileHover={{ scale: 1.1, rotateY: 10 }}
@@ -693,7 +693,7 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 1.2, type: "spring" }}
             viewport={{ once: true }}
-            className="comic-panel inline-block p-6"
+            className="comic-panel inline-block p-6 mt-10 sm:mt-12"
           >
             <div className="flex items-center justify-center text-primary">
               <MapPin className="h-6 w-6 mr-3 text-accent" />
