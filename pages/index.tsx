@@ -215,13 +215,13 @@ export default function Home() {
                   {/* Hover (desktop) */}
                   <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
                     <div className="origin-top animate-swing motion-reduce:animate-none">
-                      <EasterEggSpidey src="/images/spidey-neon.svg" width={64} height={64} />
+                      <EasterEggSpidey width={40} height={52} />
                     </div>
                   </div>
                   {/* Tap-to-reveal (mobile) */}
                   <div className="md:hidden opacity-0 group-active:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
                     <div className="origin-top animate-swing motion-reduce:animate-none">
-                      <EasterEggSpidey src="/images/spidey-neon.svg" width={56} height={56} />
+                      <EasterEggSpidey width={40} height={52} />
                     </div>
                   </div>
                 </div>
@@ -492,13 +492,23 @@ export default function Home() {
                   </motion.div>
                 </div>
                 
-                {/* Origin badge (replaces XP node) */}
+                {/* XP Badge Timeline Node */}
                 <motion.div 
                   className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 z-10"
-                  whileHover={{ scale: 1.08, rotate: 0 }}
-                  transition={{ duration: 0.2 }}
+                  whileHover={{ scale: 1.3, rotate: 180 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <OriginBadge size={48} />
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-red-500 to-blue-400 rounded-full border-2 md:border-3 border-white shadow-lg flex items-center justify-center">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                      <span className="text-black font-bold text-xs">XP</span>
+                    </div>
+                  </div>
+                  {/* Portal strands */}
+                  <div className="absolute inset-0 w-20 h-20 -translate-x-5 -translate-y-5">
+                    <div className="absolute inset-0 border-2 border-red-400/40 rounded-full animate-ping"></div>
+                    <div className="absolute inset-2 border border-blue-400/30 rounded-full animate-pulse"></div>
+                    <div className="absolute inset-4 border border-purple-400/20 rounded-full animate-bounce"></div>
+                  </div>
                 </motion.div>
               </motion.div>
             ))}
