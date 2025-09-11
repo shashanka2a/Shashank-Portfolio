@@ -12,7 +12,7 @@ type Props = {
  * Tiny Spidey + web line, Miles palette.
  * Uses currentColor for accents so it can inherit.
  */
-export default function EasterEggSpidey({ className = '', title = 'Spidey swinging', src, width = 56, height = 56 }: Props) {
+export default function EasterEggSpidey({ className = '', title = 'Spidey swinging', src, width = 40, height = 52 }: Props) {
   // If a custom asset path is provided, render that image with a small web line above.
   if (src) {
     return (
@@ -28,21 +28,30 @@ export default function EasterEggSpidey({ className = '', title = 'Spidey swingi
   return (
     <svg
       className={className}
-      width="32"
-      height="120"
-      viewBox="0 0 32 120"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
+      width={width}
+      height={height}
+      viewBox="0 0 40 52"
       role="img"
+      aria-label={title}
     >
-      <title>{title}</title>
-      <rect x="15" y="0" width="2" height="100" rx="1" fill="#E5E7EB" opacity="0.95" />
-      <circle cx="16" cy="108" r="8" fill="#FF0040" />
-      <circle cx="16" cy="92" r="6" fill="#1E1E1E" />
-      <ellipse cx="13" cy="106" rx="2.5" ry="1.5" fill="#FFFFFF" opacity="0.85" />
-      <ellipse cx="19" cy="106" rx="2.5" ry="1.5" fill="#FFFFFF" opacity="0.85" />
-      <rect x="12" y="98" width="8" height="3" rx="1.5" fill="#00BFFF" />
+      {/* web line */}
+      <line x1="20" y1="0" x2="20" y2="14" stroke="#e5e7eb" strokeWidth="1.5" strokeDasharray="2,2" />
+      {/* body */}
+      <g transform="translate(10,14)">
+        <circle cx="10" cy="6" r="6" fill="#111827" />
+        <rect x="7" y="12" width="6" height="12" rx="3" fill="#111827" />
+        {/* eyes */}
+        <ellipse cx="8.2" cy="6" rx="2" ry="1.4" fill="#fff" />
+        <ellipse cx="11.8" cy="6" rx="2" ry="1.4" fill="#fff" />
+        {/* legs */}
+        <g strokeWidth="2.4" strokeLinecap="round" fill="none">
+          <path d="M6 14 L2 18" stroke="#ef4444" />
+          <path d="M6 18 L2 22" stroke="#22d3ee" />
+          <path d="M14 14 L18 18" stroke="#ef4444" />
+          <path d="M14 18 L18 22" stroke="#22d3ee" />
+        </g>
+      </g>
     </svg>
   );
 }
