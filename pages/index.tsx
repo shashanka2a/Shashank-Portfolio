@@ -214,13 +214,13 @@ export default function Home() {
                   {/* Hover (desktop) */}
                   <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
                     <div className="origin-top animate-swing motion-reduce:animate-none">
-                      <EasterEggSpidey />
+                      <EasterEggSpidey src="/images/spidey-neon.svg" width={64} height={64} />
                     </div>
                   </div>
                   {/* Tap-to-reveal (mobile) */}
                   <div className="md:hidden opacity-0 group-active:opacity-100 transition-opacity duration-150 motion-reduce:transition-none">
                     <div className="origin-top animate-swing motion-reduce:animate-none">
-                      <EasterEggSpidey />
+                      <EasterEggSpidey src="/images/spidey-neon.svg" width={56} height={56} />
                     </div>
                   </div>
                 </div>
