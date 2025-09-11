@@ -113,7 +113,13 @@ export default function Home() {
       year: "2023-2025",
       title: "MS Computer Science",
       company: "University of Florida",
-      description: "Pursuing advanced studies in computer science with focus on distributed systems, AI applications, and startup ecosystem. Leveling up my web-slinging skills!"
+      description: "Pursuing advanced studies in computer science while building real-world projects like GatorEx, Rydify, and Vybr. Applied my hackathon skills to solve campus problems and level up my web-slinging skills!"
+    },
+    {
+      year: "2024-2025",
+      title: "Campus Problem Solver",
+      company: "University of Florida",
+      description: "Built innovative solutions for campus life - UF marketplace (GatorEx), ride-sharing (Rydify), and roommate matching (Vybr). Turned hackathon ideas into real products that students actually use!"
     },
     {
       year: "May 2025 - Current",
@@ -212,7 +218,7 @@ export default function Home() {
               className="comic-panel max-w-3xl mx-auto mb-8 p-8"
             >
               <p className="comic-text text-readable px-4 md:px-0" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: '1.6' }}>
-                My journey began in 2021 when I got bit by the coding spider at my first hackathon! From hackathon hunter to startup builder, 
+                My journey began in 2021 when I got bit by the coding spider at my first hackathon! From hackathon champion to campus problem solver, 
                 I swing through the multiverse of modern web development, crafting digital experiences that would make even Spider-Man jealous!
               </p>
             </motion.div>
@@ -257,7 +263,7 @@ export default function Home() {
               STUDENT ADVENTURES!
             </div>
             <p className="comic-text text-emphasis max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
-              My origin story begins with hackathons in 2021 - these are the projects that gave me my web-slinging powers!
+              These are the projects I built during my MS journey in the US (2024) - where I applied my hackathon skills to real-world problems!
             </p>
           </motion.div>
           
