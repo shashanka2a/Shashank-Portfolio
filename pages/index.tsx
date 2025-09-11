@@ -652,14 +652,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row flex-wrap justify-center gap-4 md:gap-8 mb-12 px-4"
+            className="flex flex-col md:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-12 px-6"
           >
             <motion.div
               whileHover={{ scale: 1.1, rotateY: 10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href="mailto:jagannathamshashank@gmail.com" className="neon-social-icon text-sm md:text-base">
-                <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline" />
+              <a href="mailto:jagannathamshashank@gmail.com" className="neon-social-icon text-base md:text-base">
+                <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline align-[-2px]" />
                 <span className="hidden sm:inline">jagannathamshashank@gmail.com</span>
                 <span className="sm:hidden">Email</span>
               </a>
@@ -669,8 +669,8 @@ export default function Home() {
               whileHover={{ scale: 1.1, rotateY: -10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="neon-social-icon github text-sm md:text-base">
-                <Github className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline" />
+              <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="neon-social-icon github text-base md:text-base">
+                <Github className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline align-[-2px]" />
                 <span className="hidden sm:inline">github.com/shashanka2a</span>
                 <span className="sm:hidden">GitHub</span>
               </a>
@@ -680,8 +680,8 @@ export default function Home() {
               whileHover={{ scale: 1.1, rotateY: 10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href="https://linkedin.com/in/shashank-jagannatham" target="_blank" rel="noopener noreferrer" className="neon-social-icon text-sm md:text-base">
-                <Linkedin className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline" />
+              <a href="https://linkedin.com/in/shashank-jagannatham" target="_blank" rel="noopener noreferrer" className="neon-social-icon text-base md:text-base">
+                <Linkedin className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline align-[-2px]" />
                 <span className="hidden sm:inline">linkedin.com/in/shashank-jagannatham</span>
                 <span className="sm:hidden">LinkedIn</span>
               </a>
