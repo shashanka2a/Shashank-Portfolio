@@ -217,7 +217,7 @@ export default function Home() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="comic-panel max-w-3xl mx-auto mb-8 p-8"
             >
-              <p className="comic-text text-readable px-4 md:px-0" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: '1.6' }}>
+              <p className="comic-text text-white font-semibold px-4 md:px-0" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: '1.6', textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(255,255,255,0.4)' }}>
                 My journey began in 2021 when I got bit by the coding spider at my first hackathon! From hackathon champion to campus problem solver, 
                 I swing through the multiverse of modern web development, crafting digital experiences that would impress even the Avengers!
               </p>
@@ -411,7 +411,7 @@ export default function Home() {
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-purple)', color: 'var(--miles-purple)' }}>
               ORIGIN STORY!
             </div>
-            <p className="comic-text text-emphasis max-w-2xl mx-auto px-4" style={{ fontSize: '1.2rem' }}>
+            <p className="comic-text text-white font-bold max-w-2xl mx-auto px-4" style={{ fontSize: '1.2rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(255,255,255,0.3)' }}>
               Every hero has a beginning. Here's how I got bit by the coding spider at my first hackathon in 2021!
             </p>
           </motion.div>
@@ -464,7 +464,7 @@ export default function Home() {
                     <p className="comic-text text-highlight mb-2 md:mb-3" style={{ fontSize: '1rem', fontWeight: 'bold' }}>
                       {item.company}
                     </p>
-                    <p className="text-secondary comic-text" style={{ fontSize: '0.9rem', lineHeight: '1.5' }}>
+                    <p className="text-white font-medium comic-text" style={{ fontSize: '0.9rem', lineHeight: '1.5', textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 6px rgba(255,255,255,0.3)' }}>
                       {item.description}
                     </p>
                     
@@ -569,7 +569,7 @@ export default function Home() {
                     <p className="comic-font text-emphasis mb-4" style={{ fontSize: '1.2rem' }}>
                       {achievement.year}
                     </p>
-                    <p className="text-secondary comic-text" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+                    <p className="text-white font-medium comic-text" style={{ fontSize: '1.1rem', lineHeight: '1.6', textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 6px rgba(255,255,255,0.3)' }}>
                       {achievement.description}
                     </p>
                   </div>
