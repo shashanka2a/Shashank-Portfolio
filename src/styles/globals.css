@@ -790,7 +790,7 @@ html {
   top: 20px;
   right: 20px;
   z-index: 1000;
-  background: var(--bg-overlay);
+  background: var(--bg-primary);
   border: 2px solid var(--miles-red);
   border-radius: 20px;
   padding: 15px 20px;
