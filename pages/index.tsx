@@ -129,33 +129,37 @@ export default function Home() {
     },
     {
       year: "May 2025 - Current",
-      title: "🏙️ Startup Skyline: CTO-Ready Leader",
-      company: "Entrepreneur • Superpower: Leadership & Strategy",
-      description: "Now protecting the startup universe with FormEase, QRBee, and HackHire. Developed the ultimate superpower: technical leadership ready for CTO responsibilities - architecting scalable solutions and leading development teams.",
+      title: "🏙️ Startup Skyline: Architecture Mastery",
+      company: "Entrepreneur • Superpower: Scalable Systems",
+      description: "Now protecting the startup universe with FormEase, QRBee, and HackHire. Developed the ultimate superpower: architecting complex scalable applications with robust technical infrastructure, optimized performance, and seamless user experiences.",
       badge: "skyline"
     }
   ];
 
   const achievements = [
     {
-      title: "Chainlink Hackathon Runner-up",
-      year: "2023",
-      description: "2nd place at Chainlink hackathon for building decentralized oracle integration"
-    },
-    {
-      title: "StarkNet CC India Winner",
-      year: "2022",
-      description: "1st place at StarkNet Community Call India hackathon with innovative blockchain solution"
-    },
-    {
-      title: "Lightspeed Hackathon Winner",
-      year: "2022",
-      description: "Won Lightspeed hackathon with AI-powered developer productivity tool"
-    },
-    {
-      title: "NASA Space Apps Organizer",
+      title: "Organizer @ NASA Space Apps (2019)",
       year: "2019",
-      description: "Organized and led NASA Space Apps Challenge events, fostering innovation in space technology"
+      description: "Led 300+ participants, streamlined e-certificates with automation, and drove event marketing.",
+      icon: "🚀"
+    },
+    {
+      title: "Speaker @ MLH 305 Hackathon (2025)",
+      year: "2025",
+      description: "Shared insights on rapid prototyping and AI-powered MVP building to 200+ students.",
+      icon: "🎤"
+    },
+    {
+      title: "Judge @ ShellHacks (2025)",
+      year: "2025",
+      description: "Evaluated projects across AI, blockchain, and SaaS; mentored student founders on execution & strategy.",
+      icon: "⚖️"
+    },
+    {
+      title: "Mentor @ Hackathons (ongoing)",
+      year: "Ongoing",
+      description: "Guided student + early-stage startup teams in problem-solving, product validation, and technical architecture.",
+      icon: "🧭"
     }
   ];
 
@@ -499,10 +503,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-purple)', color: 'var(--miles-purple)' }}>
-              ORIGIN TO CTO: THE SUPERPOWER JOURNEY!
+              ORIGIN TO SCALABLE SOLUTIONS: THE SUPERPOWER JOURNEY!
             </div>
             <p className="comic-text text-white font-bold max-w-2xl mx-auto px-4" style={{ fontSize: '1.2rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(255,255,255,0.3)' }}>
-              From getting bit by the coding spider in 2021 to becoming <strong className="text-accent">CTO-ready</strong> - here's how each phase unlocked new leadership superpowers!
+              From getting bit by the coding spider in 2021 to <strong className="text-accent">architecting complex scalable applications</strong> - here's how each phase unlocked new technical superpowers!
             </p>
           </motion.div>
           
@@ -611,7 +615,7 @@ export default function Home() {
               </p>
             </div>
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-red)', color: 'var(--miles-red)' }}>
-              TROPHY ROOM!
+              🏆 TROPHY ROOM!
             </div>
           </motion.div>
           
@@ -652,7 +656,7 @@ export default function Home() {
                     transition={{ duration: 0.6 }}
                     className="flex-shrink-0"
                   >
-                    <Award className="h-12 w-12 text-yellow-400 filter drop-shadow-lg" />
+                    <div className="text-4xl filter drop-shadow-lg">{achievement.icon}</div>
                   </motion.div>
                   <div className="flex-1">
                     <h3 className="comic-font text-strong mb-3" style={{ fontSize: '1.5rem' }}>
