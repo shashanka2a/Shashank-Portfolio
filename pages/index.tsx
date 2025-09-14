@@ -173,7 +173,7 @@ export default function Home() {
     {
       title: "Mentor @ Gator Hatchery",
       year: "Ongoing",
-      description: "Helping non-tech founders at UF's startup incubator figure out the technical side of their ideas. I break down complex dev stuff into simple terms they can actually use.",
+      description: "Helping non-tech founders at UF's startup incubator figure out the technical side of their ideas.",
       icon: "🧭"
     }
   ];
