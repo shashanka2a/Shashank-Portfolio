@@ -146,32 +146,32 @@ export default function Home() {
       year: "May 2025 - Current",
       title: "🏙️ Startup Skyline: Architecture Mastery",
       company: "Entrepreneur • Superpower: Scalable Systems",
-      description: "Now protecting the startup universe with FormEase, QRBee, and HackHire. Developed the ultimate superpower: architecting complex scalable applications with robust technical infrastructure, optimized performance, and seamless user experiences.",
+      description: "Now protecting the startup universe with Buidl leading the revolution in AI-powered design, plus efficient SaaS tools FormEase, QRBee, and HackHire at low cost. Developed the ultimate superpower: architecting complex scalable applications with robust technical infrastructure, optimized performance, and seamless user experiences.",
       badge: "skyline"
     }
   ];
 
   const achievements = [
     {
-      title: "Organizer @ NASA Space Apps (2019)",
+      title: "Organizer @ NASA Space Apps",
       year: "2019",
       description: "Led 300+ participants, streamlined e-certificates with automation, and drove event marketing.",
       icon: "🚀"
     },
     {
-      title: "Speaker @ MLH 305 Hackathon (2025)",
+      title: "Speaker @ MLH 305 Hackathon",
       year: "2025",
       description: "Shared insights on rapid prototyping and AI-powered MVP building to 200+ students.",
       icon: "🎤"
     },
     {
-      title: "Judge @ ShellHacks (2025)",
+      title: "Judge @ ShellHacks",
       year: "2025",
       description: "Evaluated projects across AI, blockchain, and SaaS; mentored student founders on execution & strategy.",
       icon: "⚖️"
     },
     {
-      title: "Mentor @ Gator Hatchery (ongoing)",
+      title: "Mentor @ Gator Hatchery",
       year: "Ongoing",
       description: "Bridge tech gaps for non-technical founders at UF's business incubator. Translate complex technical concepts into actionable business solutions.",
       icon: "🧭"
