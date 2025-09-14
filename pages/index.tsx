@@ -68,6 +68,13 @@ export default function Home() {
       tech: ["Vue.js", "Express.js", "PostgreSQL"],
       image: projectImages[2],
       link: "https://www.vybr.club/"
+    },
+    {
+      title: "Tribzy",
+      description: "Campus events platform connecting students through secure .edu-verified community for workshops, parties, and study groups",
+      tech: ["React", "Node.js", "Authentication"],
+      image: projectImages[3] || "/api/placeholder/600/400",
+      link: "https://tribzy.com/"
     }
   ];
 
@@ -95,6 +102,14 @@ export default function Home() {
       tech: ["Next.js", "Node.js", "PostgreSQL"],
       image: projectImages[5],
       link: "https://www.hackhire.dev/"
+    },
+    {
+      title: "Buidl",
+      description: "From Prompt to Product - Transform ideas into beautiful, functional designs with AI-powered design tools",
+      impact: "Design automation platform",
+      tech: ["Next.js", "AI/ML", "Design System"],
+      image: projectImages[6] || "/api/placeholder/600/400",
+      link: "https://buidl.design/"
     }
   ];
 
