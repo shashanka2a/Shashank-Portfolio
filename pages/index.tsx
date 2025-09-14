@@ -73,7 +73,7 @@ export default function Home() {
       title: "Tribzy",
       description: "Campus events platform connecting students through secure .edu-verified community for workshops, parties, and study groups",
       tech: ["React", "Node.js", "Authentication"],
-      image: projectImages[3] || "/api/placeholder/600/400",
+      image: "/images/projects/tribzy.png",
       link: "https://tribzy.com/"
     }
   ];
@@ -108,7 +108,7 @@ export default function Home() {
       description: "From Prompt to Product - Transform ideas into beautiful, functional designs with AI-powered design tools",
       impact: "Design automation platform",
       tech: ["Next.js", "AI/ML", "Design System"],
-      image: projectImages[6] || "/api/placeholder/600/400",
+      image: "/images/projects/buidl.png",
       link: "https://buidl.design/"
     }
   ];
