@@ -149,41 +149,39 @@ export default function Home() {
     }
   ];
 
-  const timeline = [
+  const journeyArcs = [
     {
-      year: "2021",
-      title: "🕷️ Radioactive Bite: First Hackathon",
-      company: "India • Superpower: Innovation Drive",
-      description: "The origin moment! Got bit by the coding spider at my first hackathon, discovering my passion for rapid innovation in fintech, AI, and web3. Unlocked the superpower of transforming ideas into working code under pressure.",
-      badge: "radioactive"
+      level: "Level 1: Consumer Apps",
+      period: "2021–2024",
+      badge: "📱",
+      title: "Consumer Apps",
+      description: "Started with consumer-facing products, solving real campus problems.",
+      projects: ["GatorEx → student marketplace", "Rydify → ride-sharing", "Vybr → housing + events"],
+      gradientFrom: "from-red-500",
+      gradientTo: "to-pink-500",
+      borderColor: "border-red-500"
     },
     {
-      year: "2021-2023",
-      title: "🏆 Champion Era: Hackathon Domination",
-      company: "India • Superpower: Competitive Excellence",
-      description: "Mastered the art of hackathon victory with 15+ competitions, winning Chainlink Runner-up, StarkNet CC India, and Lightspeed Hackathon. Developed the superpower of building winning solutions in 48 hours.",
-      badge: "trophy"
+      level: "Level 2: SaaS Builder", 
+      period: "2024–2025",
+      badge: "🛠️",
+      title: "SaaS Tools",
+      description: "Leveled up to SaaS platforms, building tools for startups and scaling founders.",
+      projects: ["FormEase → AI form builder", "QRBee → free QR tool"],
+      gradientFrom: "from-teal-500",
+      gradientTo: "to-cyan-500",
+      borderColor: "border-teal-500"
     },
     {
-      year: "2023-2025",
-      title: "🎓 Knowledge Expansion: MS Computer Science",
-      company: "University of Florida • Superpower: Technical Depth",
-      description: "Leveled up with advanced studies in Distributed Systems, ML, and Software Engineering. From Gator games to Marston Library coding sessions - gained the superpower of academic rigor combined with real-world application.",
-      badge: "brain"
-    },
-    {
-      year: "2024-2025",
-      title: "🌐 Web of Solutions: Campus Impact",
-      company: "University of Florida • Superpower: Problem Solving",
-      description: "Spun a web of campus solutions: GatorEx marketplace, Rydify ride-sharing, and Vybr roommate matching. Unlocked the superpower of identifying and solving real user problems at scale.",
-      badge: "web"
-    },
-    {
-      year: "May 2025 - Current",
-      title: "🏙️ Startup Skyline: Architecture Mastery",
-      company: "Entrepreneur • Superpower: Scalable Systems",
-      description: "Now protecting the startup universe with Buidl leading the revolution in AI-powered design, plus efficient SaaS tools FormEase, QRBee, and HackHire at low cost.",
-      badge: "skyline"
+      level: "Level 3: PaaS Architect",
+      period: "2025–Current", 
+      badge: "☁️",
+      title: "PaaS Platforms",
+      description: "Now shaping platform infrastructure — enabling others to build on top of my tools.",
+      projects: ["Layr.plus (Logora, Deckr, Buidl)", "HackHire → AI hiring platform"],
+      gradientFrom: "from-purple-500",
+      gradientTo: "to-blue-500",
+      borderColor: "border-purple-500"
     }
   ];
 
@@ -654,9 +652,9 @@ export default function Home() {
               <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-red-500 via-blue-500 to-red-500 rounded-full opacity-40 animate-ping"></div>
             </div>
             
-            {timeline.map((item, index) => (
+            {journeyArcs.map((arc, index) => (
               <motion.div
-                key={item.year}
+                key={arc.title}
                 initial={{ 
                   opacity: 0, 
                   x: index % 2 === 0 ? -150 : 150,
@@ -665,60 +663,75 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ 
                   duration: 1, 
-                  delay: index * 0.2,
+                  delay: index * 0.3,
                   type: "spring",
                   bounce: 0.3
                 }}
                 viewport={{ once: true }}
-                className={`relative flex items-center mb-8 md:mb-16 ${
+                className={`relative flex items-center mb-12 md:mb-20 ${
                   index % 2 === 0 ? 'justify-start' : 'justify-end'
                 }`}
               >
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ml-8 md:ml-0`}>
                   <motion.div 
-                    className="superpower-panel p-4 md:p-8 comic-zoom"
+                    className={`superpower-panel p-6 md:p-10 comic-zoom relative overflow-hidden ${arc.borderColor}`}
                     whileHover={{ 
                       scale: 1.05,
                       rotateY: index % 2 === 0 ? 5 : -5,
-                      boxShadow: "0 20px 40px rgba(255, 0, 64, 0.4)"
+                      boxShadow: "0 25px 50px rgba(255, 0, 150, 0.4)"
                     }}
                     style={{ transformStyle: 'preserve-3d' }}
                   >
-                    <div className="flex items-center mb-3 md:mb-4">
-                      <Calendar className="h-5 w-5 md:h-6 md:w-6 text-accent mr-2 md:mr-3" />
-                      <span className="comic-font text-emphasis" style={{ fontSize: '1.2rem' }}>{item.year}</span>
-                    </div>
-                    <h3 className="comic-font text-strong mb-2 md:mb-3" style={{ fontSize: '1.3rem' }}>
-                      {item.title.toUpperCase()}
-                    </h3>
-                    <p className="comic-text text-highlight mb-2 md:mb-3" style={{ fontSize: '1rem', fontWeight: 'bold' }}>
-                      {item.company}
-                    </p>
-                    <p className="text-white font-medium comic-text" style={{ fontSize: '0.9rem', lineHeight: '1.5', textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 6px rgba(255,255,255,0.3)' }}>
-                      {item.description}
-                    </p>
+                    {/* Gradient background overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${arc.gradientFrom} ${arc.gradientTo} opacity-10 hover:opacity-20 transition-opacity duration-300`}></div>
                     
+                    <div className="relative z-10">
+                      {/* Level Badge */}
+                      <div className={`inline-block px-4 py-2 rounded-full text-sm font-bold mb-4 bg-gradient-to-r ${arc.gradientFrom} ${arc.gradientTo} text-white`}>
+                        {arc.level}
+                      </div>
+                      
+                      {/* Period and Title */}
+                      <div className="flex items-center mb-3 md:mb-4">
+                        <Calendar className="h-5 w-5 md:h-6 md:w-6 text-accent mr-2 md:mr-3" />
+                        <span className="comic-font text-emphasis" style={{ fontSize: '1.2rem' }}>{arc.period}</span>
+                      </div>
+                      
+                      <h3 className="comic-font text-strong mb-4" style={{ fontSize: '1.5rem' }}>
+                        {arc.badge} {arc.title.toUpperCase()}
+                      </h3>
+                      
+                      <p className="text-white font-medium comic-text mb-6" style={{ fontSize: '1rem', lineHeight: '1.6', textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 6px rgba(255,255,255,0.3)' }}>
+                        {arc.description}
+                      </p>
+                      
+                      {/* Projects List */}
+                      <div className="space-y-2">
+                        {arc.projects.map((project, projectIndex) => (
+                          <div key={projectIndex} className="flex items-center text-gray-300 comic-text">
+                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${arc.gradientFrom} ${arc.gradientTo} mr-3 flex-shrink-0`}></div>
+                            <span style={{ fontSize: '0.9rem' }}>{project}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </motion.div>
                 </div>
                 
-                {/* Spidey-Themed Timeline Badge */}
+                {/* Arc Badge Timeline Node */}
                 <motion.div 
                   className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 z-10"
-                  whileHover={{ scale: 1.3, rotate: 180 }}
-                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.3, rotate: 360 }}
+                  transition={{ duration: 0.5 }}
                 >
-                  <div className={`timeline-badge ${item.badge}`}>
-                    {item.badge === 'radioactive' && '🕷️'}
-                    {item.badge === 'trophy' && '🏆'}
-                    {item.badge === 'brain' && '🧠'}
-                    {item.badge === 'web' && '🕸️'}
-                    {item.badge === 'skyline' && '🏙️'}
+                  <div className={`timeline-badge relative bg-gradient-to-br ${arc.gradientFrom} ${arc.gradientTo} text-white text-2xl w-16 h-16 rounded-full flex items-center justify-center border-4 border-white shadow-lg`}>
+                    {arc.badge}
                   </div>
-                  {/* Portal strands */}
-                  <div className="absolute inset-0 w-20 h-20 -translate-x-5 -translate-y-5">
-                    <div className="absolute inset-0 border-2 border-red-400/40 rounded-full animate-ping"></div>
-                    <div className="absolute inset-2 border border-blue-400/30 rounded-full animate-pulse"></div>
-                    <div className="absolute inset-4 border border-purple-400/20 rounded-full animate-bounce"></div>
+                  {/* Animated rings */}
+                  <div className="absolute inset-0 w-20 h-20 -translate-x-2 -translate-y-2">
+                    <div className={`absolute inset-0 border-2 border-opacity-40 rounded-full animate-ping ${arc.borderColor}`}></div>
+                    <div className={`absolute inset-2 border border-opacity-30 rounded-full animate-pulse ${arc.borderColor}`}></div>
+                    <div className={`absolute inset-4 border border-opacity-20 rounded-full animate-bounce ${arc.borderColor}`}></div>
                   </div>
                 </motion.div>
               </motion.div>
