@@ -275,7 +275,7 @@ export default function Home() {
               className="flex gap-6 justify-center flex-wrap"
             >
               <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="comic-button hover-glow">
-                LET'S BUILD TOGETHER 🚀
+                COLLABORATE & CREATE 🚀
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
               </a>
               <a href="tel:+13523286426" className="comic-button comic-button-outline hover-glow">
