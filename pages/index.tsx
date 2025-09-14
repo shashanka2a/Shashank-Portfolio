@@ -113,6 +113,42 @@ export default function Home() {
     }
   ];
 
+  const layrPlusProjects = [
+    {
+      title: "Logora",
+      subtitle: "AI-Powered Branding",
+      description: "Designed and refined brand identities with AI-driven tools. Helped create consistent visual systems that scale for modern builders.",
+      badge: "🎨 Design Layer",
+      tech: ["AI/ML", "Design System", "Brand Identity"],
+      image: "/images/projects/buidl.png", // Using Buidl image as placeholder
+      link: "https://buidl.design/",
+      gradientFrom: "from-orange-500",
+      gradientTo: "to-red-500"
+    },
+    {
+      title: "Deckr", 
+      subtitle: "Collaborative Pitch Decks",
+      description: "Built smart templates and collaborative editing tools that make storytelling effortless. Enabled teams to create and share presentations with impact.",
+      badge: "📊 Storytelling Layer",
+      tech: ["React", "Collaboration", "Templates"],
+      image: "/images/projects/buidl.png", // Using Buidl image as placeholder
+      link: "https://buidl.design/",
+      gradientFrom: "from-teal-500",
+      gradientTo: "to-cyan-500"
+    },
+    {
+      title: "Buidl",
+      subtitle: "Rapid Prototyping & Deployment", 
+      description: "Developed tools to build and deploy applications with speed, from prototype to production. Focused on developer experience and scalable architecture.",
+      badge: "⚡ Builder Layer",
+      tech: ["Next.js", "AI/ML", "DevOps"],
+      image: "/images/projects/buidl.png",
+      link: "https://buidl.design/",
+      gradientFrom: "from-purple-500",
+      gradientTo: "to-blue-500"
+    }
+  ];
+
   const timeline = [
     {
       year: "2021",
@@ -491,6 +527,92 @@ export default function Home() {
                     >
                       ENTER PROJECT <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Layr.plus Platform Projects */}
+      <section className="py-20 px-6 bg-gradient-to-b from-purple-900/10 to-cyan-900/10 relative">
+        <div className="spider-web-bg"></div>
+        <div className="web-pattern"></div>
+        
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="speech-bubble mb-8 inline-block max-w-2xl">
+              <p className="comic-text" style={{ fontSize: '1.2rem' }}>
+                "Building the future of design and development platforms!"
+              </p>
+            </div>
+            <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-cyan)', color: 'var(--miles-cyan)' }}>
+              LAYR.PLUS PLATFORM: THE COMPLETE STACK!
+            </div>
+            <p className="comic-text text-emphasis max-w-2xl mx-auto mt-4" style={{ fontSize: '1.2rem' }}>
+              Crafting the next generation of <strong className="text-highlight">integrated design and development tools</strong> - from branding to deployment, all layers working in harmony!
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {layrPlusProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 100, rotateY: -30 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2, type: "spring" }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  rotateY: 5,
+                  boxShadow: "0 25px 50px rgba(0, 255, 255, 0.3)"
+                }}
+                className="project-card comic-zoom"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                <Card className={`bg-transparent border-none h-full overflow-hidden relative`}>
+                  {/* Custom gradient border */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} rounded-lg opacity-20 hover:opacity-40 transition-opacity duration-300`}></div>
+                  <div className={`absolute inset-[2px] bg-black/90 rounded-lg`}></div>
+                  
+                  <div className="relative z-10">
+                    <div className="relative overflow-hidden">
+                      <ImageWithFallback
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-48 object-cover transition-all duration-500 hover:scale-110 hover:hue-rotate-30"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    </div>
+                    <div className="p-6">
+                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-gradient-to-r ${project.gradientFrom} ${project.gradientTo} text-white`}>
+                        {project.badge}
+                      </div>
+                      <h3 className="comic-font text-strong mb-2" style={{ fontSize: '1.3rem' }}>
+                        {project.title.toUpperCase()}
+                      </h3>
+                      <p className="text-xs text-gray-400 mb-3 comic-font" style={{ fontSize: '0.9rem' }}>
+                        {project.subtitle}
+                      </p>
+                      <p className="text-readable comic-text mb-4" style={{ fontSize: '1rem', lineHeight: '1.5' }}>
+                        {project.description}
+                      </p>
+                      <a 
+                        href={project.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="comic-font text-blue-400 hover:text-blue-300 p-0 text-lg inline-flex items-center hover:underline"
+                      >
+                        ENTER PROJECT <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
