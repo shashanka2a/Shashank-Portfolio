@@ -278,6 +278,45 @@ html {
   pointer-events: none;
 }
 
+/* Enhanced Spider-Web Background Pattern */
+.spider-web-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Main web strands - radial pattern */
+    radial-gradient(circle at 50% 50%, transparent 40%, var(--miles-red) 41%, var(--miles-red) 42%, transparent 43%),
+    /* Intersecting web lines */
+    linear-gradient(30deg, transparent 48%, rgba(255, 51, 102, 0.1) 49%, rgba(255, 51, 102, 0.15) 50%, rgba(255, 51, 102, 0.1) 51%, transparent 52%),
+    linear-gradient(150deg, transparent 48%, rgba(51, 181, 255, 0.1) 49%, rgba(51, 181, 255, 0.15) 50%, rgba(51, 181, 255, 0.1) 51%, transparent 52%),
+    linear-gradient(90deg, transparent 48%, rgba(153, 102, 255, 0.08) 49%, rgba(153, 102, 255, 0.12) 50%, rgba(153, 102, 255, 0.08) 51%, transparent 52%),
+    /* Web nodes/connection points */
+    radial-gradient(circle at 20% 30%, var(--miles-blue) 1px, transparent 2px),
+    radial-gradient(circle at 80% 70%, var(--miles-purple) 1px, transparent 2px),
+    radial-gradient(circle at 60% 20%, var(--miles-red) 1px, transparent 2px);
+  background-size: 
+    200px 200px,
+    80px 80px,
+    80px 80px, 
+    120px 120px,
+    160px 160px,
+    180px 180px,
+    140px 140px;
+  background-position: 
+    0 0,
+    0 0,
+    40px 40px,
+    20px 20px,
+    0 0,
+    60px 80px,
+    100px 40px;
+  opacity: 0.06;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px var(--miles-red)) drop-shadow(0 0 4px var(--miles-blue));
+}
+
 .halftone-bg {
   background: 
     radial-gradient(circle, var(--miles-red) 1px, transparent 1px),
@@ -622,12 +661,14 @@ html {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 25% 25%, transparent 2px, rgba(255, 0, 64, 0.08) 2px, rgba(255, 0, 64, 0.08) 3px, transparent 3px),
-    linear-gradient(45deg, transparent 48%, rgba(0, 191, 255, 0.08) 49%, rgba(0, 191, 255, 0.08) 51%, transparent 52%),
-    linear-gradient(-45deg, transparent 48%, rgba(139, 0, 255, 0.08) 49%, rgba(139, 0, 255, 0.08) 51%, transparent 52%);
-  background-size: 40px 40px, 40px 40px, 40px 40px;
+    /* Enhanced web pattern with glow effects */
+    radial-gradient(circle at 25% 25%, transparent 2px, rgba(255, 0, 64, 0.12) 2px, rgba(255, 0, 64, 0.08) 4px, transparent 5px),
+    linear-gradient(45deg, transparent 47%, rgba(0, 191, 255, 0.15) 48.5%, rgba(0, 191, 255, 0.2) 50%, rgba(0, 191, 255, 0.15) 51.5%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, rgba(153, 102, 255, 0.12) 48.5%, rgba(153, 102, 255, 0.18) 50%, rgba(153, 102, 255, 0.12) 51.5%, transparent 53%);
+  background-size: 50px 50px, 60px 60px, 60px 60px;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 1px var(--miles-red));
 }
 
 .speech-bubble {
@@ -1184,4 +1225,247 @@ html {
   color: #e5e7eb;
   opacity: 0.9;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.85);
+}
+
+/* Micro-interactions and Enhanced Hover Effects */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  filter: drop-shadow(0 0 8px var(--miles-red)) drop-shadow(0 0 16px var(--miles-blue));
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Pulsing border animation */
+@keyframes pulse-border {
+  0%, 100% { 
+    border-color: var(--miles-red);
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.3);
+  }
+  33% { 
+    border-color: var(--miles-blue);
+    box-shadow: 0 0 10px rgba(51, 181, 255, 0.3);
+  }
+  66% { 
+    border-color: var(--miles-purple);
+    box-shadow: 0 0 10px rgba(153, 102, 255, 0.3);
+  }
+}
+
+.pulse-border {
+  animation: pulse-border 3s ease-in-out infinite;
+}
+
+/* Metrics Bar Styles */
+.metric-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--bg-card);
+  border: 2px solid var(--miles-blue);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.metric-badge:hover {
+  border-color: var(--miles-red);
+  transform: translateY(-5px) rotateY(5deg);
+  box-shadow: 0 15px 30px rgba(255, 0, 64, 0.3);
+}
+
+.metric-number {
+  font-family: 'Bangers', cursive;
+  font-size: 2.5rem;
+  color: var(--miles-yellow);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.metric-label {
+  font-family: 'Comic Neue', cursive;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Executive Summary Panel */
+.executive-summary-panel {
+  background: var(--bg-card);
+  border: 3px solid var(--miles-purple);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  box-shadow: 
+    0 0 30px rgba(153, 102, 255, 0.2),
+    inset 0 0 30px rgba(255, 0, 64, 0.05);
+  transition: all 0.3s ease;
+}
+
+.executive-summary-panel:hover {
+  border-color: var(--miles-red);
+  box-shadow: 
+    0 0 40px rgba(255, 0, 64, 0.3),
+    inset 0 0 40px rgba(51, 181, 255, 0.1);
+}
+
+/* Skill Tags */
+.skill-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(45deg, var(--miles-red), var(--miles-blue));
+  color: white;
+  font-family: 'Comic Neue', cursive;
+  font-weight: 600;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 5px 15px rgba(255, 0, 64, 0.4);
+  border-color: var(--miles-yellow);
+}
+
+/* Enhanced Project Card Parallax */
+.project-card:hover {
+  transform: translateY(-8px) rotateY(8deg) rotateX(2deg);
+  box-shadow: 
+    0 25px 50px rgba(255, 0, 64, 0.4),
+    0 0 50px rgba(0, 191, 255, 0.2);
+}
+
+/* Custom Spidey-Themed Timeline Badges */
+.timeline-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid var(--miles-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-badge:hover {
+  transform: scale(1.2) rotate(360deg);
+  border-color: var(--miles-blue);
+  box-shadow: 
+    0 0 20px rgba(255, 0, 64, 0.6),
+    0 0 40px rgba(51, 181, 255, 0.4);
+}
+
+.timeline-badge.radioactive {
+  background: radial-gradient(circle, #00FF88, #FF3366);
+  border-color: var(--miles-green);
+  animation: radioactive-pulse 2s ease-in-out infinite;
+}
+
+.timeline-badge.trophy {
+  background: radial-gradient(circle, #FFD700, #FF8C00);
+  border-color: var(--miles-yellow);
+}
+
+.timeline-badge.brain {
+  background: radial-gradient(circle, #9966FF, #6644CC);
+  border-color: var(--miles-purple);
+}
+
+.timeline-badge.web {
+  background: radial-gradient(circle, #33B5FF, #0080CC);
+  border-color: var(--miles-blue);
+  position: relative;
+}
+
+.timeline-badge.web::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  background: 
+    linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.timeline-badge.skyline {
+  background: linear-gradient(45deg, #FF3366, #33B5FF, #9966FF);
+  border-color: var(--miles-red);
+  animation: skyline-glow 3s ease-in-out infinite;
+}
+
+@keyframes radioactive-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
+  }
+}
+
+@keyframes skyline-glow {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
+  }
+  33% { 
+    box-shadow: 0 0 15px rgba(51, 181, 255, 0.4);
+  }
+  66% { 
+    box-shadow: 0 0 15px rgba(153, 102, 255, 0.4);
+  }
+}
+
+/* Enhanced timeline panel with superpower theming */
+.superpower-panel {
+  background: var(--bg-card);
+  border: 3px solid var(--miles-red);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.superpower-panel:hover {
+  border-color: var(--miles-blue);
+  transform: translateY(-5px) rotateY(3deg);
+  box-shadow: 
+    0 20px 40px rgba(255, 0, 64, 0.3),
+    inset 0 0 30px rgba(51, 181, 255, 0.1);
+}
+
+.superpower-panel::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--miles-red), var(--miles-blue), var(--miles-purple));
+  z-index: -1;
+  border-radius: 22px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.superpower-panel:hover::before {
+  opacity: 0.7;
 }

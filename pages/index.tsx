@@ -101,33 +101,38 @@ export default function Home() {
   const timeline = [
     {
       year: "2021",
-      title: "Hackathon Hunter",
-      company: "India",
-      description: "The beginning of my coding journey! Started competing in hackathons across India, discovering my passion for building innovative solutions in fintech, AI, and web3. This is where I got 'bit by the coding spider' and realized my superpower!"
+      title: "🕷️ Radioactive Bite: First Hackathon",
+      company: "India • Superpower: Innovation Drive",
+      description: "The origin moment! Got bit by the coding spider at my first hackathon, discovering my passion for rapid innovation in fintech, AI, and web3. Unlocked the superpower of transforming ideas into working code under pressure.",
+      badge: "radioactive"
     },
     {
       year: "2021-2023",
-      title: "Hackathon Champion",
-      company: "India",
-      description: "Competed in 15+ hackathons across India, winning multiple awards including Chainlink Runner-up, StarkNet CC India Winner, and Lightspeed Hackathon Winner."
+      title: "🏆 Champion Era: Hackathon Domination",
+      company: "India • Superpower: Competitive Excellence",
+      description: "Mastered the art of hackathon victory with 15+ competitions, winning Chainlink Runner-up, StarkNet CC India, and Lightspeed Hackathon. Developed the superpower of building winning solutions in 48 hours.",
+      badge: "trophy"
     },
     {
       year: "2023-2025",
-      title: "MS Computer Science",
-      company: "University of Florida",
-      description: "Pursuing advanced studies in Distributed Systems, Machine Learning, and Software Engineering. Immersed in campus life at UF - from Gator football games to late-night coding sessions in Marston Library. Applied my hackathon skills to solve real campus problems while mastering advanced CS concepts!"
+      title: "🎓 Knowledge Expansion: MS Computer Science",
+      company: "University of Florida • Superpower: Technical Depth",
+      description: "Leveled up with advanced studies in Distributed Systems, ML, and Software Engineering. From Gator games to Marston Library coding sessions - gained the superpower of academic rigor combined with real-world application.",
+      badge: "brain"
     },
     {
       year: "2024-2025",
-      title: "Campus Problem Solver",
-      company: "University of Florida",
-      description: "Built innovative solutions for campus life - UF marketplace (GatorEx), ride-sharing (Rydify), and roommate matching (Vybr). Turned hackathon ideas into real products that students actually use!"
+      title: "🌐 Web of Solutions: Campus Impact",
+      company: "University of Florida • Superpower: Problem Solving",
+      description: "Spun a web of campus solutions: GatorEx marketplace, Rydify ride-sharing, and Vybr roommate matching. Unlocked the superpower of identifying and solving real user problems at scale.",
+      badge: "web"
     },
     {
       year: "May 2025 - Current",
-      title: "Startup Builder",
-      company: "Solo Dev",
-      description: "Building innovative solutions with FormEase, QRBee, and HackHire, focusing on AI-powered tools and developer platforms. Now I'm the hero saving the digital world!"
+      title: "🏙️ Startup Skyline: CTO-Ready Leader",
+      company: "Entrepreneur • Superpower: Leadership & Strategy",
+      description: "Now protecting the startup universe with FormEase, QRBee, and HackHire. Developed the ultimate superpower: technical leadership ready for CTO responsibilities - architecting scalable solutions and leading development teams.",
+      badge: "skyline"
     }
   ];
 
@@ -250,17 +255,78 @@ export default function Home() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="flex gap-6 justify-center flex-wrap"
             >
-              <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="comic-button">
-                VIEW PROJECTS
+              <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="comic-button hover-glow">
+                LET'S BUILD TOGETHER 🚀
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
               </a>
-              <a href="mailto:jagannathamshashank@gmail.com" className="comic-button comic-button-outline">
-                THWIP ME!
+              <a href="/resume.pdf" download="Shashank_Jagannatham_Resume.pdf" className="comic-button comic-button-outline hover-glow">
+                DOWNLOAD RESUME 📄
               </a>
             </motion.div>
           </motion.div>
         </div>
         
+      </section>
+
+      {/* Executive Summary Section - For Recruiters/CTO Audience */}
+      <section className="py-16 px-6 bg-gradient-to-b from-black to-gray-900 relative">
+        <div className="spider-web-bg"></div>
+        
+        <div className="container mx-auto">
+          {/* Metrics Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-4 md:gap-8 mb-12"
+          >
+            <div className="metric-badge hover-glow">
+              <span className="metric-number">6+</span>
+              <span className="metric-label">Products Shipped</span>
+            </div>
+            <div className="metric-badge hover-glow">
+              <span className="metric-number">15+</span>
+              <span className="metric-label">Hackathon Wins</span>
+            </div>
+            <div className="metric-badge hover-glow">
+              <span className="metric-number">20K+</span>
+              <span className="metric-label">Users Impacted</span>
+            </div>
+            <div className="metric-badge hover-glow">
+              <span className="metric-number">100%</span>
+              <span className="metric-label">Team Leadership</span>
+            </div>
+          </motion.div>
+
+          {/* Executive Summary */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="executive-summary-panel hover-glow">
+              <h2 className="comic-font text-emphasis mb-6" style={{ fontSize: '2rem', letterSpacing: '3px' }}>
+                EXECUTIVE SUMMARY
+              </h2>
+              <p className="text-readable text-lg leading-relaxed">
+                <strong className="text-accent">Full-stack builder & community leader</strong> with proven track record of scaling from student innovation to startup ecosystems. 
+                Experienced in <strong className="text-highlight">leading development teams</strong>, shipping products at velocity, and winning competitive hackathons. 
+                Ready to architect scalable solutions and drive technical strategy as a <strong className="neon-blue">CTO-ready leader</strong>.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-4 justify-center">
+                <span className="skill-tag">React/Next.js</span>
+                <span className="skill-tag">Node.js/Python</span>
+                <span className="skill-tag">AI/ML Integration</span>
+                <span className="skill-tag">Team Leadership</span>
+                <span className="skill-tag">Product Strategy</span>
+                <span className="skill-tag">DevOps/AWS</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Portal Transition */}
@@ -270,7 +336,7 @@ export default function Home() {
 
       {/* Student Projects */}
       <section className="py-20 px-6 bg-gradient-to-b from-purple-900/10 to-blue-900/10 relative">
-        <div className="halftone-bg"></div>
+        <div className="spider-web-bg"></div>
         
         <div className="container mx-auto">
           <motion.div
@@ -281,10 +347,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <div className="comic-word-balloon">
-              STUDENT ADVENTURES!
+              SUPERPOWERS UNLOCKED: STUDENT ERA!
             </div>
             <p className="comic-text text-emphasis max-w-2xl mx-auto" style={{ fontSize: '1.4rem' }}>
-              These are the projects I built during my MS journey in the US (2024) - where I applied my hackathon skills to real-world problems!
+              During my MS journey, I developed my <strong className="text-accent">campus problem-solving superpowers</strong> - turning hackathon skills into real-world impact that students actually use!
             </p>
           </motion.div>
           
@@ -343,7 +409,7 @@ export default function Home() {
 
       {/* Startup Projects */}
       <section className="py-20 px-6 bg-gradient-to-b from-red-900/10 to-purple-900/10 relative">
-        <div className="halftone-bg"></div>
+        <div className="spider-web-bg"></div>
         <div className="web-pattern"></div>
         
         <div className="container mx-auto">
@@ -360,8 +426,11 @@ export default function Home() {
               </p>
             </div>
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-blue)', color: 'var(--miles-blue)' }}>
-              STARTUP UNIVERSE!
+              SUPERPOWERS EVOLVED: STARTUP BUILDER!
             </div>
+            <p className="comic-text text-emphasis max-w-2xl mx-auto mt-4" style={{ fontSize: '1.2rem' }}>
+              Now wielding <strong className="text-highlight">entrepreneurial superpowers</strong> - building scalable solutions that save time, money, and create real business value!
+            </p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -419,7 +488,7 @@ export default function Home() {
 
       {/* Timeline */}
       <section className="py-20 px-6 bg-gradient-to-b from-purple-900/10 to-blue-900/10 relative">
-        <div className="halftone-bg"></div>
+        <div className="spider-web-bg"></div>
         
         <div className="container mx-auto">
           <motion.div
@@ -430,10 +499,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-purple)', color: 'var(--miles-purple)' }}>
-              ORIGIN STORY!
+              ORIGIN TO CTO: THE SUPERPOWER JOURNEY!
             </div>
             <p className="comic-text text-white font-bold max-w-2xl mx-auto px-4" style={{ fontSize: '1.2rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(255,255,255,0.3)' }}>
-              Every hero has a beginning. Here's how I got bit by the coding spider at my first hackathon in 2021!
+              From getting bit by the coding spider in 2021 to becoming <strong className="text-accent">CTO-ready</strong> - here's how each phase unlocked new leadership superpowers!
             </p>
           </motion.div>
           
@@ -467,7 +536,7 @@ export default function Home() {
               >
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ml-8 md:ml-0`}>
                   <motion.div 
-                    className="comic-panel panel-contrast p-4 md:p-8 comic-zoom"
+                    className="superpower-panel p-4 md:p-8 comic-zoom"
                     whileHover={{ 
                       scale: 1.05,
                       rotateY: index % 2 === 0 ? 5 : -5,
@@ -492,16 +561,18 @@ export default function Home() {
                   </motion.div>
                 </div>
                 
-                {/* XP Badge Timeline Node */}
+                {/* Spidey-Themed Timeline Badge */}
                 <motion.div 
                   className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 z-10"
                   whileHover={{ scale: 1.3, rotate: 180 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-red-500 to-blue-400 rounded-full border-2 md:border-3 border-white shadow-lg flex items-center justify-center">
-                    <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-black font-bold text-xs">XP</span>
-                    </div>
+                  <div className={`timeline-badge ${item.badge}`}>
+                    {item.badge === 'radioactive' && '🕷️'}
+                    {item.badge === 'trophy' && '🏆'}
+                    {item.badge === 'brain' && '🧠'}
+                    {item.badge === 'web' && '🕸️'}
+                    {item.badge === 'skyline' && '🏙️'}
                   </div>
                   {/* Portal strands */}
                   <div className="absolute inset-0 w-20 h-20 -translate-x-5 -translate-y-5">
