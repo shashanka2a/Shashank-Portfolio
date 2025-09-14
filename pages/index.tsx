@@ -715,14 +715,14 @@ export default function Home() {
           >
             <div className="speech-bubble mb-8 md:mb-12 inline-block max-w-3xl mx-4">
               <p className="comic-text px-4" style={{ fontSize: 'clamp(1rem, 3vw, 1.4rem)' }}>
-                "Your friendly neighborhood developer is just a message away! Let's team up and save the digital world together!"
+                "Let's team up and save the digital world together!"
               </p>
             </div>
             
             <div className="avengers-callout mb-8 md:mb-12">
               <span className="callout-badge">TEAM UP</span>
               <h2 className="callout-text">WEB‑TEAM, ASSEMBLE</h2>
-              <p className="callout-sub">Your friendly neighborhood developer is ready.</p>
+              <p className="callout-sub">Time to build something amazing.</p>
             </div>
             
             <motion.p 
@@ -732,7 +732,7 @@ export default function Home() {
               transition={{ delay: 0.5, duration: 1 }}
               style={{ fontSize: 'clamp(1rem, 3vw, 1.4rem)', lineHeight: '1.6' }}
             >
-              Ready to swing into action? Whether you need a hero for your next project or just want to chat about the multiverse of possibilities, I'm here to help!
+              Whether you need a technical co-founder, want to discuss your next big idea, or just want to explore the multiverse of possibilities - I'm here to help!
             </motion.p>
           </motion.div>
           
