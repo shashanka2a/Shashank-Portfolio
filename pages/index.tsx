@@ -278,8 +278,8 @@ export default function Home() {
                 LET'S BUILD TOGETHER 🚀
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
               </a>
-              <a href="/resume.pdf" download="Shashank_Jagannatham_Resume.pdf" className="comic-button comic-button-outline hover-glow">
-                DOWNLOAD RESUME 📄
+              <a href="tel:+13523286426" className="comic-button comic-button-outline hover-glow">
+                📞 +1 (352) 328-6426
               </a>
             </motion.div>
           </motion.div>
