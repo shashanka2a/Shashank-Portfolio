@@ -171,9 +171,9 @@ export default function Home() {
       icon: "⚖️"
     },
     {
-      title: "Mentor @ Hackathons (ongoing)",
+      title: "Mentor @ Gator Hatchery (ongoing)",
       year: "Ongoing",
-      description: "Guided student + early-stage startup teams in problem-solving, product validation, and technical architecture.",
+      description: "Bridge tech gaps for non-technical founders at UF's business incubator, translating complex technical concepts into actionable business solutions.",
       icon: "🧭"
     }
   ];
