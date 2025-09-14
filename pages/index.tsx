@@ -173,7 +173,7 @@ export default function Home() {
     {
       title: "Mentor @ Gator Hatchery (ongoing)",
       year: "Ongoing",
-      description: "Bridge tech gaps for non-technical founders at UF's business incubator, translating complex technical concepts into actionable business solutions.",
+      description: "Bridge tech gaps for non-technical founders at UF's business incubator. Translate complex technical concepts into actionable business solutions.",
       icon: "🧭"
     }
   ];
@@ -332,8 +332,7 @@ export default function Home() {
               </h2>
               <p className="text-readable text-lg leading-relaxed">
                 <strong className="text-accent">Full-stack builder & community leader</strong> with proven track record of scaling from student innovation to startup ecosystems. 
-                Experienced in <strong className="text-highlight">leading development teams</strong>, shipping products at velocity, and winning competitive hackathons. 
-                Ready to architect scalable solutions and drive technical strategy as a <strong className="neon-blue">CTO-ready leader</strong>.
+                Experienced in <strong className="text-highlight">leading development teams</strong>, shipping products at velocity, and winning competitive hackathons.
               </p>
               <div className="mt-6 flex flex-wrap gap-4 justify-center">
                 <span className="skill-tag">React/Next.js</span>
