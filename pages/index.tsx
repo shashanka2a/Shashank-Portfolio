@@ -290,14 +290,11 @@ export default function Home() {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex gap-6 justify-center flex-wrap"
+              className="flex justify-center"
             >
               <a href="https://github.com/shashanka2a" target="_blank" rel="noopener noreferrer" className="comic-button hover-glow">
                 COLLABORATE & CREATE 🚀
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
-              </a>
-              <a href="tel:+13523286426" className="comic-button comic-button-outline hover-glow">
-                📞 +1 (352) 328-6426
               </a>
             </motion.div>
           </motion.div>
