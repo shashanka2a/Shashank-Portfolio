@@ -162,7 +162,7 @@ export default function Home() {
       badge: "☁️",
       title: "PaaS Platforms",
       description: "Now shaping platform infrastructure — enabling others to build on top of my tools.",
-      projects: ["Layr.plus → Integrated platform with Logora (AI branding), Deckr (collaborative presentations), and Buidl (rapid prototyping) working as connected layers"],
+      projects: ["Logora → AI-powered branding layer", "Deckr → collaborative presentation layer", "Buidl → rapid prototyping layer"],
       gradientFrom: "from-purple-500",
       gradientTo: "to-blue-500",
       borderColor: "border-purple-500"
