@@ -297,8 +297,8 @@ export default function Home() {
               className="comic-panel max-w-3xl mx-auto mb-8 p-8"
             >
               <p className="comic-text text-white font-semibold px-4 md:px-0" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: '1.6', textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(255,255,255,0.4)' }}>
-                My journey began in 2021 when I got bit by the coding spider at my first hackathon! From hackathon champion to campus problem solver, 
-                I swing through the multiverse of modern web development, crafting digital experiences that would impress even the Avengers!
+                I'm Shashank Jagannatham, an MVP-slinger & product builder. From hackathons to startups, I've been building products fast, 
+                testing them with users, and scaling what works. My superpower? Turning ideas into real software that people actually use!
               </p>
             </motion.div>
             
@@ -319,66 +319,6 @@ export default function Home() {
           </motion.div>
         </div>
         
-      </section>
-
-      {/* Executive Summary Section - For Recruiters/CTO Audience */}
-      <section className="py-16 px-6 bg-gradient-to-b from-black to-gray-900 relative">
-        <div className="spider-web-bg"></div>
-        
-        <div className="container mx-auto">
-          {/* Metrics Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-4 md:gap-8 mb-12"
-          >
-            <div className="metric-badge hover-glow">
-              <span className="metric-number">6+</span>
-              <span className="metric-label">Products Shipped</span>
-            </div>
-            <div className="metric-badge hover-glow">
-              <span className="metric-number">15+</span>
-              <span className="metric-label">Hackathon Wins</span>
-            </div>
-            <div className="metric-badge hover-glow">
-              <span className="metric-number">20K+</span>
-              <span className="metric-label">Users Impacted</span>
-            </div>
-            <div className="metric-badge hover-glow">
-              <span className="metric-number">100%</span>
-              <span className="metric-label">Team Leadership</span>
-            </div>
-          </motion.div>
-
-          {/* Executive Summary */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="executive-summary-panel hover-glow">
-              <h2 className="comic-font text-emphasis mb-6" style={{ fontSize: '2rem', letterSpacing: '3px' }}>
-                EXECUTIVE SUMMARY
-              </h2>
-              <p className="text-readable text-lg leading-relaxed">
-                <strong className="text-accent">Full-stack builder & community leader</strong> with proven track record of scaling from student innovation to startup ecosystems. 
-                Experienced in <strong className="text-highlight">leading development teams</strong>, shipping products at velocity, and winning competitive hackathons.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                <span className="skill-tag">React/Next.js</span>
-                <span className="skill-tag">Node.js/Python</span>
-                <span className="skill-tag">AI/ML Integration</span>
-                <span className="skill-tag">Team Leadership</span>
-                <span className="skill-tag">Product Strategy</span>
-                <span className="skill-tag">DevOps/AWS</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
       </section>
 
       {/* Portal Transition */}
