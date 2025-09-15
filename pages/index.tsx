@@ -102,14 +102,6 @@ export default function Home() {
       tech: ["Next.js", "Node.js", "PostgreSQL"],
       image: projectImages[5],
       link: "https://www.hackhire.dev/"
-    },
-    {
-      title: "Buidl",
-      description: "From Prompt to Product - Transform ideas into beautiful, functional designs with AI-powered design tools",
-      impact: "Design automation platform",
-      tech: ["Next.js", "AI/ML", "Design System"],
-      image: "/images/projects/buidl.png",
-      link: "https://buidl.design/"
     }
   ];
 
