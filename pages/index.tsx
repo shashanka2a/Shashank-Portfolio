@@ -136,11 +136,11 @@ export default function Home() {
   const journeyArcs = [
     {
       level: "Level 1: Consumer Apps",
-      period: "2021–2024",
+      period: "2023–2024",
       badge: "📱",
       title: "Consumer Apps",
       description: "Started with consumer-facing products, solving real campus problems.",
-      projects: ["GatorEx → 500+ students trading furniture & textbooks", "Rydify → 50% cheaper rides with verified users", "Vybr → AI-powered roommate matching for colleges"],
+      projects: ["GatorEx → campus marketplace for student essentials", "Rydify → affordable ride-sharing with verified users", "Vybr → AI roommate matching for college students"],
       gradientFrom: "from-red-500",
       gradientTo: "to-pink-500",
       borderColor: "border-red-500"
@@ -151,7 +151,7 @@ export default function Home() {
       badge: "🛠️",
       title: "SaaS Tools",
       description: "Leveled up to SaaS platforms, building tools for startups and scaling founders.",
-      projects: ["FormEase → 500+ AI-powered forms created", "QRBee → 10K+ QR codes generated with analytics", "HackHire → 10K+ coding challenges, 500+ companies using platform"],
+      projects: ["FormEase → AI-powered form building platform", "QRBee → QR code generator with advanced analytics", "HackHire → automated coding assessment platform"],
       gradientFrom: "from-teal-500",
       gradientTo: "to-cyan-500",
       borderColor: "border-teal-500"
@@ -162,7 +162,7 @@ export default function Home() {
       badge: "☁️",
       title: "PaaS Platforms",
       description: "Now shaping platform infrastructure — enabling others to build on top of my tools.",
-      projects: ["Layr.plus → Complete design-to-deployment platform with 3 integrated layers"],
+      projects: ["Layr.plus → Integrated platform with Logora (AI branding), Deckr (collaborative presentations), and Buidl (rapid prototyping) working as connected layers"],
       gradientFrom: "from-purple-500",
       gradientTo: "to-blue-500",
       borderColor: "border-purple-500"
