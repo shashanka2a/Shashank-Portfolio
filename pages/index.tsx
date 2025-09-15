@@ -94,14 +94,6 @@ export default function Home() {
       tech: ["React", "Node.js", "MongoDB"],
       image: projectImages[4],
       link: "https://qrbee.xyz/"
-    },
-    {
-      title: "HackHire",
-      description: "Stop hiring from resumes. Start hiring from code with coding challenges and data-driven decisions",
-      impact: "10K+ challenges, 500+ companies, 99% accuracy",
-      tech: ["Next.js", "Node.js", "PostgreSQL"],
-      image: projectImages[5],
-      link: "https://www.hackhire.dev/"
     }
   ];
 
@@ -148,7 +140,7 @@ export default function Home() {
       badge: "📱",
       title: "Consumer Apps",
       description: "Started with consumer-facing products, solving real campus problems.",
-      projects: ["GatorEx → student marketplace", "Rydify → ride-sharing", "Vybr → housing + events"],
+      projects: ["GatorEx → 500+ students trading furniture & textbooks", "Rydify → 50% cheaper rides with verified users", "Vybr → AI-powered roommate matching for colleges"],
       gradientFrom: "from-red-500",
       gradientTo: "to-pink-500",
       borderColor: "border-red-500"
@@ -159,7 +151,7 @@ export default function Home() {
       badge: "🛠️",
       title: "SaaS Tools",
       description: "Leveled up to SaaS platforms, building tools for startups and scaling founders.",
-      projects: ["FormEase → AI form builder", "QRBee → free QR tool"],
+      projects: ["FormEase → 500+ AI-powered forms created", "QRBee → 10K+ QR codes generated with analytics", "HackHire → 10K+ coding challenges, 500+ companies using platform"],
       gradientFrom: "from-teal-500",
       gradientTo: "to-cyan-500",
       borderColor: "border-teal-500"
@@ -170,7 +162,7 @@ export default function Home() {
       badge: "☁️",
       title: "PaaS Platforms",
       description: "Now shaping platform infrastructure — enabling others to build on top of my tools.",
-      projects: ["Layr.plus (Logora, Deckr, Buidl)", "HackHire → AI hiring platform"],
+      projects: ["Layr.plus → Complete design-to-deployment platform with 3 integrated layers"],
       gradientFrom: "from-purple-500",
       gradientTo: "to-blue-500",
       borderColor: "border-purple-500"
