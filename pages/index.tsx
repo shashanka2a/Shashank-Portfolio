@@ -104,8 +104,8 @@ export default function Home() {
       description: "Designed and refined brand identities with AI-driven tools. Helped create consistent visual systems that scale for modern builders.",
       badge: "🎨 Design Layer",
       tech: ["AI/ML", "Design System", "Brand Identity"],
-      image: "/images/projects/buidl.png", // Using Buidl image as placeholder
-      link: "https://buidl.design/",
+      image: "/images/projects/logora.png",
+      link: "https://logora.design/",
       gradientFrom: "from-orange-500",
       gradientTo: "to-red-500"
     },
@@ -115,8 +115,8 @@ export default function Home() {
       description: "Built smart templates and collaborative editing tools that make storytelling effortless. Enabled teams to create and share presentations with impact.",
       badge: "📊 Storytelling Layer",
       tech: ["React", "Collaboration", "Templates"],
-      image: "/images/projects/buidl.png", // Using Buidl image as placeholder
-      link: "https://buidl.design/",
+      image: "/images/projects/deckr.png",
+      link: "https://deckr.design/",
       gradientFrom: "from-teal-500",
       gradientTo: "to-cyan-500"
     },
