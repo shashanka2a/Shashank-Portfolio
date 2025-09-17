@@ -350,7 +350,7 @@ export default function Home() {
               SUPERPOWERS UNLOCKED: STUDENT ERA!
             </div>
             <p className="comic-text text-emphasis max-w-2xl mx-auto mt-4" style={{ fontSize: '1.2rem' }}>
-              Now wielding <strong className="text-highlight">campus problem-solving superpowers</strong> - building solutions that students actually use every day!
+              Mastering <strong className="text-highlight">campus problem-solving superpowers</strong> - building solutions that students actually use every day!
             </p>
           </motion.div>
           
@@ -597,7 +597,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-purple)', color: 'var(--miles-purple)' }}>
-              ORIGIN TO SCALABLE SOLUTIONS: THE SUPERPOWER JOURNEY!
+              ORIGIN STORY!
             </div>
             <p className="comic-text text-white font-bold max-w-2xl mx-auto px-4" style={{ fontSize: '1.2rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(255,255,255,0.3)' }}>
               From getting bit by the coding spider in 2021 to <strong className="text-accent">architecting complex scalable applications</strong> - here's how each phase unlocked new technical superpowers!
