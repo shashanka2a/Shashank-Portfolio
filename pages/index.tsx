@@ -47,53 +47,75 @@ export default function Home() {
     "/images/projects/hackhire.png" // HackHire - coding challenges
   ];
 
-  const studentProjects = [
+  const kampusProjects = [
     {
       title: "GatorEx",
+      subtitle: "Campus Marketplace",
       description: "UF-exclusive marketplace for students to buy, sell, and trade furniture, textbooks, electronics, and sublets",
+      badge: "🛒 Marketplace Layer",
       tech: ["React", "Node.js", "MongoDB"],
       image: projectImages[0],
-      link: "https://www.gatorex.shop/"
+      link: "https://www.gatorex.shop/",
+      gradientFrom: "from-blue-500",
+      gradientTo: "to-indigo-500"
     },
     {
       title: "Rydify",
+      subtitle: "Campus Transportation",
       description: "Campus ride-sharing app that's 50% cheaper than Uber with verified students and secure tracking",
+      badge: "🚗 Mobility Layer",
       tech: ["React Native", "Firebase", "Google Maps API"],
       image: projectImages[1],
-      link: "https://www.rydify.co/"
+      link: "https://www.rydify.co/",
+      gradientFrom: "from-green-500",
+      gradientTo: "to-teal-500"
     },
     {
       title: "Vybr",
+      subtitle: "Roommate Matching",
       description: "College-exclusive LLM-powered roommate matching app with integrated social features",
+      badge: "🏠 Housing Layer",
       tech: ["Vue.js", "Express.js", "PostgreSQL"],
       image: projectImages[2],
-      link: "https://www.vybr.club/"
-    },
-    {
-      title: "Tribzy",
-      description: "Campus events platform connecting students through secure .edu-verified community for workshops, parties, and study groups",
-      tech: ["React", "Node.js", "Authentication"],
-      image: "/images/projects/tribzy.png",
-      link: "https://tribzy.com/"
+      link: "https://www.vybr.club/",
+      gradientFrom: "from-purple-500",
+      gradientTo: "to-pink-500"
     }
   ];
 
-  const startupProjects = [
+  const markitProjects = [
     {
       title: "FormEase",
+      subtitle: "AI-Powered Form Builder",
       description: "Simple, intuitive, and powerful form builder to streamline data collection with AI assistance",
-      impact: "500+ forms created",
+      badge: "📝 Data Layer",
       tech: ["Next.js", "OpenAI API", "Supabase"],
       image: projectImages[3],
-      link: "https://www.formease.xyz/"
+      link: "https://www.formease.xyz/",
+      gradientFrom: "from-indigo-500",
+      gradientTo: "to-purple-500"
     },
     {
       title: "QRBee",
+      subtitle: "QR Analytics Platform",
       description: "Free QR code alternative with advanced analytics and custom branding for businesses",
-      impact: "10K+ QR codes generated",
+      badge: "📱 Analytics Layer",
       tech: ["React", "Node.js", "MongoDB"],
       image: projectImages[4],
-      link: "https://qrbee.xyz/"
+      link: "https://qrbee.xyz/",
+      gradientFrom: "from-yellow-500",
+      gradientTo: "to-orange-500"
+    },
+    {
+      title: "HackHire",
+      subtitle: "Coding Assessment Platform",
+      description: "Hackathon-style hiring platform for startups to find top talent through real-world coding challenges",
+      badge: "💻 Talent Layer",
+      tech: ["React", "Node.js", "Docker"],
+      image: projectImages[5],
+      link: "https://hackhire.dev/",
+      gradientFrom: "from-emerald-500",
+      gradientTo: "to-cyan-500"
     }
   ];
 
@@ -135,23 +157,23 @@ export default function Home() {
 
   const journeyArcs = [
     {
-      level: "Level 1: Consumer Apps",
+      level: "Level 1: Student Era",
       period: "2023–2024",
-      badge: "📱",
-      title: "Consumer Apps",
-      description: "Started with consumer-facing products, solving real campus problems.",
-      projects: ["GatorEx → campus marketplace for student essentials", "Rydify → affordable ride-sharing with verified users", "Vybr → AI roommate matching for college students"],
+      badge: "🎓",
+      title: "Kampus Platform",
+      description: "Started by solving campus problems with integrated student-focused solutions.",
+      projects: ["GatorEx → campus marketplace layer", "Rydify → transportation layer", "Vybr → housing layer"],
       gradientFrom: "from-red-500",
       gradientTo: "to-pink-500",
       borderColor: "border-red-500"
     },
     {
-      level: "Level 2: SaaS Builder", 
+      level: "Level 2: Startup Builder", 
       period: "2024–2025",
-      badge: "🛠️",
-      title: "SaaS Tools",
-      description: "Leveled up to SaaS platforms, building tools for startups and scaling founders.",
-      projects: ["FormEase → AI-powered form building platform", "QRBee → QR code generator with advanced analytics", "HackHire → automated coding assessment platform"],
+      badge: "🚀",
+      title: "Markit Platform",
+      description: "Evolved into building scalable tools that help startups grow and thrive.",
+      projects: ["FormEase → data collection layer", "QRBee → analytics layer", "HackHire → talent layer"],
       gradientFrom: "from-teal-500",
       gradientTo: "to-cyan-500",
       borderColor: "border-teal-500"
@@ -160,8 +182,8 @@ export default function Home() {
       level: "Level 3: PaaS Architect",
       period: "2025–Current", 
       badge: "☁️",
-      title: "PaaS Platforms",
-      description: "Now shaping platform infrastructure — enabling others to build on top of my tools.",
+      title: "Layr.plus Platform",
+      description: "Now building platform infrastructure — enabling others to build on top of my tools.",
       projects: ["Logora → AI-powered branding layer", "Deckr → collaborative presentation layer", "Buidl → rapid prototyping layer"],
       gradientFrom: "from-purple-500",
       gradientTo: "to-blue-500",
@@ -328,7 +350,7 @@ export default function Home() {
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {studentProjects.map((project, index) => (
+            {kampusProjects.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 100, rotateY: -30 }}
@@ -353,9 +375,15 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   </div>
                   <div className="p-6">
-                    <h3 className="comic-font text-strong mb-3" style={{ fontSize: '1.3rem' }}>
+                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 bg-gradient-to-r ${project.gradientFrom} ${project.gradientTo} text-white`}>
+                      {project.badge}
+                    </div>
+                    <h3 className="comic-font text-strong mb-2" style={{ fontSize: '1.3rem' }}>
                       {project.title.toUpperCase()}
                     </h3>
+                    <h4 className="text-gray-300 comic-text mb-3" style={{ fontSize: '1rem' }}>
+                      {project.subtitle}
+                    </h4>
                     <p className="text-readable comic-text mb-4" style={{ fontSize: '1rem', lineHeight: '1.5' }}>
                       {project.description}
                     </p>
@@ -407,7 +435,7 @@ export default function Home() {
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {startupProjects.map((project, index) => (
+            {markitProjects.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 100, rotateY: -30 }}
@@ -432,9 +460,15 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   </div>
                   <div className="p-6">
-                    <h3 className="comic-font text-strong mb-3" style={{ fontSize: '1.3rem' }}>
+                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 bg-gradient-to-r ${project.gradientFrom} ${project.gradientTo} text-white`}>
+                      {project.badge}
+                    </div>
+                    <h3 className="comic-font text-strong mb-2" style={{ fontSize: '1.3rem' }}>
                       {project.title.toUpperCase()}
                     </h3>
+                    <h4 className="text-gray-300 comic-text mb-3" style={{ fontSize: '1rem' }}>
+                      {project.subtitle}
+                    </h4>
                     <p className="text-readable comic-text mb-4" style={{ fontSize: '1rem', lineHeight: '1.5' }}>
                       {project.description}
                     </p>
