@@ -24,15 +24,23 @@ export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
 
-  // Track scroll progress
+  // Track scroll progress with throttling
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScrollProgress(Math.min(progress, 100));
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = (window.scrollY / totalHeight) * 100;
+          setScrollProgress(Math.min(progress, 100));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -611,8 +619,7 @@ export default function Home() {
             {/* Spider-Verse Portal Timeline */}
             <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-2 md:w-3 h-full">
               <div className="w-full h-full bg-gradient-to-b from-red-500 via-blue-500 to-red-500 rounded-full opacity-80"></div>
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-blue-500 via-red-500 to-blue-500 rounded-full opacity-60 animate-pulse"></div>
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-red-500 via-blue-500 to-red-500 rounded-full opacity-40 animate-ping"></div>
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-blue-500 via-red-500 to-blue-500 rounded-full opacity-30"></div>
             </div>
             
             {journeyArcs.map((arc, index) => (
@@ -620,15 +627,14 @@ export default function Home() {
                 key={arc.title}
                 initial={{ 
                   opacity: 0, 
-                  x: index % 2 === 0 ? -150 : 150,
-                  rotateY: index % 2 === 0 ? -45 : 45
+                  x: index % 2 === 0 ? -50 : 50
                 }}
-                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ 
-                  duration: 1, 
-                  delay: index * 0.3,
-                  type: "spring",
-                  bounce: 0.3
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  type: "tween",
+                  ease: "easeOut"
                 }}
                 viewport={{ once: true }}
                 className={`relative flex items-center mb-12 md:mb-20 ${
@@ -639,11 +645,10 @@ export default function Home() {
                   <motion.div 
                     className={`superpower-panel p-6 md:p-10 comic-zoom relative overflow-hidden ${arc.borderColor}`}
                     whileHover={{ 
-                      scale: 1.05,
-                      rotateY: index % 2 === 0 ? 5 : -5,
-                      boxShadow: "0 25px 50px rgba(255, 0, 150, 0.4)"
+                      scale: 1.02,
+                      y: -5
                     }}
-                    style={{ transformStyle: 'preserve-3d' }}
+                    transition={{ type: "tween", duration: 0.2 }}
                   >
                     {/* Gradient background overlay */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${arc.gradientFrom} ${arc.gradientTo} opacity-10 hover:opacity-20 transition-opacity duration-300`}></div>

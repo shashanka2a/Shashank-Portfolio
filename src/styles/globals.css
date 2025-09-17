@@ -640,13 +640,14 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200%;
-  height: 200%;
+  width: 150%;
+  height: 150%;
   background: conic-gradient(from 0deg, transparent, var(--miles-red), transparent, var(--miles-blue), transparent, var(--miles-purple), transparent);
-  animation: portal-spin 8s linear infinite;
+  animation: portal-spin 16s linear infinite;
   transform: translate(-50%, -50%);
-  opacity: 0.2;
+  opacity: 0.1;
   pointer-events: none;
+  will-change: transform;
 }
 
 @keyframes portal-spin {
@@ -1056,25 +1057,28 @@ html {
 
 .parallax-slow {
   background: 
-    linear-gradient(45deg, transparent 48%, rgba(255, 0, 64, 0.1) 49%, rgba(255, 0, 64, 0.1) 51%, transparent 52%),
-    linear-gradient(-45deg, transparent 48%, rgba(0, 191, 255, 0.1) 49%, rgba(0, 191, 255, 0.1) 51%, transparent 52%);
-  background-size: 100px 100px, 80px 80px;
-  animation: parallaxSlow 20s linear infinite;
+    linear-gradient(45deg, transparent 48%, rgba(255, 0, 64, 0.05) 49%, rgba(255, 0, 64, 0.05) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(0, 191, 255, 0.05) 49%, rgba(0, 191, 255, 0.05) 51%, transparent 52%);
+  background-size: 150px 150px, 120px 120px;
+  animation: parallaxSlow 40s linear infinite;
+  will-change: transform;
 }
 
 .parallax-medium {
   background: 
-    radial-gradient(circle at 25% 25%, rgba(139, 0, 255, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, rgba(255, 0, 64, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px, 60px 60px;
-  animation: parallaxMedium 15s linear infinite reverse;
+    radial-gradient(circle at 25% 25%, rgba(139, 0, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 0, 64, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px, 90px 90px;
+  animation: parallaxMedium 30s linear infinite reverse;
+  will-change: transform;
 }
 
 .parallax-fast {
   background: 
-    linear-gradient(90deg, transparent 48%, rgba(0, 191, 255, 0.05) 49%, rgba(0, 191, 255, 0.05) 51%, transparent 52%);
-  background-size: 30px 30px;
-  animation: parallaxFast 10s linear infinite;
+    linear-gradient(90deg, transparent 48%, rgba(0, 191, 255, 0.03) 49%, rgba(0, 191, 255, 0.03) 51%, transparent 52%);
+  background-size: 50px 50px;
+  animation: parallaxFast 20s linear infinite;
+  will-change: transform;
 }
 
 @keyframes parallaxSlow {
@@ -1101,6 +1105,29 @@ html {
   }
   100% {
     transform: translateX(-30px) translateY(-20px);
+  }
+}
+
+/* Additional performance optimizations */
+.neon-glow, .glitch, .hover-glow {
+  will-change: transform, filter;
+}
+
+/* Reduce glitch animation frequency for better performance */
+.glitch::before {
+  animation: glitch-1 4s infinite;
+}
+
+.glitch::after {
+  animation: glitch-2 4s infinite;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
