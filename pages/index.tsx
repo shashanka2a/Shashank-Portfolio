@@ -341,6 +341,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+            <div className="speech-bubble mb-8 inline-block max-w-2xl">
+              <p className="comic-text" style={{ fontSize: '1.2rem' }}>
+                "Building solutions for campus life one app at a time!"
+              </p>
+            </div>
             <div className="comic-word-balloon">
               SUPERPOWERS UNLOCKED: STUDENT ERA!
             </div>
@@ -507,7 +512,7 @@ export default function Home() {
               </p>
             </div>
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-cyan)', color: 'var(--miles-cyan)' }}>
-              LAYR.PLUS PLATFORM: THE COMPLETE STACK!
+              SUPERPOWERS MASTERED: STACK ARCHITECT!
             </div>
             <p className="comic-text text-emphasis max-w-2xl mx-auto mt-4" style={{ fontSize: '1.2rem' }}>
               Crafting the next generation of <strong className="text-highlight">integrated design and development tools</strong> - from branding to deployment, all layers working in harmony!
