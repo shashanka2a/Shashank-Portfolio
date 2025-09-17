@@ -349,8 +349,8 @@ export default function Home() {
             <div className="comic-word-balloon">
               SUPERPOWERS UNLOCKED: STUDENT ERA!
             </div>
-            <p className="comic-text text-white font-bold max-w-2xl mx-auto px-4" style={{ fontSize: '1.2rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(255,255,255,0.3)' }}>
-              During my MS journey, I unlocked <strong className="text-accent">campus problem-solving superpowers</strong> - transforming hackathon skills into <strong className="text-highlight">real-world impact</strong> that students actually use every day!
+            <p className="comic-text text-emphasis max-w-2xl mx-auto mt-4" style={{ fontSize: '1.2rem' }}>
+              Now wielding <strong className="text-highlight">campus problem-solving superpowers</strong> - building solutions that students actually use every day!
             </p>
           </motion.div>
           
