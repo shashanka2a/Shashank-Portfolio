@@ -165,7 +165,8 @@ export default function Home() {
       projects: ["GatorEx → campus marketplace", "Rydify → campus transportation", "Vybr → roommate matching"],
       gradientFrom: "from-red-500",
       gradientTo: "to-pink-500",
-      borderColor: "border-red-500"
+      borderColor: "border-red-500",
+      link: "https://kampus.fun/"
     },
     {
       level: "Level 2: Startup Builder", 
@@ -176,7 +177,8 @@ export default function Home() {
       projects: ["FormEase → form building", "QRBee → QR analytics", "HackHire → coding assessments"],
       gradientFrom: "from-teal-500",
       gradientTo: "to-cyan-500",
-      borderColor: "border-teal-500"
+      borderColor: "border-teal-500",
+      link: "https://markit.one/"
     },
     {
       level: "Level 3: PaaS Architect",
@@ -187,7 +189,8 @@ export default function Home() {
       projects: ["Logora → AI-powered branding layer", "Deckr → collaborative presentation layer", "Buidl → rapid prototyping layer"],
       gradientFrom: "from-purple-500",
       gradientTo: "to-blue-500",
-      borderColor: "border-purple-500"
+      borderColor: "border-purple-500",
+      link: "https://layr.plus/"
     }
   ];
 
@@ -666,7 +669,7 @@ export default function Home() {
                       </p>
                       
                       {/* Projects List */}
-                      <div className="space-y-2">
+                      <div className="space-y-2 mb-6">
                         {arc.projects.map((project, projectIndex) => (
                           <div key={projectIndex} className="flex items-center text-gray-300 comic-text">
                             <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${arc.gradientFrom} ${arc.gradientTo} mr-3 flex-shrink-0`}></div>
@@ -674,6 +677,16 @@ export default function Home() {
                           </div>
                         ))}
                       </div>
+                      
+                      {/* Company Link */}
+                      <a 
+                        href={arc.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="comic-font text-blue-400 hover:text-blue-300 p-0 text-lg inline-flex items-center hover:underline"
+                      >
+                        EXPLORE {arc.title.toUpperCase()} <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
                     </div>
                   </motion.div>
                 </div>
