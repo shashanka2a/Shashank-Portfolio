@@ -182,7 +182,7 @@ export default function Home() {
       level: "Level 3: PaaS Architect",
       period: "2025–Current", 
       badge: "☁️",
-      title: "Layr.plus Platform",
+      title: "Layr",
       description: "Now building platform infrastructure — enabling others to build on top of my tools.",
       projects: ["Logora → AI-powered branding layer", "Deckr → collaborative presentation layer", "Buidl → rapid prototyping layer"],
       gradientFrom: "from-purple-500",
@@ -488,7 +488,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Layr.plus Platform Projects */}
+      {/* Layr Projects */}
       <section className="py-20 px-6 bg-gradient-to-b from-purple-900/10 to-cyan-900/10 relative">
         <div className="spider-web-bg"></div>
         <div className="web-pattern"></div>
