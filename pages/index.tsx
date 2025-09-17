@@ -855,9 +855,9 @@ export default function Home() {
               whileHover={{ scale: 1.1, rotateY: 10 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href="mailto:jagannathamshashank@gmail.com" className="neon-social-icon gmail text-base md:text-base">
+              <a href="mailto:jagannathamashashank@gmail.com" className="neon-social-icon gmail text-base md:text-base">
                 <Mail className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 inline align-[-2px]" />
-                <span className="hidden sm:inline">jagannathamshashank@gmail.com</span>
+                <span className="hidden sm:inline">jagannathamashashank@gmail.com</span>
                 <span className="sm:hidden">Email</span>
               </a>
             </motion.div>
