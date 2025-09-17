@@ -240,8 +240,12 @@ export default function Home() {
         </div>
         <div className="w-32 md:w-48 h-2 bg-gray-700 rounded-full overflow-hidden">
           <div 
-            className="xp-progress h-full transition-all duration-500"
-            style={{ width: `${scrollProgress}%` }}
+            className="xp-progress h-full"
+            style={{ 
+              transform: `scaleX(${scrollProgress / 100})`,
+              transformOrigin: 'left',
+              willChange: 'transform'
+            }}
           ></div>
         </div>
         <div className="flex justify-between mt-1">
@@ -369,17 +373,15 @@ export default function Home() {
             {kampusProjects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 100, rotateY: -30 }}
-                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2, type: "spring" }}
                 viewport={{ once: true }}
                 whileHover={{ 
-                  scale: 1.05, 
-                  rotateY: 5,
-                  boxShadow: "0 25px 50px rgba(255, 0, 150, 0.3)"
+                  scale: 1.02,
+                  y: -5
                 }}
                 className="project-card comic-zoom"
-                style={{ transformStyle: 'preserve-3d' }}
               >
                 <Card className="bg-transparent border-none h-full overflow-hidden">
                   <div className="relative overflow-hidden">
@@ -454,17 +456,15 @@ export default function Home() {
             {markitProjects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 100, rotateY: -30 }}
-                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2, type: "spring" }}
                 viewport={{ once: true }}
                 whileHover={{ 
-                  scale: 1.05, 
-                  rotateY: 5,
-                  boxShadow: "0 25px 50px rgba(255, 0, 150, 0.3)"
+                  scale: 1.02,
+                  y: -5
                 }}
                 className="project-card comic-zoom"
-                style={{ transformStyle: 'preserve-3d' }}
               >
                 <Card className="bg-transparent border-none h-full overflow-hidden">
                   <div className="relative overflow-hidden">
@@ -534,8 +534,8 @@ export default function Home() {
             {layrPlusProjects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 100, rotateY: -30 }}
-                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2, type: "spring" }}
                 viewport={{ once: true }}
                 whileHover={{ 
