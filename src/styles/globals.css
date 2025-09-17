@@ -1131,10 +1131,27 @@ html {
     right: 10px;
     padding: 10px 15px;
   }
+  
+  /* Fix mobile collaboration section text */
+  .callout-text {
+    font-size: clamp(1.5rem, 5.5vw, 2.5rem);
+    letter-spacing: 0.1em;
+    word-spacing: -0.1em;
+    padding: 0 1rem;
+  }
 }
 
 /* Additional mobile adjustments for smaller screens */
 @media (max-width: 480px) {
+  /* Further adjust text for very small screens */
+  .callout-text {
+    font-size: clamp(1.3rem, 4.5vw, 2rem);
+    letter-spacing: 0.08em;
+    word-spacing: -0.15em;
+    padding: 0 0.75rem;
+    line-height: 1.1;
+  }
+  
   .hero-nyc-bg .container {
     padding-top: 140px; /* Extra space for very small screens */
   }
