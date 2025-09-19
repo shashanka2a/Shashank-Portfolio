@@ -370,11 +370,6 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="speech-bubble mb-8 inline-block max-w-2xl">
-              <p className="comic-text" style={{ fontSize: '1.3rem' }}>
-                "Every spider needs its web of accomplishments!"
-              </p>
-            </div>
             <div className="comic-word-balloon" style={{ borderColor: 'var(--miles-red)', color: 'var(--miles-red)' }}>
               🏆 TROPHY ROOM!
             </div>
@@ -448,7 +443,7 @@ export default function Home() {
       </div>
 
       {/* Contact */}
-      <section className="py-20 px-6 bg-gradient-to-t from-black via-purple-900/20 to-red-900/10 relative min-h-screen flex items-center">
+      <section className="py-24 sm:py-20 px-4 sm:px-6 bg-gradient-to-t from-black via-purple-900/20 to-red-900/10 relative min-h-screen flex items-center">
         <div className="halftone-bg"></div>
         <div className="web-pattern"></div>
         
@@ -460,20 +455,20 @@ export default function Home() {
             transition={{ duration: 1.5, type: "spring", bounce: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="speech-bubble mb-8 md:mb-12 inline-block max-w-3xl mx-4">
+            <div className="speech-bubble mb-12 md:mb-12 inline-block max-w-3xl mx-6">
               <p className="comic-text px-4" style={{ fontSize: 'clamp(1rem, 3vw, 1.4rem)' }}>
                 "Let's team up and save the digital world together!"
               </p>
             </div>
             
-            <div className="avengers-callout mb-8 md:mb-12">
+            <div className="avengers-callout mb-12 md:mb-12">
               <span className="callout-badge">TEAM UP</span>
               <h2 className="callout-text">WEB‑TEAM, ASSEMBLE</h2>
               <p className="callout-sub">Time to build something amazing.</p>
             </div>
             
             <motion.p 
-              className="text-blue-400 comic-text mb-18 md:mb-20 max-w-3xl mx-auto px-6"
+              className="text-blue-400 comic-text mb-20 md:mb-20 max-w-3xl mx-auto px-8"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
@@ -488,7 +483,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row flex-wrap justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-20 md:mb-16 px-8"
+            className="flex flex-col md:flex-row flex-wrap justify-center gap-8 sm:gap-8 md:gap-10 lg:gap-12 mb-20 md:mb-16 px-6"
           >
             <motion.div
               whileHover={{ scale: 1.1, rotateY: 10 }}
